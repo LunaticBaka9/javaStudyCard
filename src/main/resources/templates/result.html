@@ -17,22 +17,17 @@
                 <section class="score-section">
                     <div class="score-card">
                         <div class="score-circle">
-                            <span
-                                class="score-text"
-                                th:text="${correctCount} + '/' + ${totalQuestions}"
-                            ></span>
+                            <span class="score-text" th:text="${correctCount} + '/' + ${totalQuestions}"></span>
                         </div>
                         <p class="score-message">
-                            <span
-                                th:if="${totalQuestions > 0 && correctCount * 100 / totalQuestions >= 80}"
+                            <span th:if="${totalQuestions > 0 && correctCount * 100 / totalQuestions >= 80}"
                                 >优秀！继续保持！</span
                             >
                             <span
                                 th:if="${totalQuestions > 0 && correctCount * 100 / totalQuestions >= 60 && correctCount * 100 / totalQuestions < 80}"
                                 >不错，再接再厉！</span
                             >
-                            <span
-                                th:if="${totalQuestions > 0 && correctCount * 100 / totalQuestions < 60}"
+                            <span th:if="${totalQuestions > 0 && correctCount * 100 / totalQuestions < 60}"
                                 >还需要多多练习哦！</span
                             >
                         </p>
@@ -57,10 +52,7 @@
                                 ></span>
                             </div>
 
-                            <div
-                                th:if="${r['question'].type.name() == 'MULTIPLE_CHOICE'}"
-                                class="result-details"
-                            >
+                            <div th:if="${r['question'].type.name() == 'MULTIPLE_CHOICE'}" class="result-details">
                                 <p class="correct-answer">
                                     <strong>正确答案：</strong>
                                     <span
@@ -69,10 +61,7 @@
                                         class="answer-option"
                                     ></span>
                                 </p>
-                                <p
-                                    class="user-answer"
-                                    th:if="${r['selectedAnswers'] != null}"
-                                >
+                                <p class="user-answer" th:if="${r['selectedAnswers'] != null}">
                                     <strong>你的答案：</strong>
                                     <span
                                         th:each="idx : ${r['selectedAnswers']}"
@@ -82,29 +71,18 @@
                                 </p>
                             </div>
 
-                            <div
-                                th:if="${r['question'].type.name() == 'ESSAY'}"
-                                class="result-details"
-                            >
-                                <p
-                                    class="user-answer"
-                                    th:if="${r['userAnswer'] != null}"
-                                >
+                            <div th:if="${r['question'].type.name() == 'ESSAY'}" class="result-details">
+                                <p class="user-answer" th:if="${r['userAnswer'] != null}">
                                     <strong>你的答案：</strong>
                                     <span th:text="${r['userAnswer']}"></span>
                                 </p>
                                 <p class="reference-answer">
                                     <strong>参考答案：</strong>
-                                    <span
-                                        th:utext="${r['question'].answer?.replace('\n', '<br/>')}"
-                                    ></span>
+                                    <span th:utext="${r['question'].answerHtml}"></span>
                                 </p>
                             </div>
 
-                            <div
-                                th:if="${r['question'].type.name() == 'SORTING'}"
-                                class="result-details"
-                            >
+                            <div th:if="${r['question'].type.name() == 'SORTING'}" class="result-details">
                                 <p class="correct-answer">
                                     <strong>正确顺序：</strong>
                                     <span
@@ -113,10 +91,7 @@
                                         class="answer-option"
                                     ></span>
                                 </p>
-                                <p
-                                    class="user-answer"
-                                    th:if="${r['userOrder'] != null}"
-                                >
+                                <p class="user-answer" th:if="${r['userOrder'] != null}">
                                     <strong>你的顺序：</strong>
                                     <span
                                         th:each="idx : ${r['userOrder']}"
@@ -130,9 +105,7 @@
                 </section>
 
                 <div class="anki-buttons">
-                    <a
-                        th:href="@{/quiz(category=${category}, type=${type})}"
-                        class="anki-btn anki-btn-again"
+                    <a th:href="@{/quiz(category=${category}, type=${type})}" class="anki-btn anki-btn-again"
                         >重新练习</a
                     >
                     <a

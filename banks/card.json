@@ -29,13 +29,7 @@
             "category": "集合",
             "type": "MULTIPLE_CHOICE",
             "question": "以下哪些Map实现类是线程安全的？",
-            "options": [
-                "HashMap",
-                "ConcurrentHashMap",
-                "Hashtable",
-                "TreeMap",
-                "LinkedHashMap"
-            ],
+            "options": ["HashMap", "ConcurrentHashMap", "Hashtable", "TreeMap", "LinkedHashMap"],
             "correctAnswers": [1, 2],
             "answer": null
         },
@@ -62,13 +56,7 @@
             "category": "线程",
             "type": "MULTIPLE_CHOICE",
             "question": "以下哪些是创建线程的方式？",
-            "options": [
-                "继承Thread类",
-                "实现Runnable接口",
-                "实现Callable接口",
-                "使用线程池",
-                "使用static关键字"
-            ],
+            "options": ["继承Thread类", "实现Runnable接口", "实现Callable接口", "使用线程池", "使用static关键字"],
             "correctAnswers": [0, 1, 2, 3],
             "answer": null
         },
@@ -92,13 +80,7 @@
             "category": "线程",
             "type": "MULTIPLE_CHOICE",
             "question": "以下哪些是java.util.concurrent包中的类？",
-            "options": [
-                "CountDownLatch",
-                "CyclicBarrier",
-                "Semaphore",
-                "ReentrantLock",
-                "StringBuffer"
-            ],
+            "options": ["CountDownLatch", "CyclicBarrier", "Semaphore", "ReentrantLock", "StringBuffer"],
             "correctAnswers": [0, 1, 2, 3],
             "answer": null
         },
@@ -169,7 +151,7 @@
             "question": "请简述Java中重载(Overload)和重写(Override)的区别。",
             "options": null,
             "correctAnswers": null,
-            "answer": "重载(Overload)发生在同一个类中，方法名相同但参数列表不同（类型、个数、顺序），与返回类型和访问修饰符无关，是编译时多态。重写(Override)发生在父子类之间，子类方法名、参数列表、返回类型必须与父类相同（返回类型可以是子类），访问修饰符不能更严格，不能抛出新的受检异常，是运行时多态。"
+            "answer": "重载(Overload)发生在同一个类中，方法名相同但参数列表不同（类型、个数、顺序），与返回类型和访问修饰符无关，是编译时多态。\n重写(Override)发生在父子类之间，子类方法名、参数列表、返回类型必须与父类相同（返回类型可以是子类），访问修饰符不能更严格，不能抛出新的受检异常，是运行时多态。"
         },
         {
             "id": 16,
@@ -185,13 +167,7 @@
             "category": "JVM",
             "type": "MULTIPLE_CHOICE",
             "question": "以下哪些是JVM垃圾回收算法？",
-            "options": [
-                "标记-清除",
-                "标记-复制",
-                "标记-整理",
-                "分代收集",
-                "引用计数"
-            ],
+            "options": ["标记-清除", "标记-复制", "标记-整理", "分代收集", "引用计数"],
             "correctAnswers": [0, 2, 3, 4],
             "answer": null
         },
@@ -392,12 +368,7 @@
             "category": "集合",
             "type": "SORTING",
             "question": "请将ArrayList添加元素的底层操作按执行顺序排列：",
-            "items": [
-                "获取size变量",
-                "检查是否需要扩容",
-                "元素赋值elementData[size] = e",
-                "size自增size++"
-            ],
+            "items": ["获取size变量", "检查是否需要扩容", "元素赋值elementData[size] = e", "size自增size++"],
             "correctOrder": [0, 1, 2, 3]
         },
         {
@@ -405,11 +376,7 @@
             "category": "集合",
             "type": "SORTING",
             "question": "请按优先级从高到低排列以下Java集合的线程安全性：",
-            "items": [
-                "Vector",
-                "ArrayList",
-                "Collections.synchronizedList(ArrayList)"
-            ],
+            "items": ["Vector", "ArrayList", "Collections.synchronizedList(ArrayList)"],
             "correctOrder": [0, 2, 1]
         },
         {
@@ -417,11 +384,7 @@
             "category": "集合",
             "type": "SORTING",
             "question": "请按时间先后顺序排列Hashtable和HashMap的演进：",
-            "items": [
-                "Hashtable作为一代集合出现",
-                "HashMap作为二代集合出现",
-                "JDK1.8对HashMap进行红黑树优化"
-            ],
+            "items": ["Hashtable作为一代集合出现", "HashMap作为二代集合出现", "JDK1.8对HashMap进行红黑树优化"],
             "correctOrder": [0, 1, 2]
         },
         {
@@ -446,13 +409,13 @@
             "correctOrder": [0, 1, 2, 3]
         },
         {
-          "id": 39,
-          "category": "JVM",
-          "type": "ESSAY",
-          "question": "JVM内存划分为几大块？。",
-          "options": null,
-          "correctAnswers": null,
-          "answer": "方法区：类的基本信息，类名、类的权限修饰符、类的构造方法、构造方法的权限；修饰符、构造方法的参数列表，类有哪些方法、方法的权限修饰符、方法名、方法参数、方法返回值类型；成员变量的名称、成员变量的类型、成员变量的权限修饰符；被static修饰的成员的内容都存储在方法 \n2）堆内存：new出来的东西；对象本身的内容、包括数组等；对象内部的成员变量的值\n栈内存：方法调用消耗的内存；局部变量\n本地方法栈：执行本地方法消耗的内存\n程序计数器：存储下一条指令的执行地址"
+            "id": 39,
+            "category": "JVM",
+            "type": "ESSAY",
+            "question": "JVM内存划分为几大块？。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "方法区：类的基本信息，类名、类的权限修饰符、类的构造方法、构造方法的权限；修饰符、构造方法的参数列表，类有哪些方法、方法的权限修饰符、方法名、方法参数、方法返回值类型；成员变量的名称、成员变量的类型、成员变量的权限修饰符；被static修饰的成员的内容都存储在方法 \n堆内存：new出来的东西；对象本身的内容、包括数组等；对象内部的成员变量的值\n栈内存：方法调用消耗的内存；局部变量\n本地方法栈：执行本地方法消耗的内存\n程序计数器：存储下一条指令的执行地址"
         }
     ]
 }

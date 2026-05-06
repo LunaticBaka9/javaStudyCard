@@ -24,7 +24,6 @@ public class QuestionBankManager {
     private Path banksDir;
     private Path banksConfigPath;
     
-    private Map<String, QuestionBank> loadedBanks = new ConcurrentHashMap<>();
     private String currentBankName = DEFAULT_BANK_NAME;
 
     @PostConstruct
@@ -56,27 +55,26 @@ public class QuestionBankManager {
         }
     }
 
-    public void loadBank(String name) {
-        if (loadedBanks.containsKey(name)) return;
-        
+    /**
+     * 每次调用都从磁盘重新加载题库 JSON 文件
+     */
+    private QuestionBank loadBank(String name) {
         try {
-            // Load from banks directory
             Path bankFile = banksDir.resolve(name + ".json");
             if (!Files.exists(bankFile)) {
                 throw new RuntimeException("Bank file not found: " + bankFile);
             }
-            QuestionBank bank = objectMapper.readValue(bankFile.toFile(), QuestionBank.class);
-            loadedBanks.put(name, bank);
+            return objectMapper.readValue(bankFile.toFile(), QuestionBank.class);
         } catch (IOException e) {
             throw new RuntimeException("Failed to load bank: " + name, e);
         }
     }
 
+    /**
+     * 每次调用都重新读取 JSON 文件，确保获取最新数据
+     */
     public QuestionBank getCurrentBank() {
-        if (!loadedBanks.containsKey(currentBankName)) {
-            loadBank(currentBankName);
-        }
-        return loadedBanks.get(currentBankName);
+        return loadBank(currentBankName);
     }
 
     public String getCurrentBankName() {
@@ -88,9 +86,6 @@ public class QuestionBankManager {
             throw new RuntimeException("Bank not available: " + name);
         }
         currentBankName = name;
-        if (!loadedBanks.containsKey(name)) {
-            loadBank(name);
-        }
         saveConfig();
     }
 
@@ -117,9 +112,6 @@ public class QuestionBankManager {
             // Save to file
             Path bankFile = banksDir.resolve(name + ".json");
             objectMapper.writeValue(bankFile.toFile(), bank);
-            
-            // Load into memory
-            loadedBanks.put(name, bank);
             
             // Set as current
             currentBankName = name;
