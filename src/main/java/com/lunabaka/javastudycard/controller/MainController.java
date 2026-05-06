@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Controller
 public class MainController {
@@ -26,6 +25,8 @@ public class MainController {
         model.addAttribute("questionTypes", questionBankService.getQuestionTypes());
         model.addAttribute("categoryStats", questionBankService.getCategoryStats());
         model.addAttribute("totalCount", questionBankService.getTotalCount());
+        model.addAttribute("availableBanks", questionBankService.getAvailableBanks());
+        model.addAttribute("currentBank", questionBankService.getCurrentBankName());
         return "index";
     }
 
@@ -62,8 +63,9 @@ public class MainController {
                 totalQuestions++;
                 Map<String, Object> result = new HashMap<>();
                 result.put("question", question);
+                QuestionType qType = question.getType();
 
-                if (type == QuestionType.MULTIPLE_CHOICE) {
+                if (qType == QuestionType.MULTIPLE_CHOICE) {
                     String[] selectedAnswers = request.getParameterValues(paramName);
                     List<Integer> selectedIds = new ArrayList<>();
                     if (selectedAnswers != null) {
@@ -76,7 +78,7 @@ public class MainController {
                     result.put("selectedAnswers", selectedIds);
                     if (isCorrect)
                         correctCount++;
-                } else if (type == QuestionType.SORTING) {
+                } else if (qType == QuestionType.SORTING) {
                     String userAnswer = request.getParameter(paramName);
                     List<Integer> userOrder = new ArrayList<>();
                     if (userAnswer != null && !userAnswer.trim().isEmpty()) {

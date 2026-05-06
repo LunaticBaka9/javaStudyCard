@@ -24,8 +24,21 @@
                     <span class="summary-label">知识分类</span>
                 </div>
                 <div class="summary-item">
-                    <span class="summary-number">2</span>
+                    <span class="summary-number">3</span>
                     <span class="summary-label">题型</span>
+                </div>
+            </section>
+
+            <section class="bank-selector">
+                <div class="bank-selector-row">
+                    <label>当前题库：</label>
+                    <select id="bankSelect" onchange="switchBank(this.value)">
+                        <option th:each="bank : ${availableBanks}" 
+                                th:value="${bank}" 
+                                th:text="${bank}"
+                                th:selected="${bank == currentBank}"></option>
+                    </select>
+                    <button class="btn-import" onclick="showImportModal()">导入题库</button>
                 </div>
             </section>
 
@@ -41,6 +54,7 @@
                 <div class="form-group">
                     <label for="type">题目类型</label>
                     <select id="type" name="type">
+                        <option value="MIXED">综合（所有类型）</option>
                         <option value="MULTIPLE_CHOICE">多选题</option>
                         <option value="ESSAY">问答题</option>
                         <option value="SORTING">排序题</option>
@@ -69,6 +83,8 @@
                                 <span class="stat-type-mc" th:text="'多选' + ${cat.value['multiple']}"></span>
                                 <span class="stat-divider">|</span>
                                 <span class="stat-type-essay" th:text="'问答' + ${cat.value['essay']}"></span>
+                                <span class="stat-divider">|</span>
+                                <span class="stat-type-sorting" th:text="'排序' + ${cat.value['sorting']}"></span>
                             </span>
                         </div>
                         <a class="stat-link" th:href="@{/questions(category=${cat.key})}">查看题目</a>
@@ -76,6 +92,91 @@
                 </div>
             </section>
         </main>
+
+        <div class="modal-overlay" id="importModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>导入题库</h2>
+                    <button class="modal-close" onclick="hideImportModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="bankName">题库名称</label>
+                        <input type="text" id="bankName" placeholder="输入题库名称">
+                    </div>
+                    <div class="form-group">
+                        <label for="bankFile">选择JSON文件</label>
+                        <input type="file" id="bankFile" accept=".json">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-secondary-modal" onclick="hideImportModal()">取消</button>
+                        <button class="btn-primary" onclick="importBank()">导入</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function showImportModal() {
+            document.getElementById('importModal').classList.add('show');
+        }
+
+        function hideImportModal() {
+            document.getElementById('importModal').classList.remove('show');
+            document.getElementById('bankName').value = '';
+            document.getElementById('bankFile').value = '';
+        }
+
+        function switchBank(name) {
+            fetch('/api/bank/switch?name=' + encodeURIComponent(name), { method: 'POST' })
+                .then(res => {
+                    if (res.ok) {
+                        window.location.reload();
+                    } else {
+                        alert('切换题库失败');
+                    }
+                })
+                .catch(() => alert('切换题库失败'));
+        }
+
+        function importBank() {
+            const name = document.getElementById('bankName').value.trim();
+            const fileInput = document.getElementById('bankFile');
+            
+            if (!name) {
+                alert('请输入题库名称');
+                return;
+            }
+            if (fileInput.files.length === 0) {
+                alert('请选择JSON文件');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const content = e.target.result;
+                const formData = new FormData();
+                formData.append('name', name);
+                formData.append('content', content);
+
+                fetch('/api/bank/import', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => {
+                    if (res.ok) {
+                        hideImportModal();
+                        window.location.reload();
+                    } else {
+                        return res.text().then(text => { throw new Error(text); });
+                    }
+                })
+                .catch(err => alert('导入失败：' + err.message));
+            };
+            reader.readAsText(file);
+        }
+    </script>
 </body>
 </html>

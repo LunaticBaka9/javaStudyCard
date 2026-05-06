@@ -1,39 +1,27 @@
 package com.lunabaka.javastudycard.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lunabaka.javastudycard.model.Question;
-import com.lunabaka.javastudycard.model.QuestionBank;
 import com.lunabaka.javastudycard.model.QuestionType;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.PostConstruct;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class QuestionBankService {
 
-    private List<Question> allQuestions = new ArrayList<>();
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final QuestionBankManager bankManager;
 
-    @PostConstruct
-    public void init() {
-        try {
-            ClassPathResource resource = new ClassPathResource("data/card.json");
-            try (InputStream is = resource.getInputStream()) {
-                QuestionBank questionBank = objectMapper.readValue(is, QuestionBank.class);
-                allQuestions = questionBank.getQuestions();
-            }
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to load question bank", e);
-        }
+    public QuestionBankService(QuestionBankManager bankManager) {
+        this.bankManager = bankManager;
+    }
+
+    private List<Question> getAllQuestions() {
+        return bankManager.getCurrentBank().getQuestions();
     }
 
     public List<String> getCategories() {
-        return allQuestions.stream()
+        return getAllQuestions().stream()
                 .map(Question::getCategory)
                 .distinct()
                 .sorted()
@@ -41,20 +29,23 @@ public class QuestionBankService {
     }
 
     public List<QuestionType> getQuestionTypes() {
-        return Arrays.asList(QuestionType.MULTIPLE_CHOICE, QuestionType.ESSAY);
+        return Arrays.asList(QuestionType.MULTIPLE_CHOICE, QuestionType.ESSAY, QuestionType.SORTING);
     }
 
     public List<Question> getQuestionsByCategory(String category) {
         if (category == null || category.equals("all")) {
-            return new ArrayList<>(allQuestions);
+            return new ArrayList<>(getAllQuestions());
         }
-        return allQuestions.stream()
+        return getAllQuestions().stream()
                 .filter(q -> q.getCategory().equals(category))
                 .collect(Collectors.toList());
     }
 
     public List<Question> getQuestionsByCategoryAndType(String category, QuestionType type) {
         List<Question> questions = getQuestionsByCategory(category);
+        if (type == QuestionType.MIXED) {
+            return questions;
+        }
         return questions.stream()
                 .filter(q -> q.getType() == type)
                 .collect(Collectors.toList());
@@ -69,13 +60,13 @@ public class QuestionBankService {
     }
 
     public Optional<Question> getQuestionById(Long id) {
-        return allQuestions.stream()
+        return getAllQuestions().stream()
                 .filter(q -> q.getId().equals(id))
                 .findFirst();
     }
 
     public int getTotalCount() {
-        return allQuestions.size();
+        return getAllQuestions().size();
     }
 
     public Map<String, Map<String, Integer>> getCategoryStats() {
@@ -87,8 +78,25 @@ public class QuestionBankService {
             catStats.put("total", catQuestions.size());
             catStats.put("multiple", (int) catQuestions.stream().filter(q -> q.getType() == QuestionType.MULTIPLE_CHOICE).count());
             catStats.put("essay", (int) catQuestions.stream().filter(q -> q.getType() == QuestionType.ESSAY).count());
+            catStats.put("sorting", (int) catQuestions.stream().filter(q -> q.getType() == QuestionType.SORTING).count());
             stats.put(cat, catStats);
         }
         return stats;
+    }
+
+    public String getCurrentBankName() {
+        return bankManager.getCurrentBankName();
+    }
+
+    public List<String> getAvailableBanks() {
+        return bankManager.getAvailableBanks();
+    }
+
+    public void switchBank(String bankName) {
+        bankManager.setCurrentBank(bankName);
+    }
+
+    public void importBank(String name, String jsonContent) {
+        bankManager.importBank(name, jsonContent);
     }
 }

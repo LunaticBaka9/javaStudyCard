@@ -46,7 +46,7 @@
 
                     <div th:if="${q.type.name() == 'ESSAY'}" class="q-answer">
                         <div class="q-answer-label">参考答案</div>
-                        <p th:text="${q.answer}"></p>
+                        <p th:utext="${q.answer?.replace('\n', '<br/>')}"></p>
                     </div>
 
                     <div th:if="${q.type.name() == 'SORTING'}" class="q-sorting">

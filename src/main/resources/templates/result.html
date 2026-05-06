@@ -96,7 +96,7 @@
                                 <p class="reference-answer">
                                     <strong>参考答案：</strong>
                                     <span
-                                        th:text="${r['question'].answer}"
+                                        th:utext="${r['question'].answer?.replace('\n', '<br/>')}"
                                     ></span>
                                 </p>
                             </div>

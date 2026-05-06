@@ -15,7 +15,7 @@
                     ></span>
                     -
                     <span
-                        th:text="${type.name() == 'MULTIPLE_CHOICE' ? '多选题' : (type.name() == 'ESSAY' ? '问答题' : '排序题')}"
+                        th:text="${type.name() == 'MULTIPLE_CHOICE' ? '多选题' : (type.name() == 'ESSAY' ? '问答题' : (type.name() == 'SORTING' ? '排序题' : '综合练习'))}"
                     ></span>
                 </h1>
                 <a href="/" class="btn-secondary">返回首页</a>
