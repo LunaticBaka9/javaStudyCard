@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java知识点记忆卡</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Java知识点记忆卡</h1>
+            <p class="subtitle">通过练习题巩固Java核心知识</p>
+        </header>
+
+        <main>
+            <section class="summary-bar">
+                <div class="summary-item">
+                    <span class="summary-number" th:text="${totalCount}"></span>
+                    <span class="summary-label">总题数</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number" th:text="${categoryStats.size()}"></span>
+                    <span class="summary-label">知识分类</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number">2</span>
+                    <span class="summary-label">题型</span>
+                </div>
+            </section>
+
+            <form th:action="@{/quiz}" method="get" class="quiz-form">
+                <div class="form-group">
+                    <label for="category">知识分类</label>
+                    <select id="category" name="category">
+                        <option value="all">全部分类</option>
+                        <option th:each="cat : ${categories}" th:value="${cat}" th:text="${cat}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">题目类型</label>
+                    <select id="type" name="type">
+                        <option value="MULTIPLE_CHOICE">多选题</option>
+                        <option value="ESSAY">问答题</option>
+                        <option value="SORTING">排序题</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="count">题目数量</label>
+                    <input type="number" id="count" name="count" min="1" max="50" value="10">
+                </div>
+
+                <button type="submit" class="btn-primary">开始练习</button>
+            </form>
+
+            <section class="stats">
+                <h2>题库概览</h2>
+                <div class="stats-grid">
+                    <div class="stat-card" th:each="cat, stat : ${categoryStats}">
+                        <h3 class="stat-name" th:text="${cat.key}"></h3>
+                        <div class="stat-numbers">
+                            <span class="stat-total">
+                                <span class="stat-value" th:text="${cat.value['total']}"></span>
+                                <span class="stat-unit">题</span>
+                            </span>
+                            <span class="stat-detail">
+                                <span class="stat-type-mc" th:text="'多选' + ${cat.value['multiple']}"></span>
+                                <span class="stat-divider">|</span>
+                                <span class="stat-type-essay" th:text="'问答' + ${cat.value['essay']}"></span>
+                            </span>
+                        </div>
+                        <a class="stat-link" th:href="@{/questions(category=${cat.key})}">查看题目</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

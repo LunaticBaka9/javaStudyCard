@@ -1,0 +1,179 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>答题 - Java知识点记忆卡</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>
+                    <span
+                        th:text="${category == 'all' ? '全部分类' : category}"
+                    ></span>
+                    -
+                    <span
+                        th:text="${type.name() == 'MULTIPLE_CHOICE' ? '多选题' : (type.name() == 'ESSAY' ? '问答题' : '排序题')}"
+                    ></span>
+                </h1>
+                <a href="/" class="btn-secondary">返回首页</a>
+            </header>
+
+            <main>
+                <form th:action="@{/submit}" method="post" class="quiz-form">
+                    <input
+                        type="hidden"
+                        name="category"
+                        th:value="${category}"
+                    />
+                    <input type="hidden" name="type" th:value="${type}" />
+
+                    <div class="questions-list">
+                        <div
+                            class="question-card"
+                            th:each="q, iterStat : ${questions}"
+                        >
+                            <div class="question-header">
+                                <span
+                                    class="question-number"
+                                    th:text="'第' + ${iterStat.count} + '题'"
+                                ></span>
+                                <span
+                                    class="question-type-badge"
+                                    th:classappend="${q.type.name() == 'MULTIPLE_CHOICE' ? 'badge-multiple' : (q.type.name() == 'ESSAY' ? 'badge-essay' : 'badge-sorting')}"
+                                    th:text="${q.type.name() == 'MULTIPLE_CHOICE' ? '多选' : (q.type.name() == 'ESSAY' ? '问答' : '排序')}"
+                                ></span>
+                            </div>
+
+                            <h3
+                                class="question-text"
+                                th:text="${q.question}"
+                            ></h3>
+
+                            <div
+                                th:if="${q.type.name() == 'MULTIPLE_CHOICE'}"
+                                class="options-list"
+                            >
+                                <label
+                                    th:each="opt, optStat : ${q.options}"
+                                    class="option-item"
+                                >
+                                    <input
+                                        type="checkbox"
+                                        th:name="'question_' + ${q.id}"
+                                        th:value="${optStat.index}"
+                                    />
+                                    <span th:text="${opt}"></span>
+                                </label>
+                            </div>
+
+                            <div
+                                th:if="${q.type.name() == 'ESSAY'}"
+                                class="essay-answer"
+                            >
+                                <textarea
+                                    th:name="'question_' + ${q.id}"
+                                    rows="4"
+                                    placeholder="请输入你的答案..."
+                                ></textarea>
+                            </div>
+
+                            <div
+                                th:if="${q.type.name() == 'SORTING'}"
+                                class="sorting-answer"
+                            >
+                                <p class="sorting-instruction">
+                                    按顺序点击选项进行排序：
+                                </p>
+                                <div class="sorting-options"
+                                     th:id="'options_' + ${q.id}">
+                                    <button
+                                        type="button"
+                                        th:each="item, itemStat : ${q.items}"
+                                        class="sort-option-btn"
+                                        th:data-index="${itemStat.index}"
+                                        th:text="${item}"
+                                        th:id="'opt_' + ${q.id} + '_' + ${itemStat.index}"
+                                    ></button>
+                                </div>
+                                <div class="sorting-result"
+                                     th:id="'result_' + ${q.id}">
+                                    <p class="sorting-result-label">已选顺序：</p>
+                                    <div class="sorting-selected"></div>
+                                </div>
+                                <input
+                                    type="hidden"
+                                    th:name="'question_' + ${q.id}"
+                                    th:id="'answer_' + ${q.id}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            提交答案
+                        </button>
+                    </div>
+                </form>
+            </main>
+        </div>
+        <script>
+            // 选项乱序
+            document.querySelectorAll(".options-list").forEach((container) => {
+                const items = Array.from(container.children);
+                for (let i = items.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [items[i], items[j]] = [items[j], items[i]];
+                }
+                container.innerHTML = "";
+                items.forEach((item) => container.appendChild(item));
+            });
+
+            // 排序题点击排序功能
+            document.querySelectorAll(".sorting-options").forEach((optionsContainer) => {
+                const questionId = optionsContainer.id.replace("options_", "");
+                const selectedContainer = document.getElementById("result_" + questionId).querySelector(".sorting-selected");
+                const answerInput = document.getElementById("answer_" + questionId);
+                let selectedOrder = [];
+
+                function renderSelected() {
+                    selectedContainer.innerHTML = "";
+                    selectedOrder.forEach((idx, pos) => {
+                        const tag = document.createElement("span");
+                        tag.className = "selected-tag";
+                        const originalBtn = document.getElementById(`opt_${questionId}_${idx}`);
+                        tag.innerHTML = `<span class="tag-rank">${pos + 1}</span> ${originalBtn ? originalBtn.textContent : ''}`;
+                        
+                        tag.addEventListener("click", () => {
+                            selectedOrder = selectedOrder.filter(i => i !== idx);
+                            const optBtn = document.getElementById(`opt_${questionId}_${idx}`);
+                            if (optBtn) {
+                                optBtn.classList.remove("selected");
+                                optBtn.disabled = false;
+                            }
+                            renderSelected();
+                            answerInput.value = selectedOrder.join(",");
+                        });
+                        selectedContainer.appendChild(tag);
+                    });
+                }
+
+                optionsContainer.querySelectorAll(".sort-option-btn").forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        const index = parseInt(btn.dataset.index);
+                        if (!selectedOrder.includes(index)) {
+                            selectedOrder.push(index);
+                            btn.classList.add("selected");
+                            btn.disabled = true;
+                            renderSelected();
+                            answerInput.value = selectedOrder.join(",");
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

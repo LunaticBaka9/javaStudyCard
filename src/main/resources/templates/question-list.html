@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>题库 - Java知识点记忆卡</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <span th:text="${category}"></span>
+                题库
+            </h1>
+            <a href="/" class="btn-secondary">返回首页</a>
+        </header>
+
+        <main>
+            <section class="question-count-bar">
+                <span>共 <strong th:text="${questions.size()}"></strong> 题</span>
+                <span>
+                    <span class="count-mc" th:text="'多选 ' + ${questions.?[type.name() == 'MULTIPLE_CHOICE'].size()}"></span>
+                    <span class="count-essay" th:text="'问答 ' + ${questions.?[type.name() == 'ESSAY'].size()}"></span>
+                    <span class="count-sorting" th:text="'排序 ' + ${questions.?[type.name() == 'SORTING'].size()}"></span>
+                </span>
+            </section>
+
+            <div class="questions-display">
+                <div class="question-item" th:each="q, iterStat : ${questions}">
+                    <div class="question-head">
+                        <span class="q-number" th:text="${iterStat.count}"></span>
+                        <span class="q-type-badge"
+                              th:class="${q.type.name() == 'MULTIPLE_CHOICE' ? 'q-type-mc' : (q.type.name() == 'ESSAY' ? 'q-type-essay' : 'q-type-sorting')}"
+                              th:text="${q.type.name() == 'MULTIPLE_CHOICE' ? '多选' : (q.type.name() == 'ESSAY' ? '问答' : '排序')}"></span>
+                        <span class="q-text" th:text="${q.question}"></span>
+                    </div>
+
+                    <div th:if="${q.type.name() == 'MULTIPLE_CHOICE'}" class="q-options">
+                        <div class="q-option" th:each="opt, optStat : ${q.options}"
+                             th:class="${q.correctAnswers.contains(optStat.index)} ? 'q-option-correct' : ''">
+                            <span th:text="${opt}"></span>
+                            <span th:if="${q.correctAnswers.contains(optStat.index)}" class="q-correct-mark">✓</span>
+                        </div>
+                    </div>
+
+                    <div th:if="${q.type.name() == 'ESSAY'}" class="q-answer">
+                        <div class="q-answer-label">参考答案</div>
+                        <p th:text="${q.answer}"></p>
+                    </div>
+
+                    <div th:if="${q.type.name() == 'SORTING'}" class="q-sorting">
+                        <div class="q-answer-label">正确顺序</div>
+                        <div class="q-sort-list">
+                            <div th:each="idx : ${q.correctOrder}" class="q-sort-item">
+                                <span class="q-sort-rank" th:text="${idxStat.count}"></span>
+                                <span th:text="${q.items[idx]}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <a href="/" class="anki-btn anki-btn-good">返回首页</a>
+                <a th:href="@{/quiz(category=${category}, type='MULTIPLE_CHOICE')}" class="anki-btn anki-btn-hard">练习多选题</a>
+                <a th:href="@{/quiz(category=${category}, type='ESSAY')}" class="anki-btn anki-btn-again">练习问答题</a>
+                <a th:href="@{/quiz(category=${category}, type='SORTING')}" class="anki-btn anki-btn-sort">练习排序题</a>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.querySelectorAll('.q-options').forEach(container => {
+            const items = Array.from(container.children);
+            for (let i = items.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [items[i], items[j]] = [items[j], items[i]];
+            }
+            container.innerHTML = '';
+            items.forEach(item => container.appendChild(item));
+        });
+    </script>
+</body>
+</html>

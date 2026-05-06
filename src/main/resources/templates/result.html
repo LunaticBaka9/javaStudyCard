@@ -1,0 +1,148 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>答题结果 - Java知识点记忆卡</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>答题结果</h1>
+                <a href="/" class="btn-secondary">返回首页</a>
+            </header>
+
+            <main>
+                <section class="score-section">
+                    <div class="score-card">
+                        <div class="score-circle">
+                            <span
+                                class="score-text"
+                                th:text="${correctCount} + '/' + ${totalQuestions}"
+                            ></span>
+                        </div>
+                        <p class="score-message">
+                            <span
+                                th:if="${totalQuestions > 0 && correctCount * 100 / totalQuestions >= 80}"
+                                >优秀！继续保持！</span
+                            >
+                            <span
+                                th:if="${totalQuestions > 0 && correctCount * 100 / totalQuestions >= 60 && correctCount * 100 / totalQuestions < 80}"
+                                >不错，再接再厉！</span
+                            >
+                            <span
+                                th:if="${totalQuestions > 0 && correctCount * 100 / totalQuestions < 60}"
+                                >还需要多多练习哦！</span
+                            >
+                        </p>
+                    </div>
+                </section>
+
+                <section class="results-list">
+                    <div
+                        th:each="r : ${results}"
+                        th:with="isCorrect=${r['isCorrect'] != null && r['isCorrect']}, isAttempted=${r['isAttempted'] != null && r['isAttempted']}"
+                    >
+                        <div
+                            class="result-card"
+                            th:class="${isCorrect} ? 'result-correct' : (${isAttempted} ? 'result-partial' : 'result-incorrect')"
+                        >
+                            <div class="result-header">
+                                <h3 th:text="${r['question'].question}"></h3>
+                                <span
+                                    class="result-badge"
+                                    th:class="${isCorrect} ? 'badge-correct' : 'badge-incorrect'"
+                                    th:text="${r['isCorrect'] != null} ? (${isCorrect} ? '正确' : '错误') : '参考答案'"
+                                ></span>
+                            </div>
+
+                            <div
+                                th:if="${r['question'].type.name() == 'MULTIPLE_CHOICE'}"
+                                class="result-details"
+                            >
+                                <p class="correct-answer">
+                                    <strong>正确答案：</strong>
+                                    <span
+                                        th:each="idx : ${r['question'].correctAnswers}"
+                                        th:text="${r['question'].options[idx]}"
+                                        class="answer-option"
+                                    ></span>
+                                </p>
+                                <p
+                                    class="user-answer"
+                                    th:if="${r['selectedAnswers'] != null}"
+                                >
+                                    <strong>你的答案：</strong>
+                                    <span
+                                        th:each="idx : ${r['selectedAnswers']}"
+                                        th:text="${r['question'].options[idx]}"
+                                        class="answer-option"
+                                    ></span>
+                                </p>
+                            </div>
+
+                            <div
+                                th:if="${r['question'].type.name() == 'ESSAY'}"
+                                class="result-details"
+                            >
+                                <p
+                                    class="user-answer"
+                                    th:if="${r['userAnswer'] != null}"
+                                >
+                                    <strong>你的答案：</strong>
+                                    <span th:text="${r['userAnswer']}"></span>
+                                </p>
+                                <p class="reference-answer">
+                                    <strong>参考答案：</strong>
+                                    <span
+                                        th:text="${r['question'].answer}"
+                                    ></span>
+                                </p>
+                            </div>
+
+                            <div
+                                th:if="${r['question'].type.name() == 'SORTING'}"
+                                class="result-details"
+                            >
+                                <p class="correct-answer">
+                                    <strong>正确顺序：</strong>
+                                    <span
+                                        th:each="idx : ${r['question'].correctOrder}"
+                                        th:text="${r['question'].items[idx]}"
+                                        class="answer-option"
+                                    ></span>
+                                </p>
+                                <p
+                                    class="user-answer"
+                                    th:if="${r['userOrder'] != null}"
+                                >
+                                    <strong>你的顺序：</strong>
+                                    <span
+                                        th:each="idx : ${r['userOrder']}"
+                                        th:text="${r['question'].items[idx]}"
+                                        class="answer-option"
+                                    ></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="anki-buttons">
+                    <a
+                        th:href="@{/quiz(category=${category}, type=${type})}"
+                        class="anki-btn anki-btn-again"
+                        >重新练习</a
+                    >
+                    <a
+                        th:href="@{/quiz(category=${category}, type=${type}, count=${totalQuestions})}"
+                        class="anki-btn anki-btn-hard"
+                        >再来一轮</a
+                    >
+                    <a href="/" class="anki-btn anki-btn-good">返回首页</a>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
