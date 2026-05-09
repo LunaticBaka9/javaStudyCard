@@ -10,20 +10,19 @@ import jakarta.annotation.PostConstruct;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public class QuestionBankManager {
 
     private static final String DEFAULT_BANK_NAME = "card";
     private final ObjectMapper objectMapper = new ObjectMapper();
-    
+
     @Value("${banks.dir:#{systemProperties['user.dir']}/banks}")
     private String banksDirPath;
-    
+
     private Path banksDir;
     private Path banksConfigPath;
-    
+
     private String currentBankName = DEFAULT_BANK_NAME;
 
     @PostConstruct
@@ -31,14 +30,16 @@ public class QuestionBankManager {
         // Resolve path - works on both Windows and Linux
         banksDir = Paths.get(banksDirPath).toAbsolutePath().normalize();
         banksConfigPath = banksDir.resolve("banks.json");
-        
+
         try {
             // Ensure banks directory exists
             Files.createDirectories(banksDir);
-            
+
             // Load current bank preference
             if (Files.exists(banksConfigPath)) {
-                Map<String, Object> config = objectMapper.readValue(banksConfigPath.toFile(), new TypeReference<Map<String, Object>>() {});
+                Map<String, Object> config = objectMapper.readValue(banksConfigPath.toFile(),
+                        new TypeReference<Map<String, Object>>() {
+                        });
                 if (config.containsKey("currentBank")) {
                     String savedBank = (String) config.get("currentBank");
                     if (getAvailableBanks().contains(savedBank)) {
@@ -48,7 +49,7 @@ public class QuestionBankManager {
             } else {
                 saveConfig();
             }
-            
+
             System.out.println("[QuestionBankManager] Banks directory: " + banksDir);
         } catch (IOException e) {
             throw new RuntimeException("Failed to init bank manager", e);
@@ -62,7 +63,10 @@ public class QuestionBankManager {
         try {
             Path bankFile = banksDir.resolve(name + ".json");
             if (!Files.exists(bankFile)) {
-                throw new RuntimeException("Bank file not found: " + bankFile);
+                // 如果文件不存在，创建空的题库文件
+                QuestionBank emptyBank = new QuestionBank(new ArrayList<>());
+                objectMapper.writeValue(bankFile.toFile(), emptyBank);
+                return emptyBank;
             }
             return objectMapper.readValue(bankFile.toFile(), QuestionBank.class);
         } catch (IOException e) {
@@ -108,11 +112,11 @@ public class QuestionBankManager {
         try {
             // Validate JSON
             QuestionBank bank = objectMapper.readValue(jsonContent, QuestionBank.class);
-            
+
             // Save to file
             Path bankFile = banksDir.resolve(name + ".json");
             objectMapper.writeValue(bankFile.toFile(), bank);
-            
+
             // Set as current
             currentBankName = name;
             saveConfig();
