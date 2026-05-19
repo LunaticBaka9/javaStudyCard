@@ -2135,6 +2135,1080 @@
             "items": null,
             "correctOrder": null,
             "answerHtml": "N+1查询问题：当使用嵌套查询方式进行关联映射时，MyBatis先执行1次主表查询获取N条记录，然后对每条记录再执行1次关联表查询，总共产生1+N次数据库查询。当N很大时，性能会严重下降。<br/><br/>解决方案：1) 使用嵌套结果集：通过JOIN语句一次性查询所有数据，避免N+1问题；2) 开启延迟加载：只在真正需要关联数据时才执行查询，如果不需要关联数据则不会触发额外查询；3) 使用@Options注解或XML配置fetchType控制加载策略；4) 在业务层手动批量查询关联数据。"
+        },
+        {
+            "id": 144,
+            "category": "MyBatis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MyBatis的缓存机制，以下说法正确的是？",
+            "options": [
+                "一级缓存是SqlSession级别的缓存",
+                "二级缓存是Mapper（Namespace）级别的缓存",
+                "一级缓存默认开启",
+                "二级缓存默认开启",
+                "查询顺序：二级缓存 → 一级缓存 → 数据库"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 145,
+            "category": "MyBatis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于PerpetualCache缓存类，以下说法正确的是？",
+            "options": [
+                "底层由HashMap封装，实现Cache接口",
+                "一级缓存使用PerpetualCache对象（通常命名为LocalCache）",
+                "二级缓存的默认底层实现也是PerpetualCache",
+                "二级缓存通常配合装饰器模式使用",
+                "一级缓存的生命周期与SqlSession绑定"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 146,
+            "category": "MyBatis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MyBatis一级缓存的localCacheScope参数，以下说法正确的是？",
+            "options": [
+                "SESSION表示会话级别缓存，是默认值",
+                "STATEMENT表示语句级别缓存，相当于关闭一级缓存",
+                "执行增删改操作会清空一级缓存",
+                "SqlSession关闭会清空一级缓存",
+                "调用clearCache()会清空一级缓存"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 147,
+            "category": "MyBatis",
+            "type": "ESSAY",
+            "question": "请简述MyBatis一级缓存的清空条件。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "一级缓存清空条件：1) 一级缓存作用域设置为语句级别（localCacheScope=STATEMENT）；2) 调用clearCache()方法清空缓存；3) 执行SQL时设置flushCache=true刷新缓存；4) 执行增、删、改操作会自动清空一级缓存；5) SqlSession关闭时会清空一级缓存。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "一级缓存清空条件：1) 一级缓存作用域设置为语句级别（localCacheScope=STATEMENT）；2) 调用clearCache()方法清空缓存；3) 执行SQL时设置flushCache=true刷新缓存；4) 执行增、删、改操作会自动清空一级缓存；5) SqlSession关闭时会清空一级缓存。"
+        },
+        {
+            "id": 148,
+            "category": "MyBatis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MyBatis二级缓存的配置，以下说法正确的是？",
+            "options": [
+                "cacheEnabled=true表示开启二级缓存，默认值为true",
+                "<cache />标签用于开启当前Mapper的二级缓存",
+                "eviction属性设置缓存回收策略，默认是LRU",
+                "flushInterval属性设置缓存刷新间隔，默认不清空",
+                "readOnly=true表示只读，mybatis认为从缓存获取数据不会修改"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 149,
+            "category": "MyBatis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MyBatis二级缓存的eviction回收策略，以下说法正确的是？",
+            "options": [
+                "LRU：最近最少使用，移除最长时间不被使用的对象",
+                "FIFO：先进先出，按对象进入缓存的顺序移除",
+                "SOFT：软引用，移除基于垃圾回收器状态和软引用规则的对象",
+                "WEAK：弱引用，更积极地移除基于垃圾收集器状态和弱引用规则的对象",
+                "LRU是默认的回收策略"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 150,
+            "category": "MyBatis",
+            "type": "ESSAY",
+            "question": "请说明MyBatis二级缓存<cache />标签的各属性含义。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "<cache />标签属性：1) eviction：缓存回收策略，可选LRU（默认，最近最少使用）、FIFO（先进先出）、SOFT（软引用）、WEAK（弱引用）；2) flushInterval：缓存刷新间隔，设置多少毫秒清空一次，默认不清空；3) readOnly：是否只读，true表示只读操作（默认false非只读）；4) size：二级缓存最大存放元素数量；5) type：指定自定义缓存的全类名，需实现Cache接口。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "<cache />标签属性：1) eviction：缓存回收策略，可选LRU（默认，最近最少使用）、FIFO（先进先出）、SOFT（软引用）、WEAK（弱引用）；2) flushInterval：缓存刷新间隔，设置多少毫秒清空一次，默认不清空；3) readOnly：是否只读，true表示只读操作（默认false非只读）；4) size：二级缓存最大存放元素数量；5) type：指定自定义缓存的全类名，需实现Cache接口。"
+        },
+        {
+            "id": 151,
+            "category": "MyBatis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于useCache属性，以下说法正确的是？",
+            "options": [
+                "useCache控制当前SQL语句结果是否存入二级缓存",
+                "useCache默认值为true",
+                "useCache需要当前Mapper.xml开启二级缓存才会生效",
+                "useCache=false表示不存入二级缓存",
+                "useCache可以控制一级缓存"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 152,
+            "category": "MyBatis",
+            "type": "ESSAY",
+            "question": "请说明MyBatis二级缓存的使用注意事项及清空条件。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "注意事项：1) 存入二级缓存中的对象必须实现Serializable序列化接口；2) useCache属性控制SQL结果是否存入二级缓存，默认true；3) 二级缓存在分布式环境下可能导致数据不一致，可使用Redis等分布式缓存替换。\n\n清空条件：1) 执行SQL时设置flushCache=true刷新缓存；2) 执行增、删、改操作会自动清空二级缓存。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "注意事项：1) 存入二级缓存中的对象必须实现Serializable序列化接口；2) useCache属性控制SQL结果是否存入二级缓存，默认true；3) 二级缓存在分布式环境下可能导致数据不一致，可使用Redis等分布式缓存替换。<br/><br/>清空条件：1) 执行SQL时设置flushCache=true刷新缓存；2) 执行增、删、改操作会自动清空二级缓存。"
+        },
+        {
+            "id": 153,
+            "category": "MyBatis",
+            "type": "SORTING",
+            "question": "请按MyBatis查询时的缓存查找顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": ["二级缓存", "一级缓存", "数据库"],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 154,
+            "category": "MyBatis",
+            "type": "SORTING",
+            "question": "请按缓存作用域范围从小到大排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "一级缓存（SqlSession级别）",
+                "二级缓存（Mapper/Namespace级别）"
+            ],
+            "correctOrder": [0, 1],
+            "answerHtml": null
+        },
+        {
+            "id": 155,
+            "category": "MyBatis",
+            "type": "ESSAY",
+            "question": "请全面阐述MyBatis的缓存机制，包括一级缓存和二级缓存的区别、配置及使用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "MyBatis缓存机制核心思想是减少与数据库的直接交互次数。\n\n一级缓存（SqlSession级别）：1) 默认开启，作用域为单个SqlSession；2) 底层使用PerpetualCache（HashMap实现）；3) localCacheScope参数可设置为SESSION（默认）或STATEMENT（相当于关闭）；4) 清空条件：执行增删改、调用clearCache()、flushCache=true、SqlSession关闭。\n\n二级缓存（Mapper/Namespace级别）：1) 需手动配置开启，跨SqlSession共享；2) 全局配置cacheEnabled=true（默认开启），Mapper中需添加<cache />标签；3) 支持多种回收策略（LRU/FIFO/SOFT/WEAK）；4) 缓存对象必须实现Serializable接口；5) 可通过type属性指定自定义缓存实现（如Redis）。\n\n查询顺序：二级缓存 → 一级缓存 → 数据库。\n\n使用场景：一级缓存适用于同一会话内的重复查询；二级缓存适用于多会话共享的热点数据，但分布式环境下需谨慎使用。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "MyBatis缓存机制核心思想是减少与数据库的直接交互次数。<br/><br/>一级缓存（SqlSession级别）：1) 默认开启，作用域为单个SqlSession；2) 底层使用PerpetualCache（HashMap实现）；3) localCacheScope参数可设置为SESSION（默认）或STATEMENT（相当于关闭）；4) 清空条件：执行增删改、调用clearCache()、flushCache=true、SqlSession关闭。<br/><br/>二级缓存（Mapper/Namespace级别）：1) 需手动配置开启，跨SqlSession共享；2) 全局配置cacheEnabled=true（默认开启），Mapper中需添加<cache />标签；3) 支持多种回收策略（LRU/FIFO/SOFT/WEAK）；4) 缓存对象必须实现Serializable接口；5) 可通过type属性指定自定义缓存实现（如Redis）。<br/><br/>查询顺序：二级缓存 → 一级缓存 → 数据库。<br/><br/>使用场景：一级缓存适用于同一会话内的重复查询；二级缓存适用于多会话共享的热点数据，但分布式环境下需谨慎使用。"
+        },
+        {
+            "id": 156,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Java IO流的分类，以下说法正确的是？",
+            "options": [
+                "按输入/输出的指向不同分为输入流和输出流",
+                "按操作的单位不同分为字节流和字符流",
+                "按功能不同分为节点流和处理流",
+                "按数据来源不同分为网络流和磁盘流",
+                "按是否阻塞分为阻塞流和非阻塞流"
+            ],
+            "correctAnswers": [0, 1],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 157,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于InputStream和OutputStream，以下说法正确的是？",
+            "options": [
+                "InputStream是所有字节输入流的顶层父类",
+                "OutputStream是所有字节输出流的顶层父类",
+                "InputStream提供了read(byte[] b, int off, int len)方法",
+                "OutputStream提供了write(byte[] b, int off, int len)方法",
+                "InputStream和OutputStream都是抽象类"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 158,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于try-with-resources语法，以下说法正确的是？",
+            "options": [
+                "写在try()中的流在try{}执行完毕后会自动关流",
+                "即使出现异常也会自动关流",
+                "如果创建流对象时出现异常，不会调用close方法",
+                "try()中可以声明任何类型的变量",
+                "只有实现AutoCloseable接口的类才能放在try()中"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 159,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明AutoCloseable接口的作用及try-with-resources的好处。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "AutoCloseable接口是函数式接口，只有一个close方法。JDK1.7引入try()语法，要求类必须实现AutoCloseable接口才能放入try()中自动释放资源。\n\n好处：1) 当try{}代码块执行完毕时，JDK自动调用close方法释放资源；2) 当try{}代码块执行异常时，JDK判断资源是否创建成功（try()内），成功则调用close，失败则不调用。\n\n用户自定义需要释放资源的类也可实现此接口。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "AutoCloseable接口是函数式接口，只有一个close方法。JDK1.7引入try()语法，要求类必须实现AutoCloseable接口才能放入try()中自动释放资源。<br/><br/>好处：1) 当try{}代码块执行完毕时，JDK自动调用close方法释放资源；2) 当try{}代码块执行异常时，JDK判断资源是否创建成功（try()内），成功则调用close，失败则不调用。<br/><br/>用户自定义需要释放资源的类也可实现此接口。"
+        },
+        {
+            "id": 160,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于转换流InputStreamReader，以下说法正确的是？",
+            "options": [
+                "InputStreamReader是Reader的子类",
+                "InputStreamReader是从字节流到字符流的桥梁",
+                "InputStreamReader读取字节并使用指定字符集解码为字符",
+                "InputStreamReader的字符集可以由名称指定",
+                "InputStreamReader可以接受平台的默认字符集"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 161,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于缓冲流，以下说法正确的是？",
+            "options": [
+                "缓冲流内置默认大小为8192字节/字符的缓冲区数组",
+                "当发生一次IO时读满8192个字节再进行操作",
+                "缓冲流可以提高读写的效率",
+                "缓冲流分为字节缓冲流和字符缓冲流",
+                "缓冲流的缓冲区大小不可自定义"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 162,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于序列化流，以下说法正确的是？",
+            "options": [
+                "序列化是用一个字节序列表示一个对象",
+                "序列化后的字节序列包含对象的数据、类型和属性等信息",
+                "字节序列写出到文件相当于持久保存了对象信息",
+                "类修改后反序列化会抛出InvalidClassException异常",
+                "异常原因是类的序列版本号与流中读取的类描述符版本号不匹配"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 163,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于打印流PrintStream，以下说法正确的是？",
+            "options": [
+                "PrintStream是OutputStream的子类",
+                "PrintStream属于字节输出流",
+                "PrintStream主要用于将数据打印到控制台",
+                "PrintStream可以打印任意数据类型",
+                "PrintStream是字符流"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 164,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于ByteArrayInputStream，以下说法正确的是？",
+            "options": [
+                "内置一个字节数组缓冲区",
+                "调用read方法对其缓冲区进行读取",
+                "关闭该流后依旧可以正常读写",
+                "关闭该流无效",
+                "ByteArrayInputStream是字符流"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 165,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于ByteArrayOutputStream，以下说法正确的是？",
+            "options": [
+                "内置缓冲区buf[]，默认大小32",
+                "count记录缓冲区中有效字节数",
+                "write(int b)将指定字节写入此输出流",
+                "reset()将count字段重置为零，丢弃当前输出",
+                "toByteArray()创建新分配的字节数组并返回缓冲区内容"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 166,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于数据流，以下说法正确的是？",
+            "options": [
+                "数据流能精确操作Java中的数据类型",
+                "数据流提供了存取所有Java基本数据类型的方法",
+                "IO操作数据时操作的都是字节",
+                "数据流写出Java数据类型在文件上是乱码但程序能读懂",
+                "数据流属于字符流"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 167,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于序列流SequenceInputStream，以下说法正确的是？",
+            "options": [
+                "用于关联多个输入流",
+                "从第一个输入流读取到文件结尾",
+                "然后从第二个输入流读取，依此类推",
+                "直到最后一个输入流达到文件结尾",
+                "可以同时从多个输入流并行读取"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 168,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于回退流PushbackInputStream，以下说法正确的是？",
+            "options": [
+                "JAVA IO中所有数据都是顺序读取的",
+                "回退流可以把读取进来的数据重新回退到输入流的缓冲区",
+                "回退流用于处理输入流中不需要的内容",
+                "回退流是InputStream的子类",
+                "回退流只能回退一个字节"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 169,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于管道流PipedInputStream和PipedOutputStream，以下说法正确的是？",
+            "options": [
+                "管道输入与输出使用循环缓冲数组实现",
+                "循环缓冲数组默认大小为1024字节",
+                "缓冲数组满时输出流所在线程将阻塞",
+                "缓冲数组首次为空时输入流所在线程将阻塞",
+                "管道流可以用于同一线程内的数据传输"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 170,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请详细说明字符流和字节流的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) 操作单位不同：字符流一次操作一个字符，字节流一次操作一个字节。由于不同编码表编码的字符占用字节不同，字符流操作文本文件更简便，不会出现读取一半数据的问题。\n\n2) 字符流读取数据时会根据默认编码表转换为字符，操作非文本文件会出现乱码和数据丢失，因此字符流不能拷贝非文本文件。\n\n3) 字符流有缓冲区概念，write写入缓冲区（默认1024字符），需调用flush或close才能真正写入磁盘；字节流直接操作字节，无此转换过程。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) 操作单位不同：字符流一次操作一个字符，字节流一次操作一个字节。由于不同编码表编码的字符占用字节不同，字符流操作文本文件更简便，不会出现读取一半数据的问题。<br/><br/>2) 字符流读取数据时会根据默认编码表转换为字符，操作非文本文件会出现乱码和数据丢失，因此字符流不能拷贝非文本文件。<br/><br/>3) 字符流有缓冲区概念，write写入缓冲区（默认1024字符），需调用flush或close才能真正写入磁盘；字节流直接操作字节，无此转换过程。"
+        },
+        {
+            "id": 171,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明序列化流的特点及注意事项。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) 可将Java对象序列化到磁盘（序列化）及从磁盘读取到内存（反序列化）。\n\n2) 每次修改类会导致版本更新，未锁定版本号时反序列化会抛出InvalidClassException异常，可通过锁定serialVersionUID解决。\n\n3) 默认所有非static成员变量会被序列化，transient修饰的变量不会被序列化。\n\n4) 实现序列化的类必须实现Serializable接口。\n\n5) static修饰的成员无法被序列化到磁盘中。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) 可将Java对象序列化到磁盘（序列化）及从磁盘读取到内存（反序列化）。<br/><br/>2) 每次修改类会导致版本更新，未锁定版本号时反序列化会抛出InvalidClassException异常，可通过锁定serialVersionUID解决。<br/><br/>3) 默认所有非static成员变量会被序列化，transient修饰的变量不会被序列化。<br/><br/>4) 实现序列化的类必须实现Serializable接口。<br/><br/>5) static修饰的成员无法被序列化到磁盘中。"
+        },
+        {
+            "id": 172,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明缓冲流的特点及效率分析。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "特点：1) 分为字节/字符的输入/输出流；2) 内置8192个字节/字符缓冲区；3) 支持自定义缓冲区大小。\n\n效率分析：缓冲流效率比普通流高，但不如自定义缓冲区。原因：字节缓冲输入流每次读取8192个字节到堆内存（效率高），但需要将堆内存数据一次次返回到栈内存方法变量中（消耗资源）；字节缓冲输出流需要将栈内存变量数据读取到堆内存缓冲区（消耗资源），读满8192个字节后一次性写入磁盘（效率高）。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "特点：1) 分为字节/字符的输入/输出流；2) 内置8192个字节/字符缓冲区；3) 支持自定义缓冲区大小。<br/><br/>效率分析：缓冲流效率比普通流高，但不如自定义缓冲区。原因：字节缓冲输入流每次读取8192个字节到堆内存（效率高），但需要将堆内存数据一次次返回到栈内存方法变量中（消耗资源）；字节缓冲输出流需要将栈内存变量数据读取到堆内存缓冲区（消耗资源），读满8192个字节后一次性写入磁盘（效率高）。"
+        },
+        {
+            "id": 173,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明关闭(close)和刷新(flush)的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "关闭：将流的资源释放，被关闭的流不能再使用。关闭流之前会再执行一次刷新动作。\n\n刷新：将缓冲区的数据写入磁盘。一般情况下缓冲区满会自动刷新（通常不需要手动调用），只有具备缓冲区的流刷新才有意义。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "关闭：将流的资源释放，被关闭的流不能再使用。关闭流之前会再执行一次刷新动作。<br/><br/>刷新：将缓冲区的数据写入磁盘。一般情况下缓冲区满会自动刷新（通常不需要手动调用），只有具备缓冲区的流刷新才有意义。"
+        },
+        {
+            "id": 174,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "为什么字节输出流write方法的形参是int而不是byte？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "一个字节能表述256种状态，ASCII码表使用0~255共256种状态。Java中byte的取值范围是-128~127。字节输出流写出字节时采用ASCII码表，如果方法形参为byte，会导致127之后的字符无法写出。因此使用int作为形参可以表示0~255的所有ASCII字符。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "一个字节能表述256种状态，ASCII码表使用0~255共256种状态。Java中byte的取值范围是-128~127。字节输出流写出字节时采用ASCII码表，如果方法形参为byte，会导致127之后的字符无法写出。因此使用int作为形参可以表示0~255的所有ASCII字符。"
+        },
+        {
+            "id": 175,
+            "category": "IO流",
+            "type": "SORTING",
+            "question": "请按Java IO流抽象层次从顶层到底层排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "BufferedInputStream（缓冲流）",
+                "InputStream（抽象基类）",
+                "FileInputStream（文件流）",
+                "ObjectInputStream（对象流）"
+            ],
+            "correctOrder": [1, 0, 3, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 176,
+            "category": "IO流",
+            "type": "SORTING",
+            "question": "请按执行顺序排列try-with-resources的资源释放流程：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "创建资源对象放入try()",
+                "执行try{}代码块",
+                "代码块执行完毕或出现异常",
+                "自动调用close()方法释放资源"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 177,
+            "category": "IO流",
+            "type": "SORTING",
+            "question": "请按数据流转顺序排列从文件读取文本数据的过程：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "FileInputStream读取字节",
+                "InputStreamReader将字节解码为字符",
+                "BufferedReader缓冲读取字符",
+                "程序获取字符串数据"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 178,
+            "category": "IO流",
+            "type": "SORTING",
+            "question": "请按ByteArrayOutputStream数据写入流程排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "调用write()方法写入数据",
+                "数据写入内置缓冲区buf[]",
+                "缓冲区自动增长容量",
+                "调用toByteArray()获取字节数组"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 179,
+            "category": "IO流",
+            "type": "SORTING",
+            "question": "请按管道流数据传输流程排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "PipedOutputStream向循环缓冲数组写入数据",
+                "缓冲数组未满时输出流线程继续写入",
+                "缓冲数组满时输出流线程阻塞",
+                "PipedInputStream从缓冲数组读取数据"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 180,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于字符流拷贝非文本文件的问题，以下分析正确的是？",
+            "options": [
+                "字符流拷贝非文本文件会出现乱码",
+                "原因是非文本文件的字节本质上不是一个完整的字符",
+                "强行转换会造成数据丢失",
+                "即使拷贝文本文件也要确保编码表能够对应",
+                "字符流可以完美拷贝任何类型的文件"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 181,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于序列化版本号serialVersionUID，以下说法正确的是？",
+            "options": [
+                "每次修改类都会导致版本更新",
+                "未锁定版本号时更改类后反序列化会抛出InvalidClassException",
+                "可以通过显式声明serialVersionUID来锁定版本",
+                "序列化版本号不匹配会导致反序列化失败",
+                "serialVersionUID必须是long类型"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 182,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于transient关键字，以下说法正确的是？",
+            "options": [
+                "修饰的成员变量不会被序列化",
+                "只能修饰成员变量，不能修饰方法",
+                "被transient修饰的变量反序列化后为默认值",
+                "transient可以修饰静态变量",
+                "transient修饰的变量在序列化时会被忽略"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 183,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请比较ByteArrayInputStream/ByteArrayOutputStream与普通文件流的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "ByteArrayInputStream/ByteArrayOutputStream是内存字节流，操作的是内存中的字节数组，而非磁盘文件。特点：1) 关闭该流无效，关闭后依旧可以正常读写；2) ByteArrayInputStream内置字节数组缓冲区，调用read方法读取；3) ByteArrayOutputStream内置缓冲区（默认32字节），数据写入时自动增长，提供reset()重置、toByteArray()获取字节数组等方法。适用于需要在内存中临时存储和操作字节数据的场景。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "ByteArrayInputStream/ByteArrayOutputStream是内存字节流，操作的是内存中的字节数组，而非磁盘文件。特点：1) 关闭该流无效，关闭后依旧可以正常读写；2) ByteArrayInputStream内置字节数组缓冲区，调用read方法读取；3) ByteArrayOutputStream内置缓冲区（默认32字节），数据写入时自动增长，提供reset()重置、toByteArray()获取字节数组等方法。适用于需要在内存中临时存储和操作字节数据的场景。"
+        },
+        {
+            "id": 184,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明SequenceInputStream、PushbackInputStream、PipedInputStream的应用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "SequenceInputStream（序列流）：用于关联多个输入流，按顺序从第一个流读取到结尾，再从第二个流读取，依此类推。适用场景：合并多个文件、拼接多个数据源。\n\nPushbackInputStream（回退流）：可以把读取进来的数据重新回退到输入流的缓冲区。适用场景：解析数据时需要预读并回退不需要的字符，如解析特定格式文件。\n\nPipedInputStream/PipedOutputStream（管道流）：使用循环缓冲数组（默认1024字节）实现线程间数据传输。适用场景：多线程间通信，一个线程写入数据，另一个线程读取数据。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "SequenceInputStream（序列流）：用于关联多个输入流，按顺序从第一个流读取到结尾，再从第二个流读取，依此类推。适用场景：合并多个文件、拼接多个数据源。<br/><br/>PushbackInputStream（回退流）：可以把读取进来的数据重新回退到输入流的缓冲区。适用场景：解析数据时需要预读并回退不需要的字符，如解析特定格式文件。<br/><br/>PipedInputStream/PipedOutputStream（管道流）：使用循环缓冲数组（默认1024字节）实现线程间数据传输。适用场景：多线程间通信，一个线程写入数据，另一个线程读取数据。"
+        },
+        {
+            "id": 185,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于ArrayList的底层实现，以下说法正确的是？",
+            "options": [
+                "底层是数组结构，查询快，增删慢",
+                "默认初始化大小是10",
+                "扩容机制是1.5倍扩容",
+                "底层扩容采用System.arraycopy，效率较高",
+                "ArrayList是线程安全的"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 186,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于LinkedList的特性，以下说法正确的是？",
+            "options": [
+                "底层采用双向链表实现",
+                "增删快，查询慢",
+                "属于List和Queue两大派系",
+                "具备队列相关的API（Deque双向队列）",
+                "LinkedList是线程安全的"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 187,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Vector的特性，以下说法正确的是？",
+            "options": [
+                "底层采用数组结构，查询快，增删慢",
+                "默认初始化大小是10",
+                "扩容机制是2倍扩容",
+                "Vector是线程安全的，效率较低",
+                "Vector支持Enumeration迭代器"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 188,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Stack的特性，以下说法正确的是？",
+            "options": [
+                "Stack继承自Vector",
+                "底层原理和扩容机制与Vector一致",
+                "提供了压栈、弹栈等栈操作",
+                "Stack是数组实现的栈",
+                "LinkedList是由链表实现的栈"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 189,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于HashSet的特性，以下说法正确的是？",
+            "options": [
+                "存取无序，元素唯一",
+                "底层采用散列表（数组+链表）",
+                "JDK1.8引入红黑树优化链表",
+                "默认初始化数组大小是16",
+                "负载因子默认是0.75"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 190,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于HashSet的Hash冲突处理，以下说法正确的是？",
+            "options": [
+                "存储元素时先通过hashCode方法获取hash值",
+                "hash值取余数组长度得到槽位",
+                "不同对象计算出相同hash值时调用equals对比",
+                "不同元素计算出不同hash值但取余后得到同一槽位时采用拉链法拼接",
+                "String的hashCode算法是31*上一次hash值+字符ASCII"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 191,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于HashSet的扩容机制，以下说法正确的是？",
+            "options": [
+                "负载因子=集合中实际存储的元素/数组的长度",
+                "当数组长度>=64且链表长度>=8时转换为红黑树",
+                "当红黑树元素个数<=6时退化为链表",
+                "符合负载因子时进行2倍扩容",
+                "HashSet允许自定义负载因子和数组长度"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 192,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于TreeSet的特性，以下说法正确的是？",
+            "options": [
+                "存取无序，但支持排序",
+                "底层采用红黑树算法",
+                "存储的元素必须实现Comparable接口",
+                "compareTo返回正数存储在右边，负数存储在左边",
+                "读取顺序是从左到右"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 193,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于LinkedHashSet的特性，以下说法正确的是？",
+            "options": [
+                "底层采用散列表+链表",
+                "存取有序，元素唯一",
+                "其他原理和HashSet一致",
+                "迭代访问时速度比较快",
+                "增删速度比HashSet快"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 194,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Queue和Deque，以下说法正确的是？",
+            "options": [
+                "Queue本身是单向队列接口",
+                "Queue中存在offer等队列操作方法",
+                "Deque是双向队列子接口",
+                "LinkedList是采用链表实现的双向队列",
+                "ArrayDeque是采用数组实现的双向队列"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 195,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于ArrayDeque的特性，以下说法正确的是？",
+            "options": [
+                "底层采用数组实现",
+                "默认初始化大小是16",
+                "每次扩容2倍",
+                "线程不安全，效率高",
+                "不能存储null值，支持双向迭代"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 196,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Map接口的实现类，以下对应关系正确的是？",
+            "options": [
+                "HashMap底层与HashSet一致",
+                "HashTable底层也是散列表",
+                "LinkedHashMap底层与LinkedHashSet一致",
+                "TreeMap底层与TreeSet一致",
+                "HashMap是线程安全的"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 197,
+            "category": "集合",
+            "type": "ESSAY",
+            "question": "请比较ArrayList、LinkedList、Vector、Stack的区别及适用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "ArrayList：底层数组，查询快增删慢，默认大小10，1.5倍扩容，采用System.arraycopy，线程不安全。适用于频繁查询场景。\n\nLinkedList：底层双向链表，增删快查询慢，属于List和Queue派系，具备队列和链表操作，线程不安全。适用于频繁增删场景。\n\nVector：底层数组，查询快增删慢，默认大小10，2倍扩容，线程安全但效率低。适用于多线程环境（但推荐使用Collections.synchronizedList）。\n\nStack：继承Vector，底层数组实现的栈，提供压栈弹栈操作，线程安全。适用于需要栈数据结构的场景（但推荐使用ArrayDeque）。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "ArrayList：底层数组，查询快增删慢，默认大小10，1.5倍扩容，采用System.arraycopy，线程不安全。适用于频繁查询场景。<br/><br/>LinkedList：底层双向链表，增删快查询慢，属于List和Queue派系，具备队列和链表操作，线程不安全。适用于频繁增删场景。<br/><br/>Vector：底层数组，查询快增删慢，默认大小10，2倍扩容，线程安全但效率低。适用于多线程环境（但推荐使用Collections.synchronizedList）。<br/><br/>Stack：继承Vector，底层数组实现的栈，提供压栈弹栈操作，线程安全。适用于需要栈数据结构的场景（但推荐使用ArrayDeque）。"
+        },
+        {
+            "id": 198,
+            "category": "集合",
+            "type": "ESSAY",
+            "question": "请详细说明HashSet的底层原理及Hash冲突处理机制。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "底层原理：1) 采用散列表（数组+链表），JDK1.8引入红黑树优化；2) 默认初始化数组大小16，负载因子0.75；3) 负载因子=实际存储元素/数组长度。\n\nHash冲突处理：1) 存储时先通过hashCode获取hash值，取余数组长度得槽位；2) String的hashCode算法：31*上一次hash值+字符ASCII；3) 不同对象相同hash值时调用equals判断；4) 不同hash值但取余后同槽位时采用拉链法拼接链表。\n\n扩容机制：1) 符合负载因子时2倍扩容；2) 数组>=64且链表>=8时转红黑树；3) 红黑树元素<=6时退化为链表；4) 支持自定义负载因子和数组长度。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "底层原理：1) 采用散列表（数组+链表），JDK1.8引入红黑树优化；2) 默认初始化数组大小16，负载因子0.75；3) 负载因子=实际存储元素/数组长度。<br/><br/>Hash冲突处理：1) 存储时先通过hashCode获取hash值，取余数组长度得槽位；2) String的hashCode算法：31*上一次hash值+字符ASCII；3) 不同对象相同hash值时调用equals判断；4) 不同hash值但取余后同槽位时采用拉链法拼接链表。<br/><br/>扩容机制：1) 符合负载因子时2倍扩容；2) 数组>=64且链表>=8时转红黑树；3) 红黑树元素<=6时退化为链表；4) 支持自定义负载因子和数组长度。"
+        },
+        {
+            "id": 199,
+            "category": "集合",
+            "type": "ESSAY",
+            "question": "请比较HashSet、TreeSet、LinkedHashSet的区别及适用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "HashSet：1) 底层散列表（数组+链表/红黑树）；2) 存取无序，元素唯一；3) 查询、增删效率高。适用场景：需要快速查找、去重的场景。\n\nTreeSet：1) 底层红黑树；2) 存取无序但支持排序；3) 元素必须实现Comparable接口；4) compareTo返回值决定存储位置（正数右、负数左、0不存）；5) 读取顺序从左到右。适用场景：需要排序的场景。\n\nLinkedHashSet：1) 底层散列表+链表；2) 存取有序，元素唯一；3) 迭代访问速度快，增删比HashSet慢。适用场景：需要保持插入顺序的场景。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "HashSet：1) 底层散列表（数组+链表/红黑树）；2) 存取无序，元素唯一；3) 查询、增删效率高。适用场景：需要快速查找、去重的场景。<br/><br/>TreeSet：1) 底层红黑树；2) 存取无序但支持排序；3) 元素必须实现Comparable接口；4) compareTo返回值决定存储位置（正数右、负数左、0不存）；5) 读取顺序从左到右。适用场景：需要排序的场景。<br/><br/>LinkedHashSet：1) 底层散列表+链表；2) 存取有序，元素唯一；3) 迭代访问速度快，增删比HashSet慢。适用场景：需要保持插入顺序的场景。"
+        },
+        {
+            "id": 200,
+            "category": "集合",
+            "type": "ESSAY",
+            "question": "请说明Queue接口及其子接口Deque的实现类和特点。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Queue：单向队列接口，提供offer等队列操作方法。旗下有两大派系：\n\nDeque（双向队列）：1) LinkedList：采用链表实现的双向队列，线程不安全，具备索引、队列、链表操作；2) ArrayDeque：采用数组实现的双向队列，默认大小16，2倍扩容，线程不安全效率高，不能存储null值，支持双向迭代。\n\nBlockingQueue（阻塞队列）：延迟队列，支持线程阻塞等待。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Queue：单向队列接口，提供offer等队列操作方法。旗下有两大派系：<br/><br/>Deque（双向队列）：1) LinkedList：采用链表实现的双向队列，线程不安全，具备索引、队列、链表操作；2) ArrayDeque：采用数组实现的双向队列，默认大小16，2倍扩容，线程不安全效率高，不能存储null值，支持双向迭代。<br/><br/>BlockingQueue（阻塞队列）：延迟队列，支持线程阻塞等待。"
+        },
+        {
+            "id": 201,
+            "category": "集合",
+            "type": "ESSAY",
+            "question": "请说明HashMap、HashTable、LinkedHashMap、TreeMap的底层实现及区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "HashMap：底层与HashSet一致（散列表+链表/红黑树），线程不安全，允许null键值，效率高。\n\nHashTable：底层也是散列表，线程安全（方法加synchronized），不允许null键值，效率较低。\n\nLinkedHashMap：底层与LinkedHashSet一致（散列表+双向链表），具备存取有序特性。\n\nTreeMap：底层与TreeSet一致（红黑树），支持对键进行排序，存取无序但遍历有序。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "HashMap：底层与HashSet一致（散列表+链表/红黑树），线程不安全，允许null键值，效率高。<br/><br/>HashTable：底层也是散列表，线程安全（方法加synchronized），不允许null键值，效率较低。<br/><br/>LinkedHashMap：底层与LinkedHashSet一致（散列表+双向链表），具备存取有序特性。<br/><br/>TreeMap：底层与TreeSet一致（红黑树），支持对键进行排序，存取无序但遍历有序。"
+        },
+        {
+            "id": 202,
+            "category": "集合",
+            "type": "SORTING",
+            "question": "请按HashSet扩容时链表转红黑树的条件排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": ["数组长度达到64", "链表长度达到8", "链表转换为红黑树"],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 203,
+            "category": "集合",
+            "type": "SORTING",
+            "question": "请按TreeSet中compareTo返回值决定元素存储位置排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "返回负数：存储在树的左边",
+                "返回正数：存储在树的右边",
+                "返回0：不存储这个元素"
+            ],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 204,
+            "category": "集合",
+            "type": "SORTING",
+            "question": "请按HashSet存储元素的流程排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "调用元素hashCode方法获取hash值",
+                "hash值取余数组长度得到槽位",
+                "判断是否Hash冲突并调用equals对比",
+                "存储元素到槽位或拼接链表"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 205,
+            "category": "集合",
+            "type": "SORTING",
+            "question": "请按ArrayList扩容流程排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "检查当前容量是否足够",
+                "计算新容量（1.5倍扩容）",
+                "调用System.arraycopy复制数据",
+                "更新数组引用"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 206,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Hash算法的特点，以下说法正确的是？",
+            "options": [
+                "不同的两个对象计算出来的hash值可能相同",
+                "如果hashCode不同，则两个对象肯定不同",
+                "相同的hashCode，两个对象一定相同",
+                "String的hashCode算法是31*上一次hash值+字符ASCII",
+                "hash值取余数组长度得到槽位"
+            ],
+            "correctAnswers": [0, 1, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 207,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于LinkedList作为双向队列的特性，以下说法正确的是？",
+            "options": [
+                "具备索引相关API（List接口）",
+                "具备队列相关API（Deque接口）",
+                "具备链表相关操作（头和尾）",
+                "是由链表实现的栈",
+                "是由数组实现的栈"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 208,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于集合的线程安全性，以下说法正确的是？",
+            "options": [
+                "ArrayList是线程不安全的",
+                "Vector是线程安全的",
+                "LinkedList是线程不安全的",
+                "ArrayDeque是线程不安全的",
+                "HashMap是线程安全的"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 209,
+            "category": "集合",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于红黑树在JDK1.8中的应用，以下说法正确的是？",
+            "options": [
+                "HashSet在链表长度>=8且数组>=64时转换为红黑树",
+                "HashMap在链表长度>=8且数组>=64时转换为红黑树",
+                "TreeSet底层采用红黑树算法",
+                "TreeMap底层采用红黑树算法",
+                "红黑树元素<=6时退化为链表"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 210,
+            "category": "集合",
+            "type": "ESSAY",
+            "question": "请说明负载因子在HashSet中的作用及计算公式。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "负载因子用于控制HashSet数组的扩容。计算公式：负载因子 = 集合中实际存储的元素 / 数组的长度。默认负载因子是0.75，默认数组长度是16。当实际存储元素数量达到负载因子与数组长度的乘积时（即16*0.75=12），触发2倍扩容。HashSet允许用户自定义负载因子和数组长度。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "负载因子用于控制HashSet数组的扩容。计算公式：负载因子 = 集合中实际存储的元素 / 数组的长度。默认负载因子是0.75，默认数组长度是16。当实际存储元素数量达到负载因子与数组长度的乘积时（即16*0.75=12），触发2倍扩容。HashSet允许用户自定义负载因子和数组长度。"
         }
     ]
 }
