@@ -3209,6 +3209,1255 @@
             "items": null,
             "correctOrder": null,
             "answerHtml": "负载因子用于控制HashSet数组的扩容。计算公式：负载因子 = 集合中实际存储的元素 / 数组的长度。默认负载因子是0.75，默认数组长度是16。当实际存储元素数量达到负载因子与数组长度的乘积时（即16*0.75=12），触发2倍扩容。HashSet允许用户自定义负载因子和数组长度。"
+        },
+        {
+            "id": 211,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于程序架构设计中的内聚和耦合，以下说法正确的是？",
+            "options": [
+                "内聚是模块内部一系列相关功能的相关程度",
+                "耦合是元素与元素之间的关系",
+                "高内聚低耦合是良好的设计目标",
+                "内聚越低越好，耦合越高越好",
+                "内聚和耦合没有关系"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 212,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "实现高内聚低耦合的方式包括哪些？",
+            "options": [
+                "定制合理的职责划分，遵循单一职责原则",
+                "使用接口而不是继承",
+                "使用动态代理和SpringAOP",
+                "让一个类承担尽可能多的职责",
+                "大量使用继承来复用代码"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 213,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "Spring框架的核心包包括哪些？",
+            "options": ["Core", "Beans", "Context", "Expression", "Web"],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 214,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于IOC（控制反转）的概念，以下说法正确的是？",
+            "options": [
+                "IOC全称是Inversion of Control",
+                "依赖注入是IOC的常见实现方式",
+                "对象被创建时由外界实体将其依赖的对象引用传递给它",
+                "IOC让对象自己创建依赖的对象",
+                "IOC会增加代码的耦合度"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 215,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring的BeanFactory和ApplicationContext，以下说法正确的是？",
+            "options": [
+                "BeanFactory是容器的基本实现",
+                "BeanFactory面向Spring本身",
+                "ApplicationContext是BeanFactory的子接口",
+                "ApplicationContext提供更多的特性",
+                "BeanFactory比ApplicationContext功能更强大"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 216,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Bean的单例模式，以下说法正确的是？",
+            "options": [
+                "一个Bean在同一个Spring容器中只有一个实例",
+                "单例Bean的生命周期与容器一致",
+                "单例是Spring Bean的默认作用域",
+                "单例Bean每次获取都是全新的实例",
+                "单例Bean在容器关闭时销毁"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 217,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Bean的多例模式，以下说法正确的是？",
+            "options": [
+                "多例Bean在具体使用时才加载",
+                "每次获取的多例Bean都是全新的实例",
+                "容器关闭时多例Bean不会自动销毁",
+                "多例Bean由JVM垃圾回收管控销毁",
+                "多例是Spring Bean的默认作用域"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 218,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Bean的生命周期，单例Bean的加载流程包括哪些阶段？",
+            "options": [
+                "实例化所有Bean（容器创建时）",
+                "属性注入",
+                "初始化Bean",
+                "Bean就绪",
+                "销毁Bean（容器关闭时）"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 219,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于@PostConstruct和@PreDestroy注解，以下说法正确的是？",
+            "options": [
+                "@PostConstruct在属性注入后、初始化前执行",
+                "@PreDestroy在Bean销毁前执行",
+                "两个注解都用于Bean方法上",
+                "@PostConstruct在初始化后执行",
+                "@PreDestroy在属性注入前执行"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 220,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于BeanPostProcessor接口，以下说法正确的是？",
+            "options": [
+                "postProcessBeforeInitialization()在初始化前执行",
+                "postProcessAfterInitialization()在初始化后执行",
+                "postProcessBeforeInitialization()可用于修改属性、属性校验等",
+                "postProcessAfterInitialization()可用于SpringAOP动态代理等",
+                "BeanPostProcessor是全局初始化扩展接口"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 221,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Bean的作用域scope，以下说法正确的是？",
+            "options": [
+                "singleton是单例，为默认值",
+                "prototype是多例",
+                "request在WEB环境中一次请求创建一次",
+                "session在WEB环境中一次会话创建一次",
+                "websocket在WEB环境中创建WebSocket时创建一次"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 222,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Bean的作用域scope，以下说法正确的是？",
+            "options": [
+                "application在WEB环境中创建上下文对象时创建一次",
+                "默认容器中的Bean都是单例的",
+                "通过scope属性可以调整Bean的作用范围",
+                "request作用域在非WEB环境中也能使用",
+                "prototype作用域的Bean由Spring容器负责销毁"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 223,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请简述Spring IOC（控制反转）的概念及其核心思想。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "IOC（Inversion of Control，控制反转）是一种设计思想，将对象的创建和依赖关系的管理交给外部容器控制，而不是由对象自己创建。常见实现方式是依赖注入（DI），通过控制反转，对象被创建的时候，由一个调控系统内所有对象的外界实体将其所依赖的对象引用传递给它。这样可以降低对象之间的耦合度，提高代码的可测试性和可维护性。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "IOC（Inversion of Control，控制反转）是一种设计思想，将对象的创建和依赖关系的管理交给外部容器控制，而不是由对象自己创建。常见实现方式是依赖注入（DI），通过控制反转，对象被创建的时候，由一个调控系统内所有对象的外界实体将其所依赖的对象引用传递给它。这样可以降低对象之间的耦合度，提高代码的可测试性和可维护性。"
+        },
+        {
+            "id": 224,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请比较Spring 中 BeanFactory 和 ApplicationContext 的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) BeanFactory是容器的基本实现，面向Spring本身，提供基本的IOC功能；2) ApplicationContext是BeanFactory的子接口，面向应用开发者，提供更多的企业级特性，如国际化支持、事件发布、资源加载等；3) BeanFactory采用延迟加载策略，Bean在第一次获取时才实例化；ApplicationContext在容器启动时就预加载所有单例Bean。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) BeanFactory是容器的基本实现，面向Spring本身，提供基本的IOC功能；2) ApplicationContext是BeanFactory的子接口，面向应用开发者，提供更多的企业级特性，如国际化支持、事件发布、资源加载等；3) BeanFactory采用延迟加载策略，Bean在第一次获取时才实例化；ApplicationContext在容器启动时就预加载所有单例Bean。"
+        },
+        {
+            "id": 225,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请详细说明Spring Bean的生命周期（以单例为例）。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "单例Bean的生命周期与容器一致：1) 实例化所有Bean：容器创建时通过反射创建Bean实例；2) 属性注入：将依赖的对象注入到Bean的属性中；3) 初始化Bean：执行初始化逻辑，如@PostConstruct注解方法、InitializingBean接口等；4) Bean就绪：Bean可以使用了；5) 销毁Bean：容器关闭时执行销毁逻辑，如@PreDestroy注解方法、DisposableBean接口等。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "单例Bean的生命周期与容器一致：1) 实例化所有Bean：容器创建时通过反射创建Bean实例；2) 属性注入：将依赖的对象注入到Bean的属性中；3) 初始化Bean：执行初始化逻辑，如@PostConstruct注解方法、InitializingBean接口等；4) Bean就绪：Bean可以使用了；5) 销毁Bean：容器关闭时执行销毁逻辑，如@PreDestroy注解方法、DisposableBean接口等。"
+        },
+        {
+            "id": 226,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请比较Spring中单例Bean和多例Bean的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "单例（singleton，默认）：1) 一个Bean在同一个Spring容器中只有一个实例；2) 生命周期与容器一致，容器创建时实例化，容器关闭时销毁；3) 适合无状态或共享的Bean。\n\n多例（prototype）：1) 每次获取都是全新的实例；2) 具体使用时才加载Bean；3) 容器关闭时Bean不会销毁，由JVM垃圾回收管控Bean的销毁；4) 适合有状态或需要独立实例的Bean。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "单例（singleton，默认）：1) 一个Bean在同一个Spring容器中只有一个实例；2) 生命周期与容器一致，容器创建时实例化，容器关闭时销毁；3) 适合无状态或共享的Bean。<br/><br/>多例（prototype）：1) 每次获取都是全新的实例；2) 具体使用时才加载Bean；3) 容器关闭时Bean不会销毁，由JVM垃圾回收管控Bean的销毁；4) 适合有状态或需要独立实例的Bean。"
+        },
+        {
+            "id": 227,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请说明Spring中@PostConstruct和@PreDestroy注解的作用及执行时机。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "@PostConstruct：注解在Bean方法上，在属性注入后、初始化前执行。用于执行初始化逻辑，如资源加载、配置校验等。\n\n@PreDestroy：注解在Bean方法上，在销毁前执行。用于执行清理逻辑，如资源释放、连接关闭等。\n\n这两个注解是JSR-250规范定义的，Spring支持这两个注解来管理Bean的生命周期。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "@PostConstruct：注解在Bean方法上，在属性注入后、初始化前执行。用于执行初始化逻辑，如资源加载、配置校验等。<br/><br/>@PreDestroy：注解在Bean方法上，在销毁前执行。用于执行清理逻辑，如资源释放、连接关闭等。<br/><br/>这两个注解是JSR-250规范定义的，Spring支持这两个注解来管理Bean的生命周期。"
+        },
+        {
+            "id": 228,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请说明Spring中BeanPostProcessor接口的作用及其两个方法的执行时机。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "BeanPostProcessor是全局初始化扩展接口，可以对所有Bean的初始化过程进行干预。\n\npostProcessBeforeInitialization()：在初始化前执行，可用于修改Bean、属性校验等。\n\npostProcessAfterInitialization()：在初始化后执行，SpringAOP的动态代理就是在此方法中实现的。\n\nBeanPostProcessor可以对容器中的所有Bean生效，是Spring扩展机制的重要组成部分。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "BeanPostProcessor是全局初始化扩展接口，可以对所有Bean的初始化过程进行干预。<br/><br/>postProcessBeforeInitialization()：在初始化前执行，可用于修改Bean、属性校验等。<br/><br/>postProcessAfterInitialization()：在初始化后执行，SpringAOP的动态代理就是在此方法中实现的。<br/><br/>BeanPostProcessor可以对容器中的所有Bean生效，是Spring扩展机制的重要组成部分。"
+        },
+        {
+            "id": 229,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请说明Spring Bean的所有作用域及其适用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) singleton（单例，默认值）：整个容器中只有一个实例，适合无状态的Service、DAO等；2) prototype（多例）：每次获取创建新实例，适合有状态的Bean；3) request（请求）：WEB环境中一次请求创建一个实例，适合请求级别的数据；4) session（会话）：WEB环境中一次会话创建一个实例，适合用户会话数据；5) application（应用）：WEB环境中创建上下文对象时创建一次，适合应用级别的全局数据；6) websocket：WEB环境中创建WebSocket时创建一次，适合WebSocket会话数据。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) singleton（单例，默认值）：整个容器中只有一个实例，适合无状态的Service、DAO等；2) prototype（多例）：每次获取创建新实例，适合有状态的Bean；3) request（请求）：WEB环境中一次请求创建一个实例，适合请求级别的数据；4) session（会话）：WEB环境中一次会话创建一个实例，适合用户会话数据；5) application（应用）：WEB环境中创建上下文对象时创建一次，适合应用级别的全局数据；6) websocket：WEB环境中创建WebSocket时创建一次，适合WebSocket会话数据。"
+        },
+        {
+            "id": 230,
+            "category": "设计模式",
+            "type": "ESSAY",
+            "question": "请阐述程序架构设计中如何实现高内聚低耦合。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "内聚是模块内部一系列相关功能的相关程度，耦合是元素与元素之间的关系。实现高内聚低耦合的方式：1) 定制合理的职责划分，遵循单一职责原则，让每个类只做一件事；2) 使用接口而不是继承，接口将功能延迟到子类中实现，提高灵活性；3) 使用动态代理和SpringAOP，将横切关注点（如日志、事务）与业务逻辑分离，降低耦合度。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "内聚是模块内部一系列相关功能的相关程度，耦合是元素与元素之间的关系。实现高内聚低耦合的方式：1) 定制合理的职责划分，遵循单一职责原则，让每个类只做一件事；2) 使用接口而不是继承，接口将功能延迟到子类中实现，提高灵活性；3) 使用动态代理和SpringAOP，将横切关注点（如日志、事务）与业务逻辑分离，降低耦合度。"
+        },
+        {
+            "id": 231,
+            "category": "Spring",
+            "type": "SORTING",
+            "question": "请按Spring单例Bean的生命周期执行顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "实例化所有Bean",
+                "属性注入",
+                "初始化Bean",
+                "Bean就绪",
+                "销毁Bean"
+            ],
+            "correctOrder": [0, 1, 2, 3, 4],
+            "answerHtml": null
+        },
+        {
+            "id": 232,
+            "category": "Spring",
+            "type": "SORTING",
+            "question": "请按BeanPostProcessor两个方法的执行时机排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "postProcessBeforeInitialization()初始化前执行",
+                "Bean初始化",
+                "postProcessAfterInitialization()初始化后执行"
+            ],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 233,
+            "category": "Spring",
+            "type": "SORTING",
+            "question": "请按@PostConstruct注解的执行时机排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": ["属性注入", "@PostConstruct执行", "Bean初始化"],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 234,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring核心环境，以下说法错误的是？",
+            "options": [
+                "Spring核心包包括Core、Beans、Context、Expression",
+                "Spring框架不需要任何依赖",
+                "Spring只能运行在Web容器中",
+                "Spring必须使用XML配置",
+                "Spring不支持注解配置"
+            ],
+            "correctAnswers": [1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 235,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于IOC容器，以下说法错误的是？",
+            "options": [
+                "IOC容器负责管理Bean的生命周期",
+                "IOC容器可以自动装配依赖关系",
+                "IOC容器只能管理单例Bean",
+                "IOC容器不支持多例Bean",
+                "IOC容器必须在应用启动时加载所有Bean"
+            ],
+            "correctAnswers": [2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 236,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Bean的作用域，以下说法错误的是？",
+            "options": [
+                "singleton是默认的作用域",
+                "prototype作用域的Bean由容器负责销毁",
+                "request作用域可以在非WEB环境中使用",
+                "session作用域在一次请求中有效",
+                "application作用域在整个Web应用中有效"
+            ],
+            "correctAnswers": [1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 237,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Bean的生命周期回调，以下说法错误的是？",
+            "options": [
+                "@PostConstruct在初始化前执行",
+                "@PreDestroy在销毁前执行",
+                "BeanPostProcessor只能用于单个Bean",
+                "postProcessBeforeInitialization在初始化后执行",
+                "postProcessAfterInitialization用于SpringAOP动态代理"
+            ],
+            "correctAnswers": [2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 238,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于程序架构设计，以下说法错误的是？",
+            "options": [
+                "内聚是模块内部功能的相关程度",
+                "耦合是元素之间的关系",
+                "应该追求低内聚高耦合",
+                "使用继承比使用接口更好",
+                "SpringAOP可以降低耦合度"
+            ],
+            "correctAnswers": [2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 239,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Bean的默认行为，以下说法错误的是？",
+            "options": [
+                "默认作用域是singleton",
+                "默认在容器启动时创建单例Bean",
+                "默认在容器关闭时销毁多例Bean",
+                "默认支持@PostConstruct注解",
+                "默认开启BeanPostProcessor扩展"
+            ],
+            "correctAnswers": [2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 240,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring IOC的实现方式，以下说法错误的是？",
+            "options": [
+                "依赖注入是IOC的常见实现方式",
+                "IOC让对象自己创建依赖",
+                "IOC可以降低耦合度",
+                "IOC由外界实体传递依赖引用",
+                "IOC必须使用XML配置"
+            ],
+            "correctAnswers": [1, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 241,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring框架的核心特性，以下说法正确的是？",
+            "options": [
+                "IOC/DI是Spring的核心特性之一",
+                "AOP是Spring的核心特性之一",
+                "Spring可以集成各种框架和组件",
+                "Spring只能用于Web开发",
+                "Spring不支持事务管理"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 242,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Core包的作用，以下说法错误的是？",
+            "options": [
+                "Core包提供了Spring框架的基础功能",
+                "Core包包含BeanFactory是IOC容器的核心",
+                "Core包负责资源访问和类型转换",
+                "Core包用于Web请求处理",
+                "Core包包含JDBC模板类"
+            ],
+            "correctAnswers": [3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 243,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Beans包的作用，以下说法错误的是？",
+            "options": [
+                "Beans包包含BeanFactory及相关接口",
+                "Beans包负责Bean的配置和管理",
+                "Beans包包含JDBC操作相关类",
+                "Beans包用于处理HTTP请求",
+                "Beans包包含Bean的生命周期管理"
+            ],
+            "correctAnswers": [2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 244,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Context包的作用，以下说法正确的是？",
+            "options": [
+                "Context包提供ApplicationContext接口",
+                "Context包是BeanFactory的扩展",
+                "Context包提供国际化支持",
+                "Context包提供事件发布机制",
+                "Context包包含SQL执行功能"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 245,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Expression（SpEL）的作用，以下说法错误的是？",
+            "options": [
+                "SpEL用于在运行时查询和操作对象图",
+                "SpEL支持方法调用和属性访问",
+                "SpEL只能用于XML配置中",
+                "SpEL不支持运算符表达式",
+                "SpEL可以用于注解配置中"
+            ],
+            "correctAnswers": [2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 246,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于依赖注入的方式，以下说法正确的是？",
+            "options": [
+                "构造器注入通过构造函数传递依赖",
+                "Setter注入通过Setter方法传递依赖",
+                "字段注入通过反射直接注入字段",
+                "接口注入需要类实现特定接口",
+                "Spring只支持构造器注入"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 247,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于构造器注入和Setter注入的区别，以下说法错误的是？",
+            "options": [
+                "构造器注入保证依赖不可变",
+                "构造器注入保证依赖不为null",
+                "Setter注入支持可选依赖",
+                "Setter注入比构造器注入更好",
+                "构造器注入会导致循环依赖"
+            ],
+            "correctAnswers": [3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 248,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring的自动装配（Autowiring），以下说法正确的是？",
+            "options": [
+                "自动装配可以按类型装配（byType）",
+                "自动装配可以按名称装配（byName）",
+                "自动装配可以使用@Autowire注解",
+                "自动装配可以使用@Resource注解",
+                "自动装配一定会成功"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 249,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring的循环依赖问题，以下说法正确的是？",
+            "options": [
+                "Spring可以解决单例Bean的构造器注入循环依赖",
+                "Spring可以解决单例Bean的Setter注入循环依赖",
+                "Spring无法解决原型Bean的循环依赖",
+                "三级缓存用于解决循环依赖",
+                "循环依赖一定会导致应用启动失败"
+            ],
+            "correctAnswers": [1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 250,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请说明Spring IOC容器的核心接口及其层次关系。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring IOC容器的核心接口层次：1) BeanFactory：最基础的容器接口，提供基本的Bean获取功能，面向Spring本身；2) ListableBeanFactory：BeanFactory的扩展，支持枚举所有Bean；3) HierarchicalBeanFactory：支持父子容器层次结构；4) ApplicationContext：BeanFactory的子接口，面向应用开发者，提供更多企业级特性如国际化、事件发布、资源加载等；5) ConfigurableApplicationContext：支持配置和生命周期管理的ApplicationContext扩展。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring IOC容器的核心接口层次：1) BeanFactory：最基础的容器接口，提供基本的Bean获取功能，面向Spring本身；2) ListableBeanFactory：BeanFactory的扩展，支持枚举所有Bean；3) HierarchicalBeanFactory：支持父子容器层次结构；4) ApplicationContext：BeanFactory的子接口，面向应用开发者，提供更多企业级特性如国际化、事件发布、资源加载等；5) ConfigurableApplicationContext：支持配置和生命周期管理的ApplicationContext扩展。"
+        },
+        {
+            "id": 251,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请详细说明Spring Bean的完整生命周期过程。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Bean的完整生命周期：1) 实例化：通过反射创建Bean实例；2) 属性赋值：注入依赖和配置属性；3)  Aware接口回调：如BeanNameAware、BeanFactoryAware等；4) BeanPostProcessor前置处理：postProcessBeforeInitialization()；5) 初始化回调：@PostConstruct、InitializingBean.afterPropertiesSet()、自定义init-method；6) BeanPostProcessor后置处理：postProcessAfterInitialization()；7) Bean就绪：可以使用；8) 销毁回调：@PreDestroy、DisposableBean.destroy()、自定义destroy-method；9) 容器关闭时销毁（仅单例）。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Bean的完整生命周期：1) 实例化：通过反射创建Bean实例；2) 属性赋值：注入依赖和配置属性；3)  Aware接口回调：如BeanNameAware、BeanFactoryAware等；4) BeanPostProcessor前置处理：postProcessBeforeInitialization()；5) 初始化回调：@PostConstruct、InitializingBean.afterPropertiesSet()、自定义init-method；6) BeanPostProcessor后置处理：postProcessAfterInitialization()；7) Bean就绪：可以使用；8) 销毁回调：@PreDestroy、DisposableBean.destroy()、自定义destroy-method；9) 容器关闭时销毁（仅单例）。"
+        },
+        {
+            "id": 252,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请说明Spring中BeanPostProcessor和BeanFactoryPostProcessor的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "BeanPostProcessor：1) 作用于Bean实例级别，对每个Bean的初始化过程进行干预；2) 在Bean初始化前后执行；3) postProcessBeforeInitialization()在初始化前执行，postProcessAfterInitialization()在初始化后执行；4) 常用于AOP动态代理、属性修改等。\n\nBeanFactoryPostProcessor：1) 作用于Bean定义级别，在Bean实例化之前修改Bean的定义（配置元数据）；2) 在容器加载完Bean定义之后、Bean实例化之前执行；3) 可以修改Bean的属性值、替换Bean定义等；4) 常用于属性占位符替换、配置增强等。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "BeanPostProcessor：1) 作用于Bean实例级别，对每个Bean的初始化过程进行干预；2) 在Bean初始化前后执行；3) postProcessBeforeInitialization()在初始化前执行，postProcessAfterInitialization()在初始化后执行；4) 常用于AOP动态代理、属性修改等。<br/><br/>BeanFactoryPostProcessor：1) 作用于Bean定义级别，在Bean实例化之前修改Bean的定义（配置元数据）；2) 在容器加载完Bean定义之后、Bean实例化之前执行；3) 可以修改Bean的属性值、替换Bean定义等；4) 常用于属性占位符替换、配置增强等。"
+        },
+        {
+            "id": 253,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请说明Spring中singleton和prototype作用域的区别及使用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "singleton（单例）：1) 整个Spring容器中只有一个Bean实例；2) 默认作用域；3) 容器启动时创建（预加载），容器关闭时销毁；4) 生命周期由Spring容器管理；5) 适合无状态的Bean，如Service、DAO、Controller等。\n\nprototype（多例）：1) 每次获取都创建新的Bean实例；2) 容器启动时不创建，获取时才创建；3) 容器关闭时不销毁，由JVM垃圾回收处理；4) 生命周期由使用者管理；5) 适合有状态的Bean，如包含用户会话数据的对象。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "singleton（单例）：1) 整个Spring容器中只有一个Bean实例；2) 默认作用域；3) 容器启动时创建（预加载），容器关闭时销毁；4) 生命周期由Spring容器管理；5) 适合无状态的Bean，如Service、DAO、Controller等。<br/><br/>prototype（多例）：1) 每次获取都创建新的Bean实例；2) 容器启动时不创建，获取时才创建；3) 容器关闭时不销毁，由JVM垃圾回收处理；4) 生命周期由使用者管理；5) 适合有状态的Bean，如包含用户会话数据的对象。"
+        },
+        {
+            "id": 254,
+            "category": "Spring",
+            "type": "ESSAY",
+            "question": "请说明Spring WEB环境中的作用域request、session、application的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "request作用域：1) 每次HTTP请求创建一个新的Bean实例；2) 请求结束后Bean失效；3) 适合存储请求级别的数据，如请求参数、临时数据。\n\nsession作用域：1) 每次HTTP会话创建一个新的Bean实例；2) 会话结束后Bean失效；3) 适合存储用户会话数据，如登录状态、购物车。\n\napplication作用域：1) 整个Web应用生命周期内只有一个Bean实例；2) ServletContext级别；3) 适合存储应用级别的全局数据，如配置信息、缓存数据。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "request作用域：1) 每次HTTP请求创建一个新的Bean实例；2) 请求结束后Bean失效；3) 适合存储请求级别的数据，如请求参数、临时数据。<br/><br/>session作用域：1) 每次HTTP会话创建一个新的Bean实例；2) 会话结束后Bean失效；3) 适合存储用户会话数据，如登录状态、购物车。<br/><br/>application作用域：1) 整个Web应用生命周期内只有一个Bean实例；2) ServletContext级别；3) 适合存储应用级别的全局数据，如配置信息、缓存数据。"
+        },
+        {
+            "id": 255,
+            "category": "Spring",
+            "type": "SORTING",
+            "question": "请按Spring Bean生命周期中Aware接口回调的执行顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "BeanNameAware.setBeanName()",
+                "BeanFactoryAware.setBeanFactory()",
+                "ApplicationContextAware.setApplicationContext()"
+            ],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 256,
+            "category": "Spring",
+            "type": "SORTING",
+            "question": "请按Spring Bean初始化回调的执行顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "@PostConstruct注解方法",
+                "InitializingBean.afterPropertiesSet()",
+                "自定义init-method"
+            ],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 257,
+            "category": "Spring",
+            "type": "SORTING",
+            "question": "请按Spring Bean销毁回调的执行顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "@PreDestroy注解方法",
+                "DisposableBean.destroy()",
+                "自定义destroy-method"
+            ],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 258,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Bean的作用域，以下说法错误的是？",
+            "options": [
+                "singleton作用域的Bean在容器启动时创建",
+                "prototype作用域的Bean在获取时创建",
+                "request作用域可以在非WEB环境中使用",
+                "session作用域的Bean在每次请求时创建",
+                "websocket作用域在创建WebSocket时创建"
+            ],
+            "correctAnswers": [2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 259,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring IOC容器的启动过程，以下说法错误的是？",
+            "options": [
+                "首先加载Bean定义",
+                "然后实例化所有Bean",
+                "接着进行属性注入",
+                "最后执行初始化回调",
+                "BeanFactory启动时会立即创建所有Bean"
+            ],
+            "correctAnswers": [1, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 260,
+            "category": "Spring",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring的依赖注入，以下说法错误的是？",
+            "options": [
+                "依赖注入是IOC的实现方式",
+                "依赖注入可以降低耦合度",
+                "依赖注入只能注入Bean",
+                "依赖注入必须使用XML配置",
+                "依赖注入可以注入基本数据类型"
+            ],
+            "correctAnswers": [2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 261,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于代理模式的概念，以下说法正确的是？",
+            "options": [
+                "代理模式用于对真实角色的功能进行修改",
+                "代理模式可以代理真实角色实现它的功能",
+                "代理模式的目的是增强原有的功能",
+                "代理模式会替换掉真实对象",
+                "代理模式只能用于Web开发"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 262,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于静态代理模式的特点，以下说法正确的是？",
+            "options": [
+                "需要手动编写代理对象",
+                "代理对象和目标对象实现同一接口",
+                "代理对象持有目标对象的引用",
+                "目标对象新增功能时代理对象也要手动修改",
+                "静态代理可以动态更新代理方法"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 263,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于静态代理的实现要素，以下说法正确的是？",
+            "options": [
+                "需要约定接口（合同）",
+                "需要定义真实角色（资源的真实拥有者）",
+                "需要定义代理角色（对功能进行代理增强）",
+                "代理对象创建时必须传递真实对象",
+                "代理对象不需要实现接口"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 264,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于动态代理模式的特点，以下说法正确的是？",
+            "options": [
+                "在不修改源码的情况下对原有对象进行动态代理",
+                "可以对原有对象的方法进行增强",
+                "借助JDK的Proxy类生成代理对象",
+                "需要传递与目标对象一样的类加载器",
+                "需要传递目标对象所实现的接口的字节码对象"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 265,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Proxy.newProxyInstance()方法的参数，以下说法正确的是？",
+            "options": [
+                "ClassLoader loader：与目标对象一样的类加载器",
+                "Class[] interfaces：目标对象所有实现的接口",
+                "InvocationHandler h：代理对象的调度器",
+                "返回值是生成的代理对象",
+                "参数interfaces可以传null"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 266,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于InvocationHandler接口，以下说法正确的是？",
+            "options": [
+                "invoke方法会在代理对象执行任何方法时被调用",
+                "Object invoke(Object proxy, Method method, Object[] args)是核心方法",
+                "proxy参数是生成的代理对象",
+                "method参数是代理的方法对象",
+                "args参数是当前调用方法的参数"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 267,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于动态代理的实现，以下说法正确的是？",
+            "options": [
+                "需要定义一个调度类实现InvocationHandler接口",
+                "调度类中持有真实对象的引用",
+                "在invoke方法中通过method.getName()获取方法名进行判断",
+                "使用method.invoke(真实对象)调用原始方法",
+                "Proxy.newProxyInstance()返回的代理对象可以直接强转为接口类型"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 268,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于静态代理和动态代理的区别，以下说法正确的是？",
+            "options": [
+                "静态代理需要手动编写代理对象",
+                "动态代理由JDK API在内存中动态生成",
+                "静态代理目标对象新增功能时代理对象也要手动修改",
+                "动态代理可以实现所有功能的统一代理",
+                "动态代理比静态代理性能差"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 269,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于动态代理的好处，以下说法正确的是？",
+            "options": [
+                "代理的主要目的是对原有对象进行增强",
+                "动态代理可以动态更新代理方法",
+                "代理对象执行任何方法都会走调度类的invoke方法",
+                "实现了所有功能的统一代理",
+                "动态代理不需要实现接口"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 270,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于代理模式中的接口约定，以下说法正确的是？",
+            "options": [
+                "目标对象和代理对象实现同一接口",
+                "这样可以保证目标对象的所有方法代理对象都可以代理到",
+                "接口定义了需要代理的功能",
+                "代理对象可以不实现接口直接代理",
+                "接口在代理模式中是可选的"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 271,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于静态代理的缺点，以下说法正确的是？",
+            "options": [
+                "需要手动编写代理对象，工作量大",
+                "目标对象新增功能首先要改接口",
+                "目标对象新增功能后代理对象也要手动新增代理方法",
+                "无法做到动态更新",
+                "静态代理不支持多态"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 272,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于动态代理的invoke方法，以下说法错误的是？",
+            "options": [
+                "invoke方法的proxy参数是代理对象",
+                "invoke方法的method参数是正在执行的方法",
+                "invoke方法的args参数是方法的返回值",
+                "invoke方法的返回值就是代理对象调用任何方法的返回值",
+                "在invoke方法中使用proxy会出现递归调用"
+            ],
+            "correctAnswers": [2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 273,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于代理模式的应用场景，以下说法错误的是？",
+            "options": [
+                "代理模式可以用于功能增强",
+                "代理模式可以用于权限控制",
+                "代理模式可以用于日志记录",
+                "代理模式只能用于数据库操作",
+                "代理模式不能用于事务管理"
+            ],
+            "correctAnswers": [3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 274,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于静态代理的实现，以下说法错误的是？",
+            "options": [
+                "代理类必须实现和目标类相同的接口",
+                "代理类持有目标类的引用",
+                "代理类可以在调用目标方法前后添加额外逻辑",
+                "代理类可以不实现接口",
+                "创建代理对象时不需要传递目标对象"
+            ],
+            "correctAnswers": [3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 275,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于JDK动态代理的限制，以下说法错误的是？",
+            "options": [
+                "JDK动态代理只能代理实现了接口的类",
+                "JDK动态代理可以代理没有实现接口的类",
+                "JDK动态代理基于接口实现",
+                "JDK动态代理使用反射机制",
+                "JDK动态代理生成的代理类继承自Proxy类"
+            ],
+            "correctAnswers": [1],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 276,
+            "category": "设计模式",
+            "type": "ESSAY",
+            "question": "请简述代理模式的概念及其目的。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "代理模式是一种结构型设计模式，用于对真实角色的功能进行修改，代理真实角色实现它的功能。目的：增强原有的功能。在代理模式中，代理对象和目标对象实现同一接口，这样就可以保证目标对象的所有方法代理对象都可以代理到。代理对象可以在调用目标方法前后添加额外的逻辑，实现对原有对象功能的增强。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "代理模式是一种结构型设计模式，用于对真实角色的功能进行修改，代理真实角色实现它的功能。目的：增强原有的功能。在代理模式中，代理对象和目标对象实现同一接口，这样就可以保证目标对象的所有方法代理对象都可以代理到。代理对象可以在调用目标方法前后添加额外的逻辑，实现对原有对象功能的增强。"
+        },
+        {
+            "id": 277,
+            "category": "设计模式",
+            "type": "ESSAY",
+            "question": "请说明静态代理模式的实现步骤及特点。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "实现步骤：1) 约定接口（合同）：定义需要代理的功能接口；2) 定义真实角色（资源的真实拥有者）：实现接口，提供原始功能；3) 定义代理角色：实现同一接口，持有真实对象的引用，在构造方法中传递真实对象；4) 在代理方法中调用真实对象的方法，并在调用前后添加增强逻辑。\n\n特点：需要手动编写代理对象；目标对象新增功能（首先要改接口）时，代理对象也要手动新增代理方法；无法做到动态更新。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "实现步骤：1) 约定接口（合同）：定义需要代理的功能接口；2) 定义真实角色（资源的真实拥有者）：实现接口，提供原始功能；3) 定义代理角色：实现同一接口，持有真实对象的引用，在构造方法中传递真实对象；4) 在代理方法中调用真实对象的方法，并在调用前后添加增强逻辑。<br/><br/>特点：需要手动编写代理对象；目标对象新增功能（首先要改接口）时，代理对象也要手动新增代理方法；无法做到动态更新。"
+        },
+        {
+            "id": 278,
+            "category": "设计模式",
+            "type": "ESSAY",
+            "question": "请说明动态代理模式的实现原理及核心组件。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "动态代理是在不修改源码的情况下对原有对象进行动态代理，对原有对象的方法进行增强。核心组件：1) Proxy类：JDK提供的用于生成代理对象的类，通过newProxyInstance()方法创建代理对象，需要传递与目标对象一样的类加载器、目标对象所实现的接口的字节码对象、调度类；2) InvocationHandler接口：代理对象的调度器，实现invoke()方法，代理对象执行任何方法都会走invoke方法，实现所有功能的统一代理。JDK会根据参数在内存中动态生成一个代理对象。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "动态代理是在不修改源码的情况下对原有对象进行动态代理，对原有对象的方法进行增强。核心组件：1) Proxy类：JDK提供的用于生成代理对象的类，通过newProxyInstance()方法创建代理对象，需要传递与目标对象一样的类加载器、目标对象所实现的接口的字节码对象、调度类；2) InvocationHandler接口：代理对象的调度器，实现invoke()方法，代理对象执行任何方法都会走invoke方法，实现所有功能的统一代理。JDK会根据参数在内存中动态生成一个代理对象。"
+        },
+        {
+            "id": 279,
+            "category": "设计模式",
+            "type": "ESSAY",
+            "question": "请比较静态代理和动态代理的区别及各自优缺点。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "静态代理：1) 需要手动编写代理对象；2) 代理对象和目标对象实现同一接口；3) 目标对象新增功能（首先要改接口）时，代理对象也要手动新增代理方法；4) 无法做到动态更新；5) 代码直观，易于理解。\n\n动态代理：1) 借助JDK的Proxy API在内存中动态生成代理对象；2) 需要传递与目标对象一样的类加载器、目标对象所实现的接口的字节码对象、调度类；3) 代理对象执行任何方法都会走调度类的invoke方法，实现所有功能的统一代理；4) 可以动态更新代理方法；5) 不需要手动编写代理类，灵活性高。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "静态代理：1) 需要手动编写代理对象；2) 代理对象和目标对象实现同一接口；3) 目标对象新增功能（首先要改接口）时，代理对象也要手动新增代理方法；4) 无法做到动态更新；5) 代码直观，易于理解。<br/><br/>动态代理：1) 借助JDK的Proxy API在内存中动态生成代理对象；2) 需要传递与目标对象一样的类加载器、目标对象所实现的接口的字节码对象、调度类；3) 代理对象执行任何方法都会走调度类的invoke方法，实现所有功能的统一代理；4) 可以动态更新代理方法；5) 不需要手动编写代理类，灵活性高。"
+        },
+        {
+            "id": 280,
+            "category": "设计模式",
+            "type": "ESSAY",
+            "question": "请说明Proxy.newProxyInstance()方法的三个参数的作用。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Proxy.newProxyInstance()方法用于生成一个代理对象，包含三个参数：1) ClassLoader loader：与目标对象一样的类加载器，用于加载生成的代理类；2) Class[] interfaces：目标对象所有实现的接口的字节码数组，JDK会根据这些接口生成对应的代理类；3) InvocationHandler h：代理对象的调度器，传一个匿名内部类或实现类，并重写invoke()方法来实现代理逻辑。返回值是生成的代理对象（Object类型，需要强转）。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Proxy.newProxyInstance()方法用于生成一个代理对象，包含三个参数：1) ClassLoader loader：与目标对象一样的类加载器，用于加载生成的代理类；2) Class[] interfaces：目标对象所有实现的接口的字节码数组，JDK会根据这些接口生成对应的代理类；3) InvocationHandler h：代理对象的调度器，传一个匿名内部类或实现类，并重写invoke()方法来实现代理逻辑。返回值是生成的代理对象（Object类型，需要强转）。"
+        },
+        {
+            "id": 281,
+            "category": "设计模式",
+            "type": "ESSAY",
+            "question": "请说明InvocationHandler接口中invoke()方法的三个参数和返回值的作用。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "invoke()方法签名：Object invoke(Object proxy, Method method, Object[] args)。\n\n参数作用：1) Object proxy：生成的代理对象，在方法中使用会出现递归调用；2) Method method：代理的方法对象，可以通过method.getName()获取方法名进行判断，通过method.invoke(目标对象)调用原始方法；3) Object[] args：当前调用方法传递的参数数组。\n\n返回值：该方法的返回值就是代理对象调用任何方法的返回值。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "invoke()方法签名：Object invoke(Object proxy, Method method, Object[] args)。<br/><br/>参数作用：1) Object proxy：生成的代理对象，在方法中使用会出现递归调用；2) Method method：代理的方法对象，可以通过method.getName()获取方法名进行判断，通过method.invoke(目标对象)调用原始方法；3) Object[] args：当前调用方法传递的参数数组。<br/><br/>返回值：该方法的返回值就是代理对象调用任何方法的返回值。"
+        },
+        {
+            "id": 282,
+            "category": "设计模式",
+            "type": "SORTING",
+            "question": "请按静态代理的执行流程排列代理方法调用过程：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "调用代理对象的方法",
+                "执行代理方法中的前置增强逻辑",
+                "调用目标对象的方法",
+                "执行代理方法中的后置增强逻辑"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 283,
+            "category": "设计模式",
+            "type": "SORTING",
+            "question": "请按动态代理的执行流程排列代理方法调用过程：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "调用代理对象的方法",
+                "进入调度类的invoke()方法",
+                "通过method.invoke()调用目标对象方法",
+                "执行增强逻辑并返回结果"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 284,
+            "category": "设计模式",
+            "type": "SORTING",
+            "question": "请按JDK动态代理创建代理对象的步骤排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "创建目标对象（真实拥有者）",
+                "创建调度类实现InvocationHandler接口",
+                "调用Proxy.newProxyInstance()生成代理对象",
+                "将代理对象强转为接口类型使用"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 285,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于代理模式，以下说法错误的是？",
+            "options": [
+                "代理对象和目标对象必须实现同一接口",
+                "静态代理可以在运行时动态生成代理类",
+                "动态代理的invoke方法只在调用目标方法时执行",
+                "代理模式不能用于功能增强",
+                "JDK动态代理基于反射机制实现"
+            ],
+            "correctAnswers": [1, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 286,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于动态代理的调度类，以下说法错误的是？",
+            "options": [
+                "调度类必须实现InvocationHandler接口",
+                "调度类中必须持有目标对象的引用",
+                "调度类的invoke方法只会被调用一次",
+                "调度类可以访问代理对象proxy参数",
+                "调度类的invoke方法返回值是目标方法的返回值"
+            ],
+            "correctAnswers": [2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 287,
+            "category": "设计模式",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于代理模式的应用，以下说法错误的是？",
+            "options": [
+                "Spring AOP基于动态代理实现",
+                "代理模式可以用于事务管理",
+                "代理模式可以用于日志记录",
+                "静态代理比动态代理更常用",
+                "代理模式只能用于增强方法"
+            ],
+            "correctAnswers": [3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
         }
     ]
 }

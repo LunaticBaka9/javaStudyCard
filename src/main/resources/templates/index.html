@@ -1,182 +1,278 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java知识点记忆卡</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Java知识点记忆卡</h1>
-            <p class="subtitle">通过练习题巩固Java核心知识</p>
-        </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Java知识点记忆卡</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Java知识点记忆卡</h1>
+                <p class="subtitle">通过练习题巩固Java核心知识</p>
+            </header>
 
-        <main>
-            <section class="summary-bar">
-                <div class="summary-item">
-                    <span class="summary-number" th:text="${totalCount}"></span>
-                    <span class="summary-label">总题数</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-number" th:text="${categoryStats.size()}"></span>
-                    <span class="summary-label">知识分类</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-number">3</span>
-                    <span class="summary-label">题型</span>
-                </div>
-            </section>
+            <main>
+                <section class="summary-bar">
+                    <div class="summary-item">
+                        <span
+                            class="summary-number"
+                            th:text="${totalCount}"
+                        ></span>
+                        <span class="summary-label">总题数</span>
+                    </div>
+                    <div class="summary-item">
+                        <span
+                            class="summary-number"
+                            th:text="${categoryStats.size()}"
+                        ></span>
+                        <span class="summary-label">知识分类</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-number">3</span>
+                        <span class="summary-label">题型</span>
+                    </div>
+                </section>
 
-            <section class="bank-selector">
-                <div class="bank-selector-row">
-                    <label>当前题库：</label>
-                    <select id="bankSelect" onchange="switchBank(this.value)">
-                        <option th:each="bank : ${availableBanks}" 
-                                th:value="${bank}" 
+                <section class="bank-selector">
+                    <div class="bank-selector-row">
+                        <label>当前题库：</label>
+                        <select
+                            id="bankSelect"
+                            onchange="switchBank(this.value)"
+                        >
+                            <option
+                                th:each="bank : ${availableBanks}"
+                                th:value="${bank}"
                                 th:text="${bank}"
-                                th:selected="${bank == currentBank}"></option>
-                    </select>
-                    <button class="btn-import" onclick="showImportModal()">导入题库</button>
-                </div>
-            </section>
+                                th:selected="${bank == currentBank}"
+                            ></option>
+                        </select>
+                        <button class="btn-import" onclick="showImportModal()">
+                            导入题库
+                        </button>
+                    </div>
+                </section>
 
-            <form th:action="@{/quiz}" method="get" class="quiz-form">
-                <div class="form-group">
-                    <label for="category">知识分类</label>
-                    <select id="category" name="category">
-                        <option value="all">全部分类</option>
-                        <option th:each="cat : ${categories}" th:value="${cat}" th:text="${cat}"></option>
-                    </select>
-                </div>
+                <form th:action="@{/quiz}" method="get" class="quiz-form">
+                    <div class="form-group">
+                        <label for="category">知识分类</label>
+                        <select id="category" name="category">
+                            <option value="all">全部分类</option>
+                            <option
+                                th:each="cat : ${categories}"
+                                th:value="${cat}"
+                                th:text="${cat}"
+                            ></option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="type">题目类型</label>
-                    <select id="type" name="type">
-                        <option value="MIXED">综合（所有类型）</option>
-                        <option value="MULTIPLE_CHOICE">多选题</option>
-                        <option value="ESSAY">问答题</option>
-                        <option value="SORTING">排序题</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="count">题目数量</label>
-                    <input type="number" id="count" name="count" min="1" max="50" value="10">
-                </div>
-
-                <button type="submit" class="btn-primary">开始练习</button>
-            </form>
-
-            <section class="stats">
-                <h2>题库概览</h2>
-                <div class="stats-grid">
-                    <div class="stat-card" th:each="cat, stat : ${categoryStats}">
-                        <h3 class="stat-name" th:text="${cat.key}"></h3>
-                        <div class="stat-numbers">
-                            <span class="stat-total">
-                                <span class="stat-value" th:text="${cat.value['total']}"></span>
-                                <span class="stat-unit">题</span>
-                            </span>
-                            <span class="stat-detail">
-                                <span class="stat-type-mc" th:text="'多选' + ${cat.value['multiple']}"></span>
-                                <span class="stat-divider">|</span>
-                                <span class="stat-type-essay" th:text="'问答' + ${cat.value['essay']}"></span>
-                                <span class="stat-divider">|</span>
-                                <span class="stat-type-sorting" th:text="'排序' + ${cat.value['sorting']}"></span>
-                            </span>
+                    <div class="form-group">
+                        <label>题目类型</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input
+                                    type="checkbox"
+                                    name="types"
+                                    value="MULTIPLE_CHOICE"
+                                />
+                                <span>多选题</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input
+                                    type="checkbox"
+                                    name="types"
+                                    value="ESSAY"
+                                />
+                                <span>问答题</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input
+                                    type="checkbox"
+                                    name="types"
+                                    value="SORTING"
+                                />
+                                <span>排序题</span>
+                            </label>
                         </div>
-                        <a class="stat-link" th:href="@{/questions(category=${cat.key})}">查看题目</a>
                     </div>
-                </div>
-            </section>
-        </main>
 
-        <div class="modal-overlay" id="importModal">
-            <div class="modal">
-                <div class="modal-header">
-                    <h2>导入题库</h2>
-                    <button class="modal-close" onclick="hideImportModal()">&times;</button>
-                </div>
-                <div class="modal-body">
                     <div class="form-group">
-                        <label for="bankName">题库名称</label>
-                        <input type="text" id="bankName" placeholder="输入题库名称">
+                        <label for="count">题目数量</label>
+                        <input
+                            type="number"
+                            id="count"
+                            name="count"
+                            min="1"
+                            max="50"
+                            value="10"
+                        />
                     </div>
-                    <div class="form-group">
-                        <label for="bankFile">选择JSON文件</label>
-                        <input type="file" id="bankFile" accept=".json">
+
+                    <button type="submit" class="btn-primary">开始练习</button>
+                </form>
+
+                <section class="stats">
+                    <h2>题库概览</h2>
+                    <div class="stats-grid">
+                        <div
+                            class="stat-card"
+                            th:each="cat, stat : ${categoryStats}"
+                        >
+                            <h3 class="stat-name" th:text="${cat.key}"></h3>
+                            <div class="stat-numbers">
+                                <span class="stat-total">
+                                    <span
+                                        class="stat-value"
+                                        th:text="${cat.value['total']}"
+                                    ></span>
+                                    <span class="stat-unit">题</span>
+                                </span>
+                                <span class="stat-detail">
+                                    <span
+                                        class="stat-type-mc"
+                                        th:text="'多选' + ${cat.value['multiple']}"
+                                    ></span>
+                                    <span class="stat-divider">|</span>
+                                    <span
+                                        class="stat-type-essay"
+                                        th:text="'问答' + ${cat.value['essay']}"
+                                    ></span>
+                                    <span class="stat-divider">|</span>
+                                    <span
+                                        class="stat-type-sorting"
+                                        th:text="'排序' + ${cat.value['sorting']}"
+                                    ></span>
+                                </span>
+                            </div>
+                            <a
+                                class="stat-link"
+                                th:href="@{/questions(category=${cat.key})}"
+                                >查看题目</a
+                            >
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn-secondary-modal" onclick="hideImportModal()">取消</button>
-                        <button class="btn-primary" onclick="importBank()">导入</button>
+                </section>
+            </main>
+
+            <div class="modal-overlay" id="importModal">
+                <div class="modal">
+                    <div class="modal-header">
+                        <h2>导入题库</h2>
+                        <button class="modal-close" onclick="hideImportModal()">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="bankName">题库名称</label>
+                            <input
+                                type="text"
+                                id="bankName"
+                                placeholder="输入题库名称"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="bankFile">选择JSON文件</label>
+                            <input type="file" id="bankFile" accept=".json" />
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                class="btn-secondary-modal"
+                                onclick="hideImportModal()"
+                            >
+                                取消
+                            </button>
+                            <button class="btn-primary" onclick="importBank()">
+                                导入
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        function showImportModal() {
-            document.getElementById('importModal').classList.add('show');
-        }
-
-        function hideImportModal() {
-            document.getElementById('importModal').classList.remove('show');
-            document.getElementById('bankName').value = '';
-            document.getElementById('bankFile').value = '';
-        }
-
-        function switchBank(name) {
-            fetch('/api/bank/switch?name=' + encodeURIComponent(name), { method: 'POST' })
-                .then(res => {
-                    if (res.ok) {
-                        window.location.reload();
-                    } else {
-                        alert('切换题库失败');
+        <script>
+            // 确保至少选择一个题型
+            document
+                .querySelector(".quiz-form")
+                .addEventListener("submit", function (e) {
+                    const checkboxes = document.querySelectorAll(
+                        'input[name="types"]',
+                    );
+                    const checked = Array.from(checkboxes).filter(
+                        (cb) => cb.checked,
+                    );
+                    if (checked.length === 0) {
+                        // 如果没有选择任何题型，默认全选
+                        checkboxes.forEach((cb) => (cb.checked = true));
                     }
-                })
-                .catch(() => alert('切换题库失败'));
-        }
+                });
 
-        function importBank() {
-            const name = document.getElementById('bankName').value.trim();
-            const fileInput = document.getElementById('bankFile');
-            
-            if (!name) {
-                alert('请输入题库名称');
-                return;
-            }
-            if (fileInput.files.length === 0) {
-                alert('请选择JSON文件');
-                return;
+            function showImportModal() {
+                document.getElementById("importModal").classList.add("show");
             }
 
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const content = e.target.result;
-                const formData = new FormData();
-                formData.append('name', name);
-                formData.append('content', content);
+            function hideImportModal() {
+                document.getElementById("importModal").classList.remove("show");
+                document.getElementById("bankName").value = "";
+                document.getElementById("bankFile").value = "";
+            }
 
-                fetch('/api/bank/import', {
-                    method: 'POST',
-                    body: formData
+            function switchBank(name) {
+                fetch("/api/bank/switch?name=" + encodeURIComponent(name), {
+                    method: "POST",
                 })
-                .then(res => {
-                    if (res.ok) {
-                        hideImportModal();
-                        window.location.reload();
-                    } else {
-                        return res.text().then(text => { throw new Error(text); });
-                    }
-                })
-                .catch(err => alert('导入失败：' + err.message));
-            };
-            reader.readAsText(file);
-        }
-    </script>
-</body>
+                    .then((res) => {
+                        if (res.ok) {
+                            window.location.reload();
+                        } else {
+                            alert("切换题库失败");
+                        }
+                    })
+                    .catch(() => alert("切换题库失败"));
+            }
+
+            function importBank() {
+                const name = document.getElementById("bankName").value.trim();
+                const fileInput = document.getElementById("bankFile");
+
+                if (!name) {
+                    alert("请输入题库名称");
+                    return;
+                }
+                if (fileInput.files.length === 0) {
+                    alert("请选择JSON文件");
+                    return;
+                }
+
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const content = e.target.result;
+                    const formData = new FormData();
+                    formData.append("name", name);
+                    formData.append("content", content);
+
+                    fetch("/api/bank/import", {
+                        method: "POST",
+                        body: formData,
+                    })
+                        .then((res) => {
+                            if (res.ok) {
+                                hideImportModal();
+                                window.location.reload();
+                            } else {
+                                return res.text().then((text) => {
+                                    throw new Error(text);
+                                });
+                            }
+                        })
+                        .catch((err) => alert("导入失败：" + err.message));
+                };
+                reader.readAsText(file);
+            }
+        </script>
+    </body>
 </html>

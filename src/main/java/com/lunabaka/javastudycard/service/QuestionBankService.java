@@ -51,8 +51,26 @@ public class QuestionBankService {
                 .collect(Collectors.toList());
     }
 
+    public List<Question> getQuestionsByCategoryAndTypes(String category, List<QuestionType> types) {
+        List<Question> questions = getQuestionsByCategory(category);
+        if (types == null || types.isEmpty()) {
+            return questions;
+        }
+        return questions.stream()
+                .filter(q -> types.contains(q.getType()))
+                .collect(Collectors.toList());
+    }
+
     public List<Question> getRandomQuestions(String category, QuestionType type, int count) {
         List<Question> questions = getQuestionsByCategoryAndType(category, type);
+        Collections.shuffle(questions);
+        return questions.stream()
+                .limit(count)
+                .collect(Collectors.toList());
+    }
+
+    public List<Question> getRandomQuestions(String category, List<QuestionType> types, int count) {
+        List<Question> questions = getQuestionsByCategoryAndTypes(category, types);
         Collections.shuffle(questions);
         return questions.stream()
                 .limit(count)
@@ -76,9 +94,11 @@ public class QuestionBankService {
             Map<String, Integer> catStats = new LinkedHashMap<>();
             List<Question> catQuestions = getQuestionsByCategory(cat);
             catStats.put("total", catQuestions.size());
-            catStats.put("multiple", (int) catQuestions.stream().filter(q -> q.getType() == QuestionType.MULTIPLE_CHOICE).count());
+            catStats.put("multiple",
+                    (int) catQuestions.stream().filter(q -> q.getType() == QuestionType.MULTIPLE_CHOICE).count());
             catStats.put("essay", (int) catQuestions.stream().filter(q -> q.getType() == QuestionType.ESSAY).count());
-            catStats.put("sorting", (int) catQuestions.stream().filter(q -> q.getType() == QuestionType.SORTING).count());
+            catStats.put("sorting",
+                    (int) catQuestions.stream().filter(q -> q.getType() == QuestionType.SORTING).count());
             stats.put(cat, catStats);
         }
         return stats;
