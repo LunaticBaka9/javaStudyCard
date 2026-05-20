@@ -289,13 +289,20 @@ header h1 {
 .bank-selector-row select {
     flex: 1;
     padding: 0.6rem 0.85rem;
-    border: 2px solid var(--gray-200);
-    border-radius: var(--radius-sm);
+    border: 2px solid #e2e8f0;
+    border: 2px solid var(--gray-200, #e2e8f0);
+    border-radius: 6px;
+    border-radius: var(--radius-sm, 6px);
     font-size: 0.9rem;
-    background: var(--gray-50);
-    transition: var(--transition);
-    color: var(--gray-700);
+    background: #f8fafc;
+    background: var(--gray-50, #f8fafc);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--transition, all 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+    color: #334155;
+    color: var(--gray-700, #334155);
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -381,7 +388,7 @@ header h1 {
 }
 
 .checkbox-item {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.55rem 0.85rem;
@@ -392,6 +399,10 @@ header h1 {
     transition: var(--transition);
     font-size: 0.9rem;
     color: var(--gray-700);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .checkbox-item:hover {
@@ -399,22 +410,74 @@ header h1 {
     border-color: var(--primary-light);
 }
 
+/* 隐藏原生checkbox */
 .checkbox-item input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--primary);
-    cursor: pointer;
-    flex-shrink: 0;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
 }
 
-.checkbox-item input[type="checkbox"]:checked + span {
+/* 自定义checkbox框 - 使用span.checkbox-box */
+.checkbox-item .checkbox-box {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--gray-300);
+    border-radius: 4px;
+    background: white;
+    flex-shrink: 0;
+    transition: var(--transition);
+    position: relative;
+}
+
+/* 选中状态的自定义checkbox框 */
+.checkbox-item input[type="checkbox"]:checked + .checkbox-box {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+/* 选中状态的对勾 */
+.checkbox-item input[type="checkbox"]:checked + .checkbox-box::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* 选中状态的文本样式 */
+.checkbox-item input[type="checkbox"]:checked ~ .checkbox-label {
     color: var(--primary);
     font-weight: 600;
 }
 
+/* 选中状态的整体样式 */
 .checkbox-item:has(input[type="checkbox"]:checked) {
     background: var(--primary-bg);
     border-color: var(--primary);
+}
+
+/* 为不支持:has()的浏览器提供JavaScript辅助类 */
+.checkbox-item.checked {
+    background: var(--primary-bg);
+    border-color: var(--primary);
+}
+
+.checkbox-item.checked .checkbox-box {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkbox-item.checked .checkbox-label {
+    color: var(--primary);
+    font-weight: 600;
 }
 
 /* ============================================
