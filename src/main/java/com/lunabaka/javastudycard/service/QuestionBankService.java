@@ -16,12 +16,12 @@ public class QuestionBankService {
         this.bankManager = bankManager;
     }
 
-    private List<Question> getAllQuestions() {
-        return bankManager.getCurrentBank().getQuestions();
+    private List<Question> getAllQuestions(String bankName) {
+        return bankManager.loadBank(bankName).getQuestions();
     }
 
-    public List<String> getCategories() {
-        return getAllQuestions().stream()
+    public List<String> getCategories(String bankName) {
+        return getAllQuestions(bankName).stream()
                 .map(Question::getCategory)
                 .distinct()
                 .sorted()
@@ -32,17 +32,17 @@ public class QuestionBankService {
         return Arrays.asList(QuestionType.MULTIPLE_CHOICE, QuestionType.ESSAY, QuestionType.SORTING);
     }
 
-    public List<Question> getQuestionsByCategory(String category) {
+    public List<Question> getQuestionsByCategory(String bankName, String category) {
         if (category == null || category.equals("all")) {
-            return new ArrayList<>(getAllQuestions());
+            return new ArrayList<>(getAllQuestions(bankName));
         }
-        return getAllQuestions().stream()
+        return getAllQuestions(bankName).stream()
                 .filter(q -> q.getCategory().equals(category))
                 .collect(Collectors.toList());
     }
 
-    public List<Question> getQuestionsByCategoryAndType(String category, QuestionType type) {
-        List<Question> questions = getQuestionsByCategory(category);
+    public List<Question> getQuestionsByCategoryAndType(String bankName, String category, QuestionType type) {
+        List<Question> questions = getQuestionsByCategory(bankName, category);
         if (type == QuestionType.MIXED) {
             return questions;
         }
@@ -51,8 +51,8 @@ public class QuestionBankService {
                 .collect(Collectors.toList());
     }
 
-    public List<Question> getQuestionsByCategoryAndTypes(String category, List<QuestionType> types) {
-        List<Question> questions = getQuestionsByCategory(category);
+    public List<Question> getQuestionsByCategoryAndTypes(String bankName, String category, List<QuestionType> types) {
+        List<Question> questions = getQuestionsByCategory(bankName, category);
         if (types == null || types.isEmpty()) {
             return questions;
         }
@@ -61,38 +61,38 @@ public class QuestionBankService {
                 .collect(Collectors.toList());
     }
 
-    public List<Question> getRandomQuestions(String category, QuestionType type, int count) {
-        List<Question> questions = getQuestionsByCategoryAndType(category, type);
+    public List<Question> getRandomQuestions(String bankName, String category, QuestionType type, int count) {
+        List<Question> questions = getQuestionsByCategoryAndType(bankName, category, type);
         Collections.shuffle(questions);
         return questions.stream()
                 .limit(count)
                 .collect(Collectors.toList());
     }
 
-    public List<Question> getRandomQuestions(String category, List<QuestionType> types, int count) {
-        List<Question> questions = getQuestionsByCategoryAndTypes(category, types);
+    public List<Question> getRandomQuestions(String bankName, String category, List<QuestionType> types, int count) {
+        List<Question> questions = getQuestionsByCategoryAndTypes(bankName, category, types);
         Collections.shuffle(questions);
         return questions.stream()
                 .limit(count)
                 .collect(Collectors.toList());
     }
 
-    public Optional<Question> getQuestionById(Long id) {
-        return getAllQuestions().stream()
+    public Optional<Question> getQuestionById(String bankName, Long id) {
+        return getAllQuestions(bankName).stream()
                 .filter(q -> q.getId().equals(id))
                 .findFirst();
     }
 
-    public int getTotalCount() {
-        return getAllQuestions().size();
+    public int getTotalCount(String bankName) {
+        return getAllQuestions(bankName).size();
     }
 
-    public Map<String, Map<String, Integer>> getCategoryStats() {
+    public Map<String, Map<String, Integer>> getCategoryStats(String bankName) {
         Map<String, Map<String, Integer>> stats = new LinkedHashMap<>();
-        List<String> categories = getCategories();
+        List<String> categories = getCategories(bankName);
         for (String cat : categories) {
             Map<String, Integer> catStats = new LinkedHashMap<>();
-            List<Question> catQuestions = getQuestionsByCategory(cat);
+            List<Question> catQuestions = getQuestionsByCategory(bankName, cat);
             catStats.put("total", catQuestions.size());
             catStats.put("multiple",
                     (int) catQuestions.stream().filter(q -> q.getType() == QuestionType.MULTIPLE_CHOICE).count());
@@ -104,16 +104,12 @@ public class QuestionBankService {
         return stats;
     }
 
-    public String getCurrentBankName() {
-        return bankManager.getCurrentBankName();
+    public String getDefaultBankName() {
+        return bankManager.getDefaultBankName();
     }
 
     public List<String> getAvailableBanks() {
         return bankManager.getAvailableBanks();
-    }
-
-    public void switchBank(String bankName) {
-        bankManager.setCurrentBank(bankName);
     }
 
     public void importBank(String name, String jsonContent) {

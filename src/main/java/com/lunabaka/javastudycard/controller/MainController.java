@@ -4,6 +4,7 @@ import com.lunabaka.javastudycard.model.Question;
 import com.lunabaka.javastudycard.model.QuestionType;
 import com.lunabaka.javastudycard.service.QuestionBankService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,29 +14,43 @@ import java.util.*;
 @Controller
 public class MainController {
 
+    private static final String SESSION_BANK_KEY = "currentBank";
+
     private final QuestionBankService questionBankService;
 
     public MainController(QuestionBankService questionBankService) {
         this.questionBankService = questionBankService;
     }
 
+    private String getCurrentBank(HttpSession session) {
+        String bank = (String) session.getAttribute(SESSION_BANK_KEY);
+        if (bank == null) {
+            bank = questionBankService.getDefaultBankName();
+            session.setAttribute(SESSION_BANK_KEY, bank);
+        }
+        return bank;
+    }
+
     @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("categories", questionBankService.getCategories());
+    public String index(HttpSession session, Model model) {
+        String currentBank = getCurrentBank(session);
+        model.addAttribute("categories", questionBankService.getCategories(currentBank));
         model.addAttribute("questionTypes", questionBankService.getQuestionTypes());
-        model.addAttribute("categoryStats", questionBankService.getCategoryStats());
-        model.addAttribute("totalCount", questionBankService.getTotalCount());
+        model.addAttribute("categoryStats", questionBankService.getCategoryStats(currentBank));
+        model.addAttribute("totalCount", questionBankService.getTotalCount(currentBank));
         model.addAttribute("availableBanks", questionBankService.getAvailableBanks());
-        model.addAttribute("currentBank", questionBankService.getCurrentBankName());
+        model.addAttribute("currentBank", currentBank);
         return "index";
     }
 
     @GetMapping("/quiz")
-    public String quiz(@RequestParam(defaultValue = "all") String category,
+    public String quiz(HttpSession session,
+            @RequestParam(defaultValue = "all") String category,
             @RequestParam(defaultValue = "MULTIPLE_CHOICE") List<QuestionType> types,
             @RequestParam(defaultValue = "10") int count,
             Model model) {
-        List<Question> questions = questionBankService.getRandomQuestions(category, types, count);
+        String currentBank = getCurrentBank(session);
+        List<Question> questions = questionBankService.getRandomQuestions(currentBank, category, types, count);
         model.addAttribute("questions", questions);
         model.addAttribute("category", category);
         model.addAttribute("types", types);
@@ -71,18 +86,18 @@ public class MainController {
     }
 
     @PostMapping("/submit")
-    public String submit(HttpServletRequest request,
+    public String submit(HttpServletRequest request, HttpSession session,
             @RequestParam String category,
             @RequestParam(required = false) String types,
             @RequestParam(required = false, defaultValue = "0") int totalQuestions,
             Model model) {
+        String currentBank = getCurrentBank(session);
         List<Map<String, Object>> results = new ArrayList<>();
         int correctCount = 0;
         int processedQuestions = 0;
 
         Set<Long> processedQuestionIds = new HashSet<>();
 
-        // 处理所有题目 - 使用 question_ 前缀（包括多选题的隐藏字段）
         Enumeration<String> paramNames = request.getParameterNames();
         while (paramNames.hasMoreElements()) {
             String paramName = paramNames.nextElement();
@@ -97,7 +112,7 @@ public class MainController {
             }
             processedQuestionIds.add(questionId);
 
-            Question question = questionBankService.getQuestionById(questionId).orElse(null);
+            Question question = questionBankService.getQuestionById(currentBank, questionId).orElse(null);
             if (question == null)
                 continue;
 
@@ -107,7 +122,6 @@ public class MainController {
             QuestionType qType = question.getType();
 
             if (qType == QuestionType.MULTIPLE_CHOICE) {
-                // 多选题：检查 answer_ 前缀的参数
                 String[] selectedAnswers = request.getParameterValues("answer_" + questionId);
                 List<Integer> selectedIds = new ArrayList<>();
                 if (selectedAnswers != null) {
@@ -128,7 +142,6 @@ public class MainController {
                         try {
                             userOrder.add(Integer.parseInt(part.trim()));
                         } catch (NumberFormatException e) {
-                            // 忽略无效的数字
                         }
                     }
                 }
@@ -138,7 +151,6 @@ public class MainController {
                 if (isCorrect)
                     correctCount++;
             } else {
-                // 问答题
                 String userAnswer = paramValue;
                 result.put("userAnswer", userAnswer);
                 result.put("isAttempted", userAnswer != null && !userAnswer.trim().isEmpty());
@@ -149,7 +161,6 @@ public class MainController {
             results.add(result);
         }
 
-        // 使用原始题目数量，而不是实际提交的数量
         int actualTotal = totalQuestions > 0 ? totalQuestions : processedQuestions;
 
         model.addAttribute("results", results);
@@ -215,8 +226,9 @@ public class MainController {
     }
 
     @GetMapping("/questions")
-    public String questions(@RequestParam String category, Model model) {
-        List<Question> questions = questionBankService.getQuestionsByCategory(category);
+    public String questions(HttpSession session, @RequestParam String category, Model model) {
+        String currentBank = getCurrentBank(session);
+        List<Question> questions = questionBankService.getQuestionsByCategory(currentBank, category);
         model.addAttribute("questions", questions);
         model.addAttribute("category", category);
         return "question-list";
