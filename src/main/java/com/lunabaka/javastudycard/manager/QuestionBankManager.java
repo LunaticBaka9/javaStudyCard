@@ -1,4 +1,4 @@
-package com.lunabaka.javastudycard.service;
+package com.lunabaka.javastudycard.manager;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lunabaka.javastudycard.model.QuestionBank;
@@ -78,6 +78,18 @@ public class QuestionBankManager {
             objectMapper.writeValue(bankFile.toFile(), bank);
         } catch (IOException e) {
             throw new RuntimeException("Invalid question bank format", e);
+        }
+    }
+
+    public String getBankJson(String name) {
+        try {
+            Path bankFile = banksDir.resolve(name + ".json");
+            if (!Files.exists(bankFile)) {
+                return objectMapper.writeValueAsString(new QuestionBank(new ArrayList<>()));
+            }
+            return Files.readString(bankFile);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to read bank: " + name, e);
         }
     }
 }

@@ -150,6 +150,19 @@
                 items.forEach((item) => container.appendChild(item));
             });
 
+            // 排序题选项乱序
+            document.querySelectorAll(".sorting-options").forEach((container) => {
+                const items = Array.from(
+                    container.querySelectorAll(".sort-option-btn"),
+                );
+                for (let i = items.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [items[i], items[j]] = [items[j], items[i]];
+                }
+                container.innerHTML = "";
+                items.forEach((item) => container.appendChild(item));
+            });
+
             // 排序题点击排序功能
             document
                 .querySelectorAll(".sorting-options")

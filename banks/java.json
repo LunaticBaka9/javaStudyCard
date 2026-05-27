@@ -6757,6 +6757,1349 @@
             "items": null,
             "correctOrder": null,
             "answerHtml": null
+        },
+        {
+            "id": 421,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的核心特性，以下说法正确的是？",
+            "options": [
+                "Spring Boot可以简化Spring应用的初始搭建和开发过程",
+                "Spring Boot内置了Tomcat、Jetty等Servlet容器",
+                "Spring Boot提供了生产级的监控和管理功能（Actuator）",
+                "Spring Boot默认采用XML配置方式",
+                "Spring Boot遵循'约定优于配置'的原则"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 422,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于@SpringBootApplication注解，以下说法正确的是？",
+            "options": [
+                "@SpringBootApplication是一个组合注解",
+                "@SpringBootApplication包含@SpringBootConfiguration",
+                "@SpringBootApplication包含@EnableAutoConfiguration",
+                "@SpringBootApplication包含@ComponentScan",
+                "@SpringBootApplication只能用于Spring MVC应用"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 423,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的自动配置（Auto-Configuration），以下说法正确的是？",
+            "options": [
+                "自动配置根据类路径中的jar包自动配置Bean",
+                "自动配置通过@EnableAutoConfiguration注解触发",
+                "spring.factories文件中定义了自动配置类",
+                "自动配置可以使用@ConditionalOnClass等条件注解控制",
+                "自动配置不能被用户自定义配置覆盖"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 424,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Starter，以下说法正确的是？",
+            "options": [
+                "Starter是一组方便的依赖描述符",
+                "spring-boot-starter-web用于构建Web应用（含RESTful）",
+                "spring-boot-starter-data-jpa用于整合JPA",
+                "spring-boot-starter-test用于测试",
+                "Starter依赖中必须手动指定所有版本号"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 425,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的配置方式，以下说法正确的是？",
+            "options": [
+                "支持application.properties配置文件",
+                "支持application.yml配置文件",
+                "YAML配置比Properties配置更具层次性",
+                "多个配置文件可以通过spring.profiles.active激活",
+                "配置文件的优先级是固定的，不可调整"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 426,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Profile机制，以下说法正确的是？",
+            "options": [
+                "Profile用于区分不同环境的配置",
+                "可以通过application-{profile}.properties命名区分",
+                "可以在application.properties中设置spring.profiles.active激活",
+                "可以通过命令行参数--spring.profiles.active=dev激活",
+                "一个应用只能激活一个Profile"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 427,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的内嵌Servlet容器，以下说法正确的是？",
+            "options": [
+                "Spring Boot默认内嵌Tomcat",
+                "可以通过引入spring-boot-starter-jetty切换到Jetty",
+                "可以通过引入spring-boot-starter-undertow切换到Undertow",
+                "内嵌容器的端口可以通过server.port配置",
+                "内嵌容器不支持HTTPS"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 428,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot Actuator，以下说法正确的是？",
+            "options": [
+                "Actuator提供生产级的监控和管理功能",
+                "Actuator通过HTTP端点暴露监控信息",
+                "/health端点用于检查应用的健康状况",
+                "/info端点用于查看应用信息",
+                "Actuator默认暴露所有端点"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 429,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的日志框架，以下说法正确的是？",
+            "options": [
+                "Spring Boot默认使用Logback作为日志框架",
+                "Spring Boot通过SLF4J门面进行日志记录",
+                "可以通过application.properties配置日志级别",
+                "logging.level.root=INFO用于设置根日志级别",
+                "日志框架不支持自定义配置"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 430,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的DevTools，以下说法正确的是？",
+            "options": [
+                "DevTools提供热部署功能",
+                "DevTools默认禁用缓存",
+                "DevTools支持自动重启",
+                "DevTools支持LiveReload",
+                "DevTools只能在开发环境使用"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 431,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的测试支持，以下说法正确的是？",
+            "options": [
+                "@SpringBootTest用于加载完整的应用程序上下文",
+                "@WebMvcTest用于测试Controller层",
+                "@DataJpaTest用于测试JPA层",
+                "@MockBean用于模拟Bean",
+                "Spring Boot测试需要启动外部服务器"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 432,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@ConfigurationProperties注解，以下说法正确的是？",
+            "options": [
+                "@ConfigurationProperties用于批量绑定外部配置属性",
+                "@ConfigurationProperties支持松散绑定（如my-property自动匹配myProperty）",
+                "@ConfigurationProperties支持JSR-303数据校验",
+                "@ConfigurationProperties配合@EnableConfigurationProperties注册Bean",
+                "@ConfigurationProperties只能绑定String类型属性"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 433,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot读取配置文件的优先级（从高到低），以下说法正确的是？",
+            "options": [
+                "命令行参数优先级最高",
+                "JNDI属性优先级次之",
+                "application-{profile}.properties优先级高于application.properties",
+                "jar包外部的配置文件优先级高于jar包内部",
+                "@PropertySource加载的文件优先级最高"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 434,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的打包和部署，以下说法正确的是？",
+            "options": [
+                "Spring Boot应用可以打成可执行的JAR包",
+                "可以使用Maven的mvn package命令打包",
+                "可以使用Gradle的gradle build命令打包",
+                "打成的JAR包可以通过java -jar命令运行",
+                "Spring Boot应用只能部署在外部Tomcat中"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 435,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的数据源自动配置，以下说法正确的是？",
+            "options": [
+                "spring-boot-starter-data-jpa会自动配置数据源",
+                "spring-boot-starter-jdbc会自动配置数据源",
+                "可以通过spring.datasource.url等属性配置数据源",
+                "Spring Boot默认使用HikariCP作为连接池",
+                "数据源配置必须手动创建DataSource Bean"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 436,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot整合JPA，以下说法正确的是？",
+            "options": [
+                "引入spring-boot-starter-data-jpa依赖",
+                "配置spring.jpa.hibernate.ddl-auto控制DDL策略",
+                "配置spring.jpa.show-sql打印SQL语句",
+                "可以使用@Entity注解定义实体类",
+                "JPA不支持自定义查询方法"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 437,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的自动配置原理，以下说法正确的是？",
+            "options": [
+                "自动配置类通过META-INF/spring.factories文件注册",
+                "自动配置类使用@Conditional系列注解按条件加载",
+                "@ConditionalOnClass检查类路径中是否存在指定类",
+                "@ConditionalOnMissingBean检查容器中是否缺少指定Bean",
+                "所有自动配置类都会在应用启动时强制加载"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 438,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@EnableAutoConfiguration注解，以下说法正确的是？",
+            "options": [
+                "@EnableAutoConfiguration是Spring Boot自动配置的入口",
+                "@EnableAutoConfiguration通过@Import(AutoConfigurationImportSelector.class)导入配置",
+                "AutoConfigurationImportSelector会加载spring.factories中的自动配置类",
+                "可以通过exclude属性排除指定的自动配置类",
+                "@EnableAutoConfiguration只能用于主启动类"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 439,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Banner，以下说法正确的是？",
+            "options": [
+                "应用启动时默认显示Spring Boot Banner",
+                "可以在classpath下放置banner.txt自定义Banner",
+                "可以通过spring.banner.location属性指定Banner文件位置",
+                "可以关闭Banner显示：spring.main.banner-mode=off",
+                "Banner只支持文本格式"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 440,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的SpringApplication类，以下说法正确的是？",
+            "options": [
+                "SpringApplication用于启动Spring Boot应用",
+                "SpringApplication可以设置是否开启Banner",
+                "SpringApplication可以设置应用启动参数",
+                "SpringApplication支持链式编程",
+                "SpringApplication.run()方法返回ConfigurableApplicationContext"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 441,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的FailureAnalyzer，以下说法正确的是？",
+            "options": [
+                "FailureAnalyzer用于分析启动失败原因",
+                "FailureAnalyzer将异常转换为人类可读的错误信息",
+                "Spring Boot内置了多种FailureAnalyzer",
+                "可以通过实现FailureAnalyzer接口自定义错误分析",
+                "FailureAnalyzer只能在调试模式下使用"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 442,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Actuator端点，以下说法正确的是？",
+            "options": [
+                "/beans端点显示所有Spring Bean",
+                "/env端点显示所有环境属性",
+                "/metrics端点显示应用度量指标",
+                "/mappings端点显示所有URL映射",
+                "/shutdown端点默认可用"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 443,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot的核心特性及其优势。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot的核心特性：1) 自动配置：根据类路径中的jar包自动配置Spring应用；2) Starter：提供一站式依赖描述符，简化Maven/Gradle配置；3) 内嵌Servlet容器：内置Tomcat、Jetty、Undertow等，无需部署WAR；4) Actuator：提供生产级的监控和管理功能；5) 外部化配置：支持多种配置方式（Properties、YAML、环境变量等）；6) 测试支持：提供丰富的测试注解和工具。优势：简化开发、提高效率、降低配置复杂性、遵循约定优于配置的原则。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot的核心特性：1) 自动配置：根据类路径中的jar包自动配置Spring应用；2) Starter：提供一站式依赖描述符，简化Maven/Gradle配置；3) 内嵌Servlet容器：内置Tomcat、Jetty、Undertow等，无需部署WAR；4) Actuator：提供生产级的监控和管理功能；5) 外部化配置：支持多种配置方式（Properties、YAML、环境变量等）；6) 测试支持：提供丰富的测试注解和工具。优势：简化开发、提高效率、降低配置复杂性、遵循约定优于配置的原则。"
+        },
+        {
+            "id": 444,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明@SpringBootApplication组合注解的构成及其各自作用。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "@SpringBootApplication是一个组合注解，包含三个重要注解：1) @SpringBootConfiguration：继承自@Configuration，标注该类为配置类；2) @EnableAutoConfiguration：开启自动配置，通过@Import(AutoConfigurationImportSelector.class)加载spring.factories中的自动配置类；3) @ComponentScan：启用组件扫描，默认扫描当前包及其子包下的@Component、@Service、@Repository、@Controller等注解。这三个注解的组合使得Spring Boot应用只需一个启动类即可完成配置。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "@SpringBootApplication是一个组合注解，包含三个重要注解：1) @SpringBootConfiguration：继承自@Configuration，标注该类为配置类；2) @EnableAutoConfiguration：开启自动配置，通过@Import(AutoConfigurationImportSelector.class)加载spring.factories中的自动配置类；3) @ComponentScan：启用组件扫描，默认扫描当前包及其子包下的@Component、@Service、@Repository、@Controller等注解。这三个注解的组合使得Spring Boot应用只需一个启动类即可完成配置。"
+        },
+        {
+            "id": 445,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot自动配置的原理及执行流程。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot自动配置原理：1) @EnableAutoConfiguration通过@Import导入AutoConfigurationImportSelector；2) AutoConfigurationImportSelector会加载META-INF/spring.factories文件中配置的自动配置类；3) 自动配置类使用@Conditional系列注解进行条件判断（如@ConditionalOnClass、@ConditionalOnMissingBean等）；4) 当满足条件时，自动配置类会创建相应的Bean并注册到Spring容器中；5) 用户可以通过自定义配置覆盖自动配置的Bean。通过这种机制，Spring Boot能够根据类路径中的依赖自动配置应用。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot自动配置原理：1) @EnableAutoConfiguration通过@Import导入AutoConfigurationImportSelector；2) AutoConfigurationImportSelector会加载META-INF/spring.factories文件中配置的自动配置类；3) 自动配置类使用@Conditional系列注解进行条件判断（如@ConditionalOnClass、@ConditionalOnMissingBean等）；4) 当满足条件时，自动配置类会创建相应的Bean并注册到Spring容器中；5) 用户可以通过自定义配置覆盖自动配置的Bean。通过这种机制，Spring Boot能够根据类路径中的依赖自动配置应用。"
+        },
+        {
+            "id": 446,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot中常用的Starter及其作用。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot常用Starter：1) spring-boot-starter-web：Web应用开发，包含Spring MVC和内嵌Tomcat；2) spring-boot-starter-data-jpa：整合Spring Data JPA和Hibernate；3) spring-boot-starter-data-redis：整合Redis；4) spring-boot-starter-security：整合Spring Security；5) spring-boot-starter-test：测试支持，包含JUnit、Mockito等；6) spring-boot-starter-actuator：生产级监控和管理；7) spring-boot-starter-thymeleaf：整合Thymeleaf模板引擎；8) spring-boot-starter-validation：参数校验支持。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot常用Starter：1) spring-boot-starter-web：Web应用开发，包含Spring MVC和内嵌Tomcat；2) spring-boot-starter-data-jpa：整合Spring Data JPA和Hibernate；3) spring-boot-starter-data-redis：整合Redis；4) spring-boot-starter-security：整合Spring Security；5) spring-boot-starter-test：测试支持，包含JUnit、Mockito等；6) spring-boot-starter-actuator：生产级监控和管理；7) spring-boot-starter-thymeleaf：整合Thymeleaf模板引擎；8) spring-boot-starter-validation：参数校验支持。"
+        },
+        {
+            "id": 447,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot中外部化配置的加载顺序（优先级从高到低）。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot外部化配置加载顺序（从高到低）：1) 命令行参数（--xxx=yyy）；2) JNDI属性（java:comp/env）；3) Java系统属性（System.getProperties()）；4) 操作系统环境变量；5) RandomValuePropertySource（random.*）；6) jar包外部的application-{profile}.properties；7) jar包内部的application-{profile}.properties；8) jar包外部的application.properties；9) jar包内部的application.properties；10) @ConfigurationProperties类上的@PropertySource。高优先级配置会覆盖低优先级配置，互补配置会合并生效。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot外部化配置加载顺序（从高到低）：1) 命令行参数（--xxx=yyy）；2) JNDI属性（java:comp/env）；3) Java系统属性（System.getProperties()）；4) 操作系统环境变量；5) RandomValuePropertySource（random.*）；6) jar包外部的application-{profile}.properties；7) jar包内部的application-{profile}.properties；8) jar包外部的application.properties；9) jar包内部的application.properties；10) @ConfigurationProperties类上的@PropertySource。高优先级配置会覆盖低优先级配置，互补配置会合并生效。"
+        },
+        {
+            "id": 448,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot Actuator的主要端点及其作用。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot Actuator常用端点：1) /health：应用健康检查，包括数据库连接、磁盘空间等；2) /info：应用信息（通过info.*配置）；3) /beans：显示所有Spring Bean的完整列表；4) /env：获取所有环境属性，包括系统属性、环境变量、配置属性等；5) /metrics：应用度量指标，如内存使用、线程信息、请求计数等；6) /mappings：显示所有@RequestMapping路径的映射列表；7) /shutdown：优雅关闭应用（需要手动启用）；8) /loggers：查看和修改日志级别。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot Actuator常用端点：1) /health：应用健康检查，包括数据库连接、磁盘空间等；2) /info：应用信息（通过info.*配置）；3) /beans：显示所有Spring Bean的完整列表；4) /env：获取所有环境属性，包括系统属性、环境变量、配置属性等；5) /metrics：应用度量指标，如内存使用、线程信息、请求计数等；6) /mappings：显示所有@RequestMapping路径的映射列表；7) /shutdown：优雅关闭应用（需要手动启用）；8) /loggers：查看和修改日志级别。"
+        },
+        {
+            "id": 449,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot和Spring MVC的关系和区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot和Spring MVC的关系：1) Spring Boot是Spring框架的扩展，旨在简化Spring应用的配置和部署；2) Spring MVC是Spring框架的一部分，专注于Web层开发；3) Spring Boot内嵌了Spring MVC，通过spring-boot-starter-web可以自动配置Spring MVC。区别：1) Spring Boot是一个项目脚手架，提供自动配置、内嵌容器等能力；2) Spring MVC是一个Web MVC框架，处理HTTP请求和响应；3) Spring Boot可以用于非Web应用，Spring MVC只能用于Web应用；4) Spring Boot的目标是零配置运行，Spring MVC需要手动配置。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot和Spring MVC的关系：1) Spring Boot是Spring框架的扩展，旨在简化Spring应用的配置和部署；2) Spring MVC是Spring框架的一部分，专注于Web层开发；3) Spring Boot内嵌了Spring MVC，通过spring-boot-starter-web可以自动配置Spring MVC。区别：1) Spring Boot是一个项目脚手架，提供自动配置、内嵌容器等能力；2) Spring MVC是一个Web MVC框架，处理HTTP请求和响应；3) Spring Boot可以用于非Web应用，Spring MVC只能用于Web应用；4) Spring Boot的目标是零配置运行，Spring MVC需要手动配置。"
+        },
+        {
+            "id": 450,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot DevTools的实现原理及其作用。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot DevTools实现原理：使用两个类加载器，base类加载器加载不常变化的类（如第三方jar），restart类加载器加载经常变化的类（如项目代码）。当检测到classpath中的文件发生变化时，DevTools会丢弃restart类加载器并创建一个新的，从而实现快速重启。作用：1) 自动重启：代码变更后自动重启应用（比手动重启快）；2) 缓存禁用：默认禁用模板引擎缓存，方便调试；3) LiveReload：内置LiveReload服务器，浏览器自动刷新；4) 远程调试：支持远程应用的调试和更新。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot DevTools实现原理：使用两个类加载器，base类加载器加载不常变化的类（如第三方jar），restart类加载器加载经常变化的类（如项目代码）。当检测到classpath中的文件发生变化时，DevTools会丢弃restart类加载器并创建一个新的，从而实现快速重启。作用：1) 自动重启：代码变更后自动重启应用（比手动重启快）；2) 缓存禁用：默认禁用模板引擎缓存，方便调试；3) LiveReload：内置LiveReload服务器，浏览器自动刷新；4) 远程调试：支持远程应用的调试和更新。"
+        },
+        {
+            "id": 451,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot中@ConfigurationProperties和@Value注解的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "@ConfigurationProperties和@Value的区别：1) @ConfigurationProperties是类型安全的配置绑定，支持松散绑定、JSR-303数据校验、复杂类型嵌套等；2) @Value是一个简单的字段级注解，用于注入单个值，不支持松散绑定和数据校验；3) @ConfigurationProperties批量绑定一组相关配置，适合配置前缀；4) @Value注入单个配置值，适合简单配置项；5) @ConfigurationProperties需要配合@EnableConfigurationProperties使用，@Value可直接使用。建议：有多个相关配置项时用@ConfigurationProperties，单个配置项用@Value。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "@ConfigurationProperties和@Value的区别：1) @ConfigurationProperties是类型安全的配置绑定，支持松散绑定、JSR-303数据校验、复杂类型嵌套等；2) @Value是一个简单的字段级注解，用于注入单个值，不支持松散绑定和数据校验；3) @ConfigurationProperties批量绑定一组相关配置，适合配置前缀；4) @Value注入单个配置值，适合简单配置项；5) @ConfigurationProperties需要配合@EnableConfigurationProperties使用，@Value可直接使用。建议：有多个相关配置项时用@ConfigurationProperties，单个配置项用@Value。"
+        },
+        {
+            "id": 452,
+            "category": "SpringBoot",
+            "type": "SORTING",
+            "question": "请按Spring Boot自动配置的执行流程排列以下步骤：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "Spring Boot启动类加载",
+                "@EnableAutoConfiguration导入AutoConfigurationImportSelector",
+                "读取META-INF/spring.factories",
+                "@Conditional条件判断",
+                "注入自动配置的Bean到容器"
+            ],
+            "correctOrder": [0, 1, 2, 3, 4],
+            "answerHtml": null
+        },
+        {
+            "id": 453,
+            "category": "SpringBoot",
+            "type": "SORTING",
+            "question": "请按外部化配置的优先级从高到低排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "命令行参数",
+                "jar包内application.properties",
+                "操作系统环境变量",
+                "jar包外application.properties"
+            ],
+            "correctOrder": [0, 2, 3, 1],
+            "answerHtml": null
+        },
+        {
+            "id": 454,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的YAML配置，以下说法正确的是？",
+            "options": [
+                "YAML是一种人类可读的数据序列化格式",
+                "YAML使用缩进表示层次结构",
+                "YAML支持多文档块（---分隔）",
+                "YAML数组使用-前缀表示",
+                "YAML不允许注释"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 455,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot整合MyBatis，以下说法正确的是？",
+            "options": [
+                "引入mybatis-spring-boot-starter依赖",
+                "配置mybatis.mapper-locations指定映射文件位置",
+                "@MapperScan用于扫描Mapper接口",
+                "@Mapper注解标识Mapper接口",
+                "MyBatis配置必须通过XML配置"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 456,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@ConditionalOnClass注解，以下说法正确的是？",
+            "options": [
+                "@ConditionalOnClass检查类路径中是否存在指定类",
+                "当指定的类存在时，条件成立",
+                "当指定的类不存在时，条件不成立",
+                "常用于自动配置中的条件判断",
+                "@ConditionalOnClass只能检查一个类"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 457,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@ConditionalOnProperty注解，以下说法正确的是？",
+            "options": [
+                "@ConditionalOnProperty检查配置文件中是否存在指定属性",
+                "可以通过havingValue指定属性期望的值",
+                "可以通过matchIfMissing指定属性不存在时的匹配结果",
+                "可以用于根据配置条件决定是否加载Bean",
+                "@ConditionalOnProperty只能检查boolean类型属性"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 458,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@SpringBootTest注解，以下说法正确的是？",
+            "options": [
+                "@SpringBootTest用于加载完整Spring应用上下文",
+                "@SpringBootTest可以指定启动类",
+                "@SpringBootTest支持webEnvironment指定Web环境类型",
+                "@SpringBootTest默认使用随机端口",
+                "@SpringBootTest只能用于集成测试"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 459,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的HealthIndicator，以下说法正确的是？",
+            "options": [
+                "HealthIndicator用于自定义健康检查",
+                "Spring Boot内置了多种HealthIndicator",
+                "可以通过实现HealthIndicator接口自定义健康检查",
+                "自定义健康检查信息会显示在/health端点中",
+                "健康检查只能检查数据库连接"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 460,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Micrometer监控，以下说法正确的是？",
+            "options": [
+                "Micrometer是Spring Boot Actuator的度量门面",
+                "Micrometer支持多种监控系统（如Prometheus、Graphite）",
+                "Micrometer提供Counter、Gauge、Timer等度量类型",
+                "Micrometer可以自定义度量指标",
+                "Micrometer只能监控JVM指标"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 461,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@Async和@EnableAsync，以下说法正确的是？",
+            "options": [
+                "@EnableAsync开启Spring的异步执行能力",
+                "@Async标注的方法会在异步线程中执行",
+                "@Async方法必须定义在@Configuration或@Component类中",
+                "@Async方法的调用者和被调用者不能在同一个类中",
+                "@Async默认使用SimpleAsyncTaskExecutor"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 462,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@Scheduled和@EnableScheduling，以下说法正确的是？",
+            "options": [
+                "@EnableScheduling开启Spring的任务调度能力",
+                "@Scheduled标注的方法会被定时执行",
+                "cron属性用于指定Cron表达式",
+                "fixedRate属性用于指定固定速率执行",
+                "fixedDelay属性用于指定固定延迟执行"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 463,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot整合Spring Data Redis，以下说法正确的是？",
+            "options": [
+                "引入spring-boot-starter-data-redis依赖",
+                "配置spring.redis.host和spring.redis.port",
+                "RedisTemplate用于操作Redis",
+                "StringRedisTemplate是RedisTemplate的特化版本",
+                "Spring Boot默认使用Jedis作为Redis客户端"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 464,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的异常处理，以下说法正确的是？",
+            "options": [
+                "@ControllerAdvice用于定义全局异常处理器",
+                "@ExceptionHandler用于处理特定异常",
+                "Spring Boot默认提供BasicErrorController处理错误",
+                "server.error.path可以自定义错误路径",
+                "异常处理必须在每个Controller中单独定义"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 465,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的CORS跨域配置，以下说法正确的是？",
+            "options": [
+                "@CrossOrigin注解用于单个Controller或方法",
+                "WebMvcConfigurer可以全局配置CORS",
+                "allowedOrigins指定允许的来源域名",
+                "allowedMethods指定允许的HTTP方法",
+                "CORS配置只能通过注解实现"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 466,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot中禁用特定自动配置类的方式。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "禁用特定自动配置类的方式：1) 在@SpringBootApplication或@EnableAutoConfiguration中使用exclude属性：@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})；2) 在application.properties或application.yml中设置：spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration；3) 排除多个自动配置类时使用逗号分隔。场景：当自动配置不符合需求时，需要手动配置，先排除自动配置类再自定义配置。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "禁用特定自动配置类的方式：1) 在@SpringBootApplication或@EnableAutoConfiguration中使用exclude属性：@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})；2) 在application.properties或application.yml中设置：spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration；3) 排除多个自动配置类时使用逗号分隔。场景：当自动配置不符合需求时，需要手动配置，先排除自动配置类再自定义配置。"
+        },
+        {
+            "id": 467,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot应用如何自定义Banner。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot应用自定义Banner的方式：1) 在classpath下创建banner.txt文件，写入自定义文本内容，文本中可以包含${spring-boot.version}等占位符；2) 在application.properties中设置spring.banner.location指定banner文件位置；3) 图片Banner：支持GIF、JPG、PNG格式，在classpath下放置banner.{gif,jpg,png}；4) 编程式Banner：实现Banner接口，在SpringApplication中setBanner()；5) 关闭Banner：spring.main.banner-mode=off或在SpringApplication中setBannerMode(Banner.Mode.OFF)。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot应用自定义Banner的方式：1) 在classpath下创建banner.txt文件，写入自定义文本内容，文本中可以包含${spring-boot.version}等占位符；2) 在application.properties中设置spring.banner.location指定banner文件位置；3) 图片Banner：支持GIF、JPG、PNG格式，在classpath下放置banner.{gif,jpg,png}；4) 编程式Banner：实现Banner接口，在SpringApplication中setBanner()；5) 关闭Banner：spring.main.banner-mode=off或在SpringApplication中setBannerMode(Banner.Mode.OFF)。"
+        },
+        {
+            "id": 468,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot整合MyBatis的配置步骤。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot整合MyBatis配置步骤：1) 引入mybatis-spring-boot-starter依赖，自动配置数据源和MyBatis核心组件；2) 在application.properties中配置数据源：spring.datasource.url、spring.datasource.username、spring.datasource.password等；3) 配置MyBatis相关属性：mybatis.mapper-locations指定映射文件路径、mybatis.type-aliases-package指定实体类包路径；4) 使用@MapperScan扫描Mapper接口，或在每个Mapper接口上添加@Mapper注解；5) 编写Mapper接口和XML映射文件；6) 在Service中注入Mapper使用。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot整合MyBatis配置步骤：1) 引入mybatis-spring-boot-starter依赖，自动配置数据源和MyBatis核心组件；2) 在application.properties中配置数据源：spring.datasource.url、spring.datasource.username、spring.datasource.password等；3) 配置MyBatis相关属性：mybatis.mapper-locations指定映射文件路径、mybatis.type-aliases-package指定实体类包路径；4) 使用@MapperScan扫描Mapper接口，或在每个Mapper接口上添加@Mapper注解；5) 编写Mapper接口和XML映射文件；6) 在Service中注入Mapper使用。"
+        },
+        {
+            "id": 469,
+            "category": "SpringBoot",
+            "type": "SORTING",
+            "question": "请按Spring Boot整合MyBatis的配置步骤顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "引入mybatis-spring-boot-starter依赖",
+                "配置数据源和MyBatis属性",
+                "使用@MapperScan扫描Mapper接口",
+                "编写Mapper接口和XML映射文件",
+                "在Service中注入Mapper使用"
+            ],
+            "correctOrder": [0, 1, 2, 3, 4],
+            "answerHtml": null
+        },
+        {
+            "id": 470,
+            "category": "SpringBoot",
+            "type": "SORTING",
+            "question": "请按Spring Boot应用的启动流程排列以下步骤：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "创建SpringApplication实例",
+                "加载自动配置类",
+                "创建ApplicationContext",
+                "执行CommandLineRunner/ApplicationRunner",
+                "应用启动完成"
+            ],
+            "correctOrder": [0, 1, 2, 3, 4],
+            "answerHtml": null
+        },
+        {
+            "id": 471,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot CommandLineRunner和ApplicationRunner，以下说法正确的是？",
+            "options": [
+                "CommandLineRunner用于应用启动后执行特定代码",
+                "ApplicationRunner是CommandLineRunner的增强版",
+                "ApplicationRunner可以访问ApplicationArguments",
+                "多个Runner可以通过@Order注解排序",
+                "Runner中的异常会导致应用启动失败"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 472,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的ApplicationArguments，以下说法正确的是？",
+            "options": [
+                "ApplicationArguments封装了应用启动参数",
+                "getSourceArgs()返回原始命令行参数数组",
+                "getOptionNames()返回所有选项参数名称",
+                "containsOption()检查是否包含某个选项参数",
+                "ApplicationArguments只能通过ApplicationRunner获取"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 473,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的WebServerFactoryCustomizer，以下说法正确的是？",
+            "options": [
+                "用于自定义内嵌Web服务器配置",
+                "可以设置服务器端口、SSL等",
+                "需要实现WebServerFactoryCustomizer接口",
+                "泛型参数指定服务器工厂类型（如TomcatServletWebServerFactory）",
+                "WebServerFactoryCustomizer只能在配置类中定义"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 474,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的SSL配置，以下说法正确的是？",
+            "options": [
+                "server.ssl.key-store指定密钥库文件路径",
+                "server.ssl.key-store-password指定密钥库密码",
+                "server.ssl.key-alias指定密钥别名",
+                "server.ssl.enabled=true启用SSL",
+                "SSL配置需要生成或获取SSL证书"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 475,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的TransactionManager自动配置，以下说法正确的是？",
+            "options": [
+                "spring-boot-starter-data-jpa自动配置JpaTransactionManager",
+                "spring-boot-starter-jdbc自动配置DataSourceTransactionManager",
+                "mybatis-spring-boot-starter自动配置DataSourceTransactionManager",
+                "自动配置的事务管理器可以直接注入使用",
+                "事务管理器必须手动创建才能使用"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 476,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Jackson自动配置，以下说法正确的是？",
+            "options": [
+                "Spring Boot自动配置ObjectMapper Bean",
+                "可以通过spring.jackson.*配置Jackson行为",
+                "spring.jackson.date-format配置日期格式",
+                "spring.jackson.property-naming-strategy配置属性命名策略",
+                "Jackson配置只能通过Java代码实现"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 477,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的静态资源处理，以下说法正确的是？",
+            "options": [
+                "静态资源默认放在classpath:/static/下",
+                "静态资源默认放在classpath:/public/下",
+                "静态资源默认放在classpath:/resources/下",
+                "静态资源默认放在classpath:/META-INF/resources/下",
+                "静态资源路径可以通过spring.resources.static-locations自定义"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 478,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的模板引擎整合，以下说法正确的是？",
+            "options": [
+                "引入spring-boot-starter-thymeleaf整合Thymeleaf",
+                "引入spring-boot-starter-freemarker整合FreeMarker",
+                "Thymeleaf模板默认放在classpath:/templates/下",
+                "FreeMarker模板默认放在classpath:/templates/下",
+                "Spring Boot默认禁用模板缓存（开发模式下）"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 479,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot的自动配置条件注解及其作用。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot自动配置条件注解：1) @ConditionalOnClass：类路径中存在指定类时条件成立，控制依赖存在时的自动配置；2) @ConditionalOnMissingClass：类路径中缺少指定类时条件成立；3) @ConditionalOnBean：容器中存在指定Bean时条件成立；4) @ConditionalOnMissingBean：容器中缺少指定Bean时条件成立；5) @ConditionalOnProperty：配置文件中存在指定属性时条件成立，可根据配置控制Bean加载；6) @ConditionalOnResource：类路径中存在指定资源时条件成立；7) @ConditionalOnWebApplication：当前应用是Web应用时条件成立；8) @ConditionalOnNotWebApplication：当前应用不是Web应用时条件成立。这些注解主要用于自动配置中，确保只有在合适的条件下才加载自动配置的Bean。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot自动配置条件注解：1) @ConditionalOnClass：类路径中存在指定类时条件成立，控制依赖存在时的自动配置；2) @ConditionalOnMissingClass：类路径中缺少指定类时条件成立；3) @ConditionalOnBean：容器中存在指定Bean时条件成立；4) @ConditionalOnMissingBean：容器中缺少指定Bean时条件成立；5) @ConditionalOnProperty：配置文件中存在指定属性时条件成立，可根据配置控制Bean加载；6) @ConditionalOnResource：类路径中存在指定资源时条件成立；7) @ConditionalOnWebApplication：当前应用是Web应用时条件成立；8) @ConditionalOnNotWebApplication：当前应用不是Web应用时条件成立。这些注解主要用于自动配置中，确保只有在合适的条件下才加载自动配置的Bean。"
+        },
+        {
+            "id": 480,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot Actuator的安全保护方式。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot Actuator的安全保护方式：1) 配置management.endpoints.web.exposure.include指定暴露的端点（Spring Boot 2.x默认只暴露health和info端点）；2) 配置management.endpoints.web.exposure.exclude排除敏感端点（如shutdown）；3) 使用management.server.port设置管理端口与应用端口分离；4) 使用management.server.address绑定管理端口到特定IP；5) 结合Spring Security保护Actuator端点，通过http.authorizeRequests()限制端点访问权限；6) 使用management.endpoint.shutdown.enabled=false禁用shutdown端点；7) 在生产环境谨慎暴露敏感端点，避免信息泄露。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot Actuator的安全保护方式：1) 配置management.endpoints.web.exposure.include指定暴露的端点（Spring Boot 2.x默认只暴露health和info端点）；2) 配置management.endpoints.web.exposure.exclude排除敏感端点（如shutdown）；3) 使用management.server.port设置管理端口与应用端口分离；4) 使用management.server.address绑定管理端口到特定IP；5) 结合Spring Security保护Actuator端点，通过http.authorizeRequests()限制端点访问权限；6) 使用management.endpoint.shutdown.enabled=false禁用shutdown端点；7) 在生产环境谨慎暴露敏感端点，避免信息泄露。"
+        },
+        {
+            "id": 481,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot 2.x与Spring Boot 1.x的主要区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot 2.x与1.x的主要区别：1) Spring Boot 2.x基于Spring 5和JDK 8+，1.x基于Spring 4和JDK 7+；2) 2.x默认使用CGLIB动态代理，1.x默认使用JDK动态代理；3) 2.x使用WebFlux替代部分Web MVC场景，支持响应式编程；4) 2.x的Actuator使用Micrometer作为度量门面，1.x使用Dropwizard Metrics；5) 2.x的Actuator端点路径变更（如/health而不是/health/）；6) 2.x的配置属性变更（如security.*改为management.endpoint.*）；7) 2.x支持HTTP/2和Java 8时间类型；8) 2.x默认使用HikariCP连接池，1.x默认使用Tomcat连接池；9) 2.x的Thymeleaf默认版本为3.x。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot 2.x与1.x的主要区别：1) Spring Boot 2.x基于Spring 5和JDK 8+，1.x基于Spring 4和JDK 7+；2) 2.x默认使用CGLIB动态代理，1.x默认使用JDK动态代理；3) 2.x使用WebFlux替代部分Web MVC场景，支持响应式编程；4) 2.x的Actuator使用Micrometer作为度量门面，1.x使用Dropwizard Metrics；5) 2.x的Actuator端点路径变更（如/health而不是/health/）；6) 2.x的配置属性变更（如security.*改为management.endpoint.*）；7) 2.x支持HTTP/2和Java 8时间类型；8) 2.x默认使用HikariCP连接池，1.x默认使用Tomcat连接池；9) 2.x的Thymeleaf默认版本为3.x。"
+        },
+        {
+            "id": 482,
+            "category": "SpringBoot",
+            "type": "SORTING",
+            "question": "请按Spring Boot应用打包部署的流程排列以下步骤：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "运行mvn package打包",
+                "生成可执行JAR包",
+                "通过java -jar运行应用",
+                "应用启动并监听指定端口"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 483,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的应用监控，以下说法正确的是？",
+            "options": [
+                "可以通过Actuator获取应用的健康状况",
+                "可以通过Actuator获取应用的运行时信息",
+                "可以通过Micrometer集成Prometheus监控",
+                "可以自定义HealthIndicator实现定制化健康检查",
+                "应用监控只能在开发环境中使用"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 484,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的测试切片（Test Slice），以下说法正确的是？",
+            "options": [
+                "@WebMvcTest只加载Controller层相关的Bean",
+                "@DataJpaTest只加载JPA相关的Bean",
+                "@JsonTest只测试JSON序列化和反序列化",
+                "@RestClientTest测试REST客户端",
+                "测试切片可以显著减少测试加载的Bean数量"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 485,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的HTTP编码配置，以下说法正确的是？",
+            "options": [
+                "server.servlet.encoding.charset=UTF-8配置字符编码",
+                "server.servlet.encoding.enabled=true启用编码配置",
+                "server.servlet.encoding.force=true强制使用指定编码",
+                "Spring Boot默认使用UTF-8编码",
+                "HTTP编码配置只对请求体有效"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 486,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Maven插件（spring-boot-maven-plugin），以下说法正确的是？",
+            "options": [
+                "spring-boot-maven-plugin可以将应用打包成可执行JAR",
+                "使用mvn spring-boot:run可以直接运行应用",
+                "插件在打包时会重新打包JAR包含内嵌容器",
+                "插件支持构建Docker镜像",
+                "插件必须手动配置Maven仓库"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 487,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Docker化部署，以下说法正确的是？",
+            "options": [
+                "可以使用spring-boot-maven-plugin构建Docker镜像",
+                "可以通过Dockerfile自定义Docker镜像",
+                "推荐使用分层JAR来优化Docker镜像",
+                "可以使用docker-maven-plugin自动化镜像构建",
+                "Spring Boot应用不能运行在Docker中"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 488,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot的日志配置方式及日志级别控制。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot日志配置方式：1) 默认使用Logback日志框架，通过SLF4J门面记录日志；2) 在application.properties中配置：logging.level.root=INFO设置根日志级别，logging.level.com.example=DEBUG设置特定包的日志级别；3) 日志文件输出：logging.file.name=app.log指定日志文件名，logging.file.path=/var/logs指定日志目录；4) 日志格式：logging.pattern.console和logging.pattern.file自定义控制台和文件日志格式；5) 日志框架配置文件：在classpath下放置logback-spring.xml可完全自定义Logback配置；6) 日志级别从低到高：TRACE < DEBUG < INFO < WARN < ERROR < FATAL。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot日志配置方式：1) 默认使用Logback日志框架，通过SLF4J门面记录日志；2) 在application.properties中配置：logging.level.root=INFO设置根日志级别，logging.level.com.example=DEBUG设置特定包的日志级别；3) 日志文件输出：logging.file.name=app.log指定日志文件名，logging.file.path=/var/logs指定日志目录；4) 日志格式：logging.pattern.console和logging.pattern.file自定义控制台和文件日志格式；5) 日志框架配置文件：在classpath下放置logback-spring.xml可完全自定义Logback配置；6) 日志级别从低到高：TRACE < DEBUG < INFO < WARN < ERROR < FATAL。"
+        },
+        {
+            "id": 489,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot中如何实现应用的健康检查。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot应用健康检查实现方式：1) 默认/health端点自动检查应用健康状况，返回UP或DOWN状态；2) Spring Boot内置多种HealthIndicator：DataSourceHealthIndicator检查数据库连接、DiskSpaceHealthIndicator检查磁盘空间、RedisHealthIndicator检查Redis连接等；3) 自定义HealthIndicator：实现HealthIndicator接口，重写health()方法，返回Health.up()或Health.down()；4) 健康检查信息包含组件状态详情，可通过management.endpoint.health.show-details=always配置显示详细信息；5) 健康检查可以用于负载均衡器的探活检测、Kubernetes的liveness和readiness探测。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot应用健康检查实现方式：1) 默认/health端点自动检查应用健康状况，返回UP或DOWN状态；2) Spring Boot内置多种HealthIndicator：DataSourceHealthIndicator检查数据库连接、DiskSpaceHealthIndicator检查磁盘空间、RedisHealthIndicator检查Redis连接等；3) 自定义HealthIndicator：实现HealthIndicator接口，重写health()方法，返回Health.up()或Health.down()；4) 健康检查信息包含组件状态详情，可通过management.endpoint.health.show-details=always配置显示详细信息；5) 健康检查可以用于负载均衡器的探活检测、Kubernetes的liveness和readiness探测。"
+        },
+        {
+            "id": 490,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot中@SpringBootApplication注解的等价替代方式。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "@SpringBootApplication注解的等价替代方式：在Spring Boot 1.x中，可以使用@Configuration + @EnableAutoConfiguration + @ComponentScan三个注解组合替代@SpringBootApplication。具体如下：1) @Configuration：标记类为配置类；2) @EnableAutoConfiguration：开启自动配置；3) @ComponentScan：配置组件扫描路径。在Spring Boot 2.x中，@SpringBootApplication还继承了@SpringBootConfiguration，但通常仍然推荐直接使用@SpringBootApplication，因为它是最简洁的方式。另外Spring Boot还提供了@SpringBootApplication(exclude = ...)来排除自动配置。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "@SpringBootApplication注解的等价替代方式：在Spring Boot 1.x中，可以使用@Configuration + @EnableAutoConfiguration + @ComponentScan三个注解组合替代@SpringBootApplication。具体如下：1) @Configuration：标记类为配置类；2) @EnableAutoConfiguration：开启自动配置；3) @ComponentScan：配置组件扫描路径。在Spring Boot 2.x中，@SpringBootApplication还继承了@SpringBootConfiguration，但通常仍然推荐直接使用@SpringBootApplication，因为它是最简洁的方式。另外Spring Boot还提供了@SpringBootApplication(exclude = ...)来排除自动配置。"
+        },
+        {
+            "id": 491,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Configuration Metadata，以下说法正确的是？",
+            "options": [
+                "Configuration Metadata是配置属性的元数据描述",
+                "IDE可以根据元数据提供配置自动补全",
+                "元数据通常放在META-INF/additional-spring-configuration-metadata.json中",
+                "@ConfigurationProperties注解会自动生成元数据",
+                "配置元数据不是必须的，但可以提高开发效率"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 492,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@ConfigurationProperties绑定，以下说法正确的是？",
+            "options": [
+                "支持Relaxed Binding（松散绑定），如my-property可绑定到myProperty",
+                "支持List、Map等复杂类型属性的绑定",
+                "支持@DurationUnit和@DataSizeUnit等单位注解",
+                "支持JSR-303 Bean Validation校验",
+                "松散绑定默认开启"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 493,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@Value注解绑定，以下说法正确的是？",
+            "options": [
+                "@Value通过${}占位符引用配置值",
+                "@Value支持SpEL表达式（#{}）",
+                "@Value不支持松散绑定",
+                "@Value不支持复杂类型绑定",
+                "@Value不能用于static字段"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 494,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的随机属性（RandomValuePropertySource），以下说法正确的是？",
+            "options": [
+                "random.int用于生成随机int值",
+                "random.long用于生成随机long值",
+                "random.uuid用于生成随机UUID",
+                "random.int(10)用于生成10以内的随机int值",
+                "随机属性可以在application.properties中直接使用"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 495,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot的@ConfigurationProperties和@Value注解的适用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "@ConfigurationProperties和@Value的适用场景：@ConfigurationProperties适用于以下场景：1) 有一组相关的配置属性（如datasource配置）；2) 需要类型安全的配置绑定；3) 需要松散绑定支持（如my-property自动匹配myProperty）；4) 需要JSR-303数据校验；5) 需要复杂类型绑定（List、Map、嵌套对象）。@Value适用于以下场景：1) 只有单个或少量配置属性；2) 不需要松散绑定；3) 需要SpEL表达式支持；4) 临时或简单的配置注入。开发建议：当有多个相关配置项时优先使用@ConfigurationProperties，当只有简单单个配置值时使用@Value。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "@ConfigurationProperties和@Value的适用场景：@ConfigurationProperties适用于以下场景：1) 有一组相关的配置属性（如datasource配置）；2) 需要类型安全的配置绑定；3) 需要松散绑定支持（如my-property自动匹配myProperty）；4) 需要JSR-303数据校验；5) 需要复杂类型绑定（List、Map、嵌套对象）。@Value适用于以下场景：1) 只有单个或少量配置属性；2) 不需要松散绑定；3) 需要SpEL表达式支持；4) 临时或简单的配置注入。开发建议：当有多个相关配置项时优先使用@ConfigurationProperties，当只有简单单个配置值时使用@Value。"
+        },
+        {
+            "id": 496,
+            "category": "SpringBoot",
+            "type": "SORTING",
+            "question": "请按Spring Boot配置属性的优先级从高到低排列以下来源：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "命令行参数（--server.port=9090）",
+                "application-{profile}.properties",
+                "application.properties",
+                "@PropertySource加载的文件"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 497,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的Liveness和Readiness探针，以下说法正确的是？",
+            "options": [
+                "Liveness探针检查应用是否存活",
+                "Readiness探针检查应用是否准备好处理请求",
+                "Spring Boot 2.3+原生支持Kubernetes探针",
+                "management.endpoint.health.probes.enabled=true启用探针端点",
+                "Liveness和Readiness探针只能用于Kubernetes环境"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 498,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的GraalVM Native Image支持，以下说法正确的是？",
+            "options": [
+                "Spring Boot 3.x开始支持GraalVM Native Image",
+                "Native Image编译后启动速度极快",
+                "Native Image运行时内存占用更低",
+                "需要添加spring-boot-starter-parent和native-maven-plugin",
+                "Native Image支持所有Java特性"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 499,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的@ConditionalOnCloudPlatform注解，以下说法正确的是？",
+            "options": [
+                "@ConditionalOnCloudPlatform用于检测云平台环境",
+                "支持CloudPlatform.CLOUD_FOUNDRY",
+                "支持CloudPlatform.HEROKU",
+                "支持CloudPlatform.KUBERNETES",
+                "只能在自动配置中使用"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 500,
+            "category": "SpringBoot",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring Boot的优雅关机（Graceful Shutdown），以下说法正确的是？",
+            "options": [
+                "server.shutdown=graceful开启优雅关机",
+                "spring.lifecycle.timeout-per-shutdown-phase设置超时时间",
+                "优雅关机时不再接收新请求",
+                "优雅关机等待正在处理请求完成后关闭",
+                "优雅关机对所有内嵌容器都有效"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 501,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot 3.x的新特性。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring Boot 3.x主要新特性：1) 基于Spring Framework 6和Jakarta EE 9+（javax.*迁移到jakarta.*）；2) 最低要求JDK 17；3) 支持GraalVM Native Image编译，实现秒级启动和更低内存占用；4) 提供声明式Http服务接口（@HttpExchange）；5) 支持Observability（可观测性），集成Micrometer Tracing；6) 支持Problem Details for HTTP APIs（RFC 7807）错误响应规范；7) 支持Virtual Threads（虚拟线程，JDK 21+）；8) 移除已废弃的代码和配置项；9) 提供自动配置的Docker Compose和Testcontainers支持；10) 改进的Maven/Gradle插件。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring Boot 3.x主要新特性：1) 基于Spring Framework 6和Jakarta EE 9+（javax.*迁移到jakarta.*）；2) 最低要求JDK 17；3) 支持GraalVM Native Image编译，实现秒级启动和更低内存占用；4) 提供声明式Http服务接口（@HttpExchange）；5) 支持Observability（可观测性），集成Micrometer Tracing；6) 支持Problem Details for HTTP APIs（RFC 7807）错误响应规范；7) 支持Virtual Threads（虚拟线程，JDK 21+）；8) 移除已废弃的代码和配置项；9) 提供自动配置的Docker Compose和Testcontainers支持；10) 改进的Maven/Gradle插件。"
+        },
+        {
+            "id": 502,
+            "category": "SpringBoot",
+            "type": "ESSAY",
+            "question": "请说明Spring Boot中如何自定义自动配置。",
+            "answer": "Spring Boot自定义自动配置步骤：1) 创建自动配置类，使用@Configuration注解标记，使用@ConditionalOnClass等条件注解控制加载条件；2) 在自动配置类中使用@Bean定义要自动配置的Bean；3) 在META-INF/spring.factories文件中注册自动配置类：org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.example.MyAutoConfiguration；4) 可选：定义配置属性类（@ConfigurationProperties）供外部配置；5) 可选：使用@AutoConfigureAfter、@AutoConfigureBefore、@AutoConfigureOrder控制自动配置类的加载顺序；6) 将项目打包成jar引入到其他Spring Boot应用中即可生效。",
+            "answerHtml": "Spring Boot自定义自动配置步骤：1) 创建自动配置类，使用@Configuration注解标记，使用@ConditionalOnClass等条件注解控制加载条件；2) 在自动配置类中使用@Bean定义要自动配置的Bean；3) 在META-INF/spring.factories文件中注册自动配置类：org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.example.MyAutoConfiguration；4) 可选：定义配置属性类（@ConfigurationProperties）供外部配置；5) 可选：使用@AutoConfigureAfter、@AutoConfigureBefore、@AutoConfigureOrder控制自动配置类的加载顺序；6) 将项目打包成jar引入到其他Spring Boot应用中即可生效。"
         }
     ]
 }

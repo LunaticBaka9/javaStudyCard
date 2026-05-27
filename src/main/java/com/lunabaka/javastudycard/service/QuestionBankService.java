@@ -1,5 +1,6 @@
 package com.lunabaka.javastudycard.service;
 
+import com.lunabaka.javastudycard.manager.QuestionBankManager;
 import com.lunabaka.javastudycard.model.Question;
 import com.lunabaka.javastudycard.model.QuestionType;
 import org.springframework.stereotype.Service;
@@ -114,5 +115,9 @@ public class QuestionBankService {
 
     public void importBank(String name, String jsonContent) {
         bankManager.importBank(name, jsonContent);
+    }
+
+    public String getBankJson(String bankName) {
+        return bankManager.getBankJson(bankName);
     }
 }

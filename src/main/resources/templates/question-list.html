@@ -51,12 +51,10 @@
                             <div
                                 class="q-option"
                                 th:each="opt, optStat : ${q.options}"
-                                th:class="${q.correctAnswers.contains(optStat.index)} ? 'q-option-correct' : ''"
+                                th:classappend="${q.correctAnswers.contains(optStat.index)} ? 'q-option-correct' : ''"
                             >
+                                <span class="q-checkbox-box"></span>
                                 <span th:text="${opt}"></span>
-                                <span th:if="${q.correctAnswers.contains(optStat.index)}" class="q-correct-mark"
-                                    >✓</span
-                                >
                             </div>
                         </div>
 
@@ -79,13 +77,13 @@
 
                 <div class="form-actions">
                     <a href="/" class="anki-btn anki-btn-good">返回首页</a>
-                    <a th:href="@{/quiz(category=${category}, type='MULTIPLE_CHOICE')}" class="anki-btn anki-btn-hard"
+                    <a th:href="@{/quiz(category=${category}, types='MULTIPLE_CHOICE')}" class="anki-btn anki-btn-hard"
                         >练习多选题</a
                     >
-                    <a th:href="@{/quiz(category=${category}, type='ESSAY')}" class="anki-btn anki-btn-again"
+                    <a th:href="@{/quiz(category=${category}, types='ESSAY')}" class="anki-btn anki-btn-again"
                         >练习问答题</a
                     >
-                    <a th:href="@{/quiz(category=${category}, type='SORTING')}" class="anki-btn anki-btn-sort"
+                    <a th:href="@{/quiz(category=${category}, types='SORTING')}" class="anki-btn anki-btn-sort"
                         >练习排序题</a
                     >
                 </div>

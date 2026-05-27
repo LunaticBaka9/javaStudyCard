@@ -970,15 +970,35 @@ header h1 {
     color: var(--gray-600);
 }
 
-.answer-option {
-    display: inline-block;
-    background: var(--info-light);
-    padding: 0.2rem 0.45rem;
-    border-radius: 4px;
-    margin-right: 0.3rem;
-    margin-bottom: 0.2rem;
-    font-size: 0.85rem;
-    color: var(--info);
+.result-options-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.9rem;
+    border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--gray-50);
+}
+
+.result-option-correct {
+    background: var(--success-light);
+    border-color: var(--success);
+    color: var(--success-dark);
+}
+
+.result-option-incorrect {
+    background: var(--danger-light);
+    border-color: var(--danger);
+    color: var(--danger-dark);
 }
 
 .reference-answer span {
@@ -1174,30 +1194,50 @@ header h1 {
 
 .q-option {
     display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 0.55rem 0.7rem;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.7rem 1rem;
     background: var(--gray-50);
     border-radius: var(--radius-sm);
+    border: 2px solid transparent;
     font-size: 0.9rem;
-    position: relative;
     color: var(--gray-600);
     transition: var(--transition);
 }
 
-.q-option-correct {
-    background: var(--success-light);
-    border-left: 3px solid var(--success);
+.q-option:hover {
+    background: var(--primary-bg);
+    border-color: var(--primary-light);
 }
 
-.q-correct-mark {
-    position: absolute;
-    right: 0.6rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--success);
+.q-option-correct {
+    background: var(--success-light);
+    border-color: var(--success);
+}
+
+.q-checkbox-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--gray-300);
+    border-radius: 4px;
+    background: white;
+    flex-shrink: 0;
+    font-size: 0.7rem;
     font-weight: 700;
-    font-size: 1rem;
+    color: white;
+    transition: var(--transition);
+}
+
+.q-option-correct .q-checkbox-box {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.q-option-correct .q-checkbox-box::after {
+    content: "✓";
 }
 
 .q-answer {

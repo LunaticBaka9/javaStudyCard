@@ -63,23 +63,39 @@
                             >
                                 <p class="correct-answer">
                                     <strong>正确答案：</strong>
+                                </p>
+                                <div class="result-options-list">
                                     <span
                                         th:each="idx : ${r['question'].correctAnswers}"
+                                        class="result-option result-option-correct"
                                         th:text="${r['question'].options[idx]}"
-                                        class="answer-option"
                                     ></span>
-                                </p>
+                                </div>
                                 <p
                                     class="user-answer"
                                     th:if="${r['selectedAnswers'] != null}"
                                 >
-                                    <strong>你的答案：</strong>
-                                    <span
-                                        th:each="idx : ${r['selectedAnswers']}"
-                                        th:text="${r['question'].options[idx]}"
-                                        class="answer-option"
-                                    ></span>
+                                    <strong>你的选择：</strong>
                                 </p>
+                                <div
+                                    class="result-options-list"
+                                    th:if="${r['selectedAnswers'] != null}"
+                                >
+                                    <th:block
+                                        th:each="idx : ${r['selectedAnswers']}"
+                                    >
+                                        <span
+                                            th:if="${r['question'].correctAnswers.contains(idx)}"
+                                            class="result-option result-option-correct"
+                                            th:text="${r['question'].options[idx]}"
+                                        ></span>
+                                        <span
+                                            th:if="${!r['question'].correctAnswers.contains(idx)}"
+                                            class="result-option result-option-incorrect"
+                                            th:text="${r['question'].options[idx]}"
+                                        ></span>
+                                    </th:block>
+                                </div>
                             </div>
 
                             <div
@@ -107,23 +123,39 @@
                             >
                                 <p class="correct-answer">
                                     <strong>正确顺序：</strong>
+                                </p>
+                                <div class="result-options-list">
                                     <span
                                         th:each="idx : ${r['question'].correctOrder}"
+                                        class="result-option result-option-correct"
                                         th:text="${r['question'].items[idx]}"
-                                        class="answer-option"
                                     ></span>
-                                </p>
+                                </div>
                                 <p
                                     class="user-answer"
                                     th:if="${r['userOrder'] != null}"
                                 >
                                     <strong>你的顺序：</strong>
-                                    <span
-                                        th:each="idx : ${r['userOrder']}"
-                                        th:text="${r['question'].items[idx]}"
-                                        class="answer-option"
-                                    ></span>
                                 </p>
+                                <div
+                                    class="result-options-list"
+                                    th:if="${r['userOrder'] != null}"
+                                >
+                                    <th:block
+                                        th:each="idx, iterStat : ${r['userOrder']}"
+                                    >
+                                        <span
+                                            th:if="${iterStat.index < r['question'].correctOrder.size() && r['question'].correctOrder[iterStat.index] == idx}"
+                                            class="result-option result-option-correct"
+                                            th:text="${r['question'].items[idx]}"
+                                        ></span>
+                                        <span
+                                            th:if="${iterStat.index >= r['question'].correctOrder.size() || r['question'].correctOrder[iterStat.index] != idx}"
+                                            class="result-option result-option-incorrect"
+                                            th:text="${r['question'].items[idx]}"
+                                        ></span>
+                                    </th:block>
+                                </div>
                             </div>
                         </div>
                     </div>
