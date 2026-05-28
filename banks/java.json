@@ -8099,7 +8099,460 @@
             "type": "ESSAY",
             "question": "请说明Spring Boot中如何自定义自动配置。",
             "answer": "Spring Boot自定义自动配置步骤：1) 创建自动配置类，使用@Configuration注解标记，使用@ConditionalOnClass等条件注解控制加载条件；2) 在自动配置类中使用@Bean定义要自动配置的Bean；3) 在META-INF/spring.factories文件中注册自动配置类：org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.example.MyAutoConfiguration；4) 可选：定义配置属性类（@ConfigurationProperties）供外部配置；5) 可选：使用@AutoConfigureAfter、@AutoConfigureBefore、@AutoConfigureOrder控制自动配置类的加载顺序；6) 将项目打包成jar引入到其他Spring Boot应用中即可生效。",
-            "answerHtml": "Spring Boot自定义自动配置步骤：1) 创建自动配置类，使用@Configuration注解标记，使用@ConditionalOnClass等条件注解控制加载条件；2) 在自动配置类中使用@Bean定义要自动配置的Bean；3) 在META-INF/spring.factories文件中注册自动配置类：org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.example.MyAutoConfiguration；4) 可选：定义配置属性类（@ConfigurationProperties）供外部配置；5) 可选：使用@AutoConfigureAfter、@AutoConfigureBefore、@AutoConfigureOrder控制自动配置类的加载顺序；6) 将项目打包成jar引入到其他Spring Boot应用中即可生效。"
+            "answerHtml": "Spring Boot自定义自动配置步骤：1) 创建自动配置类，使用@Configuration注解标记，使用@ConditionalOnClass等条件注解控制加载条件；2) 在自动配置类中使用@Bean定义要自动配置的Bean；3) 在META-INF/spring.factories文件中注册自动配置类：org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.example.MyAutoConfiguration；4) 可选：定义配置属性类（@ConfigurationProperties）供外部配置；5) 可选：使用@AutoConfigureAfter、@AutoConfigureBefore、@AutoConfigureOrder控制自动配置类的加载顺序；6) 将项目打包成jar引入到其他 Spring Boot应用中即可生效。"
+        },
+        {
+            "id": 503,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于File类的功能，以下说法正确的是？",
+            "options": [
+                "File类用于操作文件和目录的路径名",
+                "File类的createNewFile()方法可以创建新文件",
+                "mkdir()方法可以创建多级目录",
+                "delete()方法可以删除文件或空目录",
+                "File类是Java IO流体系中的核心流类"
+            ],
+            "correctAnswers": [0, 1, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 504,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于RandomAccessFile，以下说法正确的是？",
+            "options": [
+                "RandomAccessFile支持随机读写文件",
+                "可以通过seek()方法定位到文件的任意位置",
+                "支持多种模式：r（只读）、rw（读写）等",
+                "RandomAccessFile是InputStream的子类",
+                "RandomAccessFile适用于断点续传场景"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 505,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Java NIO的核心组件，以下说法正确的是？",
+            "options": [
+                "Channel（通道）是双向的，可同时读写",
+                "Buffer（缓冲区）用于存储数据",
+                "Selector（选择器）用于监听多个Channel的事件",
+                "NIO是面向流的IO模型",
+                "Channel可以从Buffer读取数据，也可以写入数据到Buffer"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 506,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Java NIO中的Buffer，以下说法正确的是？",
+            "options": [
+                "Buffer是一个抽象类，有ByteBuffer、CharBuffer等子类",
+                "Buffer的核心属性包括capacity、position、limit、mark",
+                "flip()方法将缓冲区从写模式切换到读模式",
+                "clear()方法清空缓冲区并重置所有标记",
+                "rewind()方法重置position为0，但limit不变"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 507,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Java NIO Selector，以下说法正确的是？",
+            "options": [
+                "Selector可以监听多个Channel的IO事件",
+                "通过Selector实现了单线程管理多个连接",
+                "SelectionKey表示Channel在Selector上的注册关系",
+                "支持OP_ACCEPT、OP_CONNECT、OP_READ、OP_WRITE事件",
+                "Selector适用于高并发网络编程"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 508,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请比较BIO、NIO、AIO的区别及应用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "BIO（同步阻塞IO）：每个连接对应一个线程，当线程执行IO操作时阻塞等待。适用于连接数少、并发量低的场景。\n\nNIO（同步非阻塞IO）：基于Channel和Selector，单线程可管理多个连接，通过Selector轮询就绪事件。适用于连接数多、数据量小的场景（如聊天服务器）。\n\nAIO（异步非阻塞IO）：基于事件回调机制，IO操作完成后自动回调。适用于连接数多、数据量大的场景（如文件服务器）。NIO2中引入了AsynchronousSocketChannel、AsynchronousFileChannel等。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "BIO（同步阻塞IO）：每个连接对应一个线程，当线程执行IO操作时阻塞等待。适用于连接数少、并发量低的场景。<br/><br/>NIO（同步非阻塞IO）：基于Channel和Selector，单线程可管理多个连接，通过Selector轮询就绪事件。适用于连接数多、数据量小的场景（如聊天服务器）。<br/><br/>AIO（异步非阻塞IO）：基于事件回调机制，IO操作完成后自动回调。适用于连接数多、数据量大的场景（如文件服务器）。NIO2中引入了AsynchronousSocketChannel、AsynchronousFileChannel等。"
+        },
+        {
+            "id": 509,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Files和Paths工具类（NIO.2），以下说法正确的是？",
+            "options": [
+                "Paths.get()用于创建Path对象",
+                "Files.copy()用于复制文件",
+                "Files.walk()可以递归遍历文件树",
+                "Files.readAllLines()可以一次性读取所有行",
+                "Files.delete()可以删除非空目录"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 510,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于FileVisitor接口，以下说法正确的是？",
+            "options": [
+                "FileVisitor用于遍历文件树时执行自定义操作",
+                "preVisitDirectory在访问目录前调用",
+                "visitFile在访问文件时调用",
+                "visitFileFailed在访问文件失败时调用",
+                "postVisitDirectory在访问目录后调用"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 511,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于GZIP压缩流，以下说法正确的是？",
+            "options": [
+                "GZIPOutputStream用于压缩数据",
+                "GZIPInputStream用于解压缩数据",
+                "GZIP流是基于字节流的处理流",
+                "GZIP压缩常用于网络传输减少数据量",
+                "GZIP支持多文件压缩到一个文件中"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 512,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于ZipOutputStream/ZipInputStream，以下说法正确的是？",
+            "options": [
+                "ZipOutputStream用于创建ZIP格式的压缩文件",
+                "ZipInputStream用于读取ZIP格式的压缩文件",
+                "ZipEntry表示ZIP文件中的一个条目（文件或目录）",
+                "ZIP流支持添加多个文件到同一个压缩包",
+                "ZIP流不支持目录结构"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 513,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Java中的Charset（字符集），以下说法正确的是？",
+            "options": [
+                "Charset表示字符集编码和解码方案",
+                "StandardCharsets提供了常用字符集常量",
+                "UTF-8是一种可变长度的Unicode编码",
+                "GBK是中文字符集，每个汉字占2个字节",
+                "Charset.forName()用于获取指定名称的字符集"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 514,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明File类和Path（NIO.2）的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "File类和Path的区别：1) File是Java早期版本提供的文件和目录操作类，Path是Java7 NIO.2引入的；2) File的许多方法在异常时不抛出异常（如delete返回boolean），Path的方法会抛出IOException；3) Path支持更丰富的操作，如resolve（路径解析）、relativize（相对路径）、normalize（标准化）等；4) Files工具类提供了大量静态方法操作Path（如copy、move、walk、list等），比File的API更强大；5) Path支持符号链接处理、文件属性访问等高级功能；6) File.toPath()可将File转为Path。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "File类和Path的区别：1) File是Java早期版本提供的文件和目录操作类，Path是Java7 NIO.2引入的；2) File的许多方法在异常时不抛出异常（如delete返回boolean），Path的方法会抛出 IOException；3) Path支持更丰富的操作，如resolve（路径解析）、relativize（相对路径）、normalize（标准化）等；4) Files工具类提供了大量静态方法操作Path（如copy、move、walk、list等），比File的API更强大；5) Path支持符号链接处理、文件属性访问等高级功能；6) File.toPath()可将File转为Path。"
+        },
+        {
+            "id": 515,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明Java中Properties类加载配置文件的IO原理。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Properties类继承自Hashtable，用于读取和写入配置文件（.properties）。IO原理：1) load(InputStream inStream)：从输入流中读取属性列表，逐行解析键值对（key=value），使用字节流读取后按ISO-8859-1编码解码；2) load(Reader reader)：从字符流读取，使用指定编码；3) store(OutputStream out, String comments)：将属性列表写入输出流，默认使用ISO-8859-1编码；4) store(Writer writer, String comments)：将属性列表写入字符流；5) 支持转义字符（如\\uXXXX）、多行值（行尾\\）、注释（#或!）。常与IO流配合用于配置文件管理。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Properties类继承自Hashtable，用于读取和写入配置文件（.properties）。IO原理：1) load(InputStream inStream)：从输入流中读取属性列表，逐行解析键值对（key=value），使用字节流读取后按ISO-8859-1编码解码；2) load(Reader reader)：从字符流读取，使用指定编码；3) store(OutputStream out, String comments)：将属性列表写入输出流，默认使用ISO-8859-1编码；4) store(Writer writer, String comments)：将属性列表写入字符流；5) 支持转义字符（如\\uXXXX）、多行值（行尾\\）、注释（#或!）。常与IO流配合用于配置文件管理。"
+        },
+        {
+            "id": 516,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Console类，以下说法正确的是？",
+            "options": [
+                "System.console()用于获取Console对象",
+                "Console支持密码读取（readPassword），不回显",
+                "Console的readLine()读取一行文本",
+                "Console只能在命令行环境中使用",
+                "Console支持格式化输出（printf/format）"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 517,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于PrintWriter和PrintStream，以下说法正确的是？",
+            "options": [
+                "PrintWriter是字符输出流，PrintStream是字节输出流",
+                "两者都提供了print()/println()方法",
+                "两者都不会抛出IOException（内部捕获）",
+                "PrintWriter可以设置自动刷新（autoFlush）",
+                "System.out本质上是PrintStream对象"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 518,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明System.in、System.out、System.err的作用及重定向方式。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "System.in：标准输入流（InputStream类型），默认从键盘读取输入。System.out：标准输出流（PrintStream类型），默认输出到控制台。System.err：标准错误流（PrintStream类型），默认输出到控制台。\n\n重定向方式：1) System.setIn(InputStream in)：重定向标准输入，可从文件或其他输入源读取；2) System.setOut(PrintStream out)：重定向标准输出，可输出到文件；3) System.setErr(PrintStream err)：重定向标准错误。\n\n应用场景：1) 从文件读取输入数据替代键盘输入（测试用）。2) 将程序输出保存到日志文件。3) 将错误信息单独输出到错误日志。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "System.in：标准输入流（InputStream类型），默认从键盘读取输入。System.out：标准输出流（PrintStream类型），默认输出到控制台。System.err：标准错误流（PrintStream类型），默认输出到控制台。<br/><br/>重定向方式：1) System.setIn(InputStream in)：重定向标准输入，可从文件或其他输入源读取；2) System.setOut(PrintStream out)：重定向标准输出，可输出到文件；3) System.setErr(PrintStream err)：重定向标准错误。<br/><br/>应用场景：1) 从文件读取输入数据替代键盘输入（测试用）。2) 将程序输出保存到日志文件。3) 将错误信息单独输出到错误日志。"
+        },
+        {
+            "id": 519,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于FileFilter和FilenameFilter，以下说法正确的是？",
+            "options": [
+                "FileFilter用于过滤文件列表",
+                "FilenameFilter通过文件名进行过滤",
+                "FileFilter的accept(File pathname)接受文件路径参数",
+                "FilenameFilter的accept(File dir, String name)接受目录和文件名参数",
+                "两者都是函数式接口"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 520,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于ObjectInputStream和ObjectOutputStream，以下说法正确的是？",
+            "options": [
+                "ObjectOutputStream用于将对象序列化写入输出流",
+                "ObjectInputStream用于从输入流反序列化对象",
+                "writeObject()方法用于写入对象",
+                "readObject()方法用于读取对象",
+                "序列化的类必须实现Serializable接口"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 521,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明Java中Properties文件加载的编码问题及解决方案。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Properties文件加载的编码问题：1) Properties类的load(InputStream)方法默认使用ISO-8859-1编码，不支持中文等非拉丁字符；2) 如果properties文件包含中文，直接使用load(InputStream)会导致乱码。\n\n解决方案：1) 使用load(Reader)方法：用InputStreamReader指定编码（如UTF-8）包裹InputStream，再传入load()方法；2) 在properties文件中使用\\uXXXX转义Unicode字符；3) 使用Spring的PropertiesLoaderUtils（可指定编码）；4) 使用ResourceBundle（UTF-8 properties需特殊配置）；5) 在现代Java应用中，推荐将配置文件保存为UTF-8编码，并用Reader方式加载。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Properties文件加载的编码问题：1) Properties类的load(InputStream)方法默认使用ISO-8859-1编码，不支持中文等非拉丁字符；2) 如果properties文件包含中文，直接使用load(InputStream)会导致乱码。<br/><br/>解决方案：1) 使用load(Reader)方法：用InputStreamReader指定编码（如UTF-8）包裹InputStream，再传入load()方法；2) 在properties文件中使用\\uXXXX转义Unicode字符；3) 使用Spring的PropertiesLoaderUtils（可指定编码）；4) 使用ResourceBundle（UTF-8 properties需特殊配置）；5) 在现代Java应用中，推荐将配置文件保存为UTF-8编码，并用Reader方式加载。"
+        },
+        {
+            "id": 522,
+            "category": "IO流",
+            "type": "SORTING",
+            "question": "请按Java IO/NIO发展的时间顺序排列以下API的引入版本：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "File类和字节/字符流（java.io包）",
+                "NIO（Channel、Buffer、Selector）",
+                "NIO.2（Path、Files、FileVisitor）"
+            ],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 523,
+            "category": "IO流",
+            "type": "SORTING",
+            "question": "请按Buffer中position、limit、capacity在读写操作中的变化排列ByteBuffer的使用流程：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "写入数据到Buffer",
+                "调用flip()切换到读模式",
+                "从Buffer读取数据",
+                "调用clear()或compact()清空或压缩缓冲区"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 524,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于FilterInputStream和FilterOutputStream（过滤流），以下说法正确的是？",
+            "options": [
+                "过滤流是装饰器模式的应用",
+                "过滤流持有一个底层输入/输出流",
+                "BufferedInputStream是FilterInputStream的子类",
+                "DataInputStream是FilterInputStream的子类",
+                "过滤流不能增强原有流的功能"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 525,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明Java装饰器模式在IO流中的体现。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Java IO流大量使用了装饰器模式（Decorator Pattern）。核心体现：FilterInputStream和FilterOutputStream是抽象装饰器，它们持有一个底层InputStream/OutputStream引用，并转发所有方法调用。具体的装饰器子类在转发前后添加增强功能：\n\n1) BufferedInputStream：在read时添加缓冲功能，减少磁盘IO次数；\n2) DataInputStream：添加读取基本数据类型的方法（readInt、readDouble等）；\n3) PushbackInputStream：添加回退功能，可将读取的字节推回流中；\n4) LineNumberInputStream：添加行号追踪功能。\n\n通过这种设计，可以在运行时动态组合不同的功能，如：new BufferedInputStream(new DataInputStream(new FileInputStream(\"file\")))。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Java IO流大量使用了装饰器模式（Decorator Pattern）。核心体现：FilterInputStream和FilterOutputStream是抽象装饰器，它们持有一个底层InputStream/OutputStream引用，并转发所有方法调用。具体的装饰器子类在转发前后添加增强功能：<br/><br/>1) BufferedInputStream：在read时添加缓冲功能，减少磁盘IO次数；<br/>2) DataInputStream：添加读取基本数据类型的方法（readInt、readDouble等）；<br/>3) PushbackInputStream：添加回退功能，可将读取的字节推回流中；<br/>4) LineNumberInputStream：添加行号追踪功能。<br/><br/>通过这种设计，可以在运行时动态组合不同的功能，如：new BufferedInputStream(new DataInputStream(new FileInputStream(\"file\")))。"
+        },
+        {
+            "id": 526,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于FileLock（文件锁），以下说法正确的是？",
+            "options": [
+                "FileLock用于锁定文件，防止并发访问冲突",
+                "lock()获取独占锁，阻塞等待",
+                "tryLock()尝试获取锁，立即返回",
+                "文件锁有共享锁和独占锁之分",
+                "FileLock在FileChannel上操作"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 527,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于DataInputStream和DataOutputStream，以下说法正确的是？",
+            "options": [
+                "DataOutputStream可以将基本类型数据写入输出流",
+                "DataInputStream可以从输入流读取基本类型数据",
+                "写入和读取的顺序必须一致",
+                "writeUTF()以UTF-8格式写入字符串",
+                "writeInt()写入int类型数据，占4个字节"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 528,
+            "category": "IO流",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于BufferedReader和BufferedWriter的专有方法，以下说法正确的是？",
+            "options": [
+                "BufferedReader的readLine()读取一行文本，返回String",
+                "BufferedWriter的newLine()写入换行符，跨平台兼容",
+                "readLine()返回null表示已读取到末尾",
+                "newLine()会根据操作系统自动选择换行符",
+                "BufferedReader和BufferedWriter只能包装字符流"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 529,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明字符流中的OutputStreamWriter和InputStreamReader的作用。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "OutputStreamWriter和InputStreamReader是转换流（桥接流），作为字节流到字符流的桥梁。\n\nInputStreamReader：1) 继承Reader；2) 从字节输入流读取字节，使用指定字符集解码为字符；3) 构造函数可指定字符集名称或Charset对象；4) 未指定字符集时使用平台默认编码。\n\nOutputStreamWriter：1) 继承Writer；2) 将写入的字符使用指定字符集编码为字节，写入底层字节输出流；3) 构造函数可指定字符集；4) 常用于解决编码乱码问题。\n\n应用场景：1) 读取特定编码格式的文本文件（如UTF-8、GBK）；2) 写入特定编码格式的文本文件；3) 网络传输中编码转换。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "OutputStreamWriter和InputStreamReader是转换流（桥接流），作为字节流到字符流的桥梁。<br/><br/>InputStreamReader：1) 继承Reader；2) 从字节输入流读取字节，使用指定字符集解码为字符；3) 构造函数可指定字符集名称或Charset对象；4) 未指定字符集时使用平台默认编码。<br/><br/>OutputStreamWriter：1) 继承Writer；2) 将写入的字符使用指定字符集编码为字节，写入底层字节输出流；3) 构造函数可指定字符集；4) 常用于解决编码乱码问题。<br/><br/>应用场景：1) 读取特定编码格式的文本文件（如UTF-8、GBK）；2) 写入特定编码格式的文本文件；3) 网络传输中编码转换。"
+        },
+        {
+            "id": 530,
+            "category": "IO流",
+            "type": "ESSAY",
+            "question": "请说明使用FileChannel进行文件复制的优势及实现方式。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "FileChannel进行文件复制的优势：1) 基于NIO实现，使用操作系统底层的零拷贝技术（sendfile/DMA），数据不经过用户空间；2) transferTo()和transferFrom()方法直接在通道间传输数据，无需中间缓冲区；3) 性能远高于传统的字节流循环读写方式。\n\n实现方式：\n1) 使用FileChannel的transferTo：FileChannel in = FileChannel.open(Paths.get(source)); FileChannel out = FileChannel.open(Paths.get(target), StandardOpenOption.CREATE, StandardOpenOption.WRITE); in.transferTo(0, in.size(), out);\n2) 使用Files.copy()工具方法（底层也使用了FileChannel）：Files.copy(Paths.get(source), Paths.get(target), StandardCopyOption.REPLACE_EXISTING);",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "FileChannel进行文件复制的优势：1) 基于NIO实现，使用操作系统底层的零拷贝技术（sendfile/DMA），数据不经过用户空间；2) transferTo()和transferFrom()方法直接在通道间传输数据，无需中间缓冲区；3) 性能远高于传统的字节流循环读写方式。<br/><br/>实现方式：<br/>1) 使用FileChannel的transferTo：FileChannel in = FileChannel.open(Paths.get(source)); FileChannel out = FileChannel.open(Paths.get(target), StandardOpenOption.CREATE, StandardOpenOption.WRITE); in.transferTo(0, in.size(), out);<br/>2) 使用Files.copy()工具方法（底层也使用了FileChannel）：Files.copy(Paths.get(source), Paths.get(target), StandardCopyOption.REPLACE_EXISTING);"
         }
     ]
 }
