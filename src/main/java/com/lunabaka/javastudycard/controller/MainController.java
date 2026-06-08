@@ -22,7 +22,10 @@ public class MainController {
         this.questionBankService = questionBankService;
     }
 
-    private String getCurrentBank(HttpSession session) {
+    private String resolveBank(HttpSession session, String bankParam) {
+        if (bankParam != null && !bankParam.isBlank()) {
+            return bankParam;
+        }
         String bank = (String) session.getAttribute(SESSION_BANK_KEY);
         if (bank == null) {
             bank = questionBankService.getDefaultBankName();
@@ -32,8 +35,10 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String index(HttpSession session, Model model) {
-        String currentBank = getCurrentBank(session);
+    public String index(HttpSession session,
+            @RequestParam(required = false) String bank,
+            Model model) {
+        String currentBank = resolveBank(session, bank);
         model.addAttribute("categories", questionBankService.getCategories(currentBank));
         model.addAttribute("questionTypes", questionBankService.getQuestionTypes());
         model.addAttribute("categoryStats", questionBankService.getCategoryStats(currentBank));
@@ -45,16 +50,18 @@ public class MainController {
 
     @GetMapping("/quiz")
     public String quiz(HttpSession session,
+            @RequestParam(required = false) String bank,
             @RequestParam(defaultValue = "all") String category,
             @RequestParam(defaultValue = "MULTIPLE_CHOICE") List<QuestionType> types,
             @RequestParam(defaultValue = "10") int count,
             Model model) {
-        String currentBank = getCurrentBank(session);
+        String currentBank = resolveBank(session, bank);
         List<Question> questions = questionBankService.getRandomQuestions(currentBank, category, types, count);
         model.addAttribute("questions", questions);
         model.addAttribute("category", category);
         model.addAttribute("types", types);
         model.addAttribute("typeDisplay", buildTypeDisplay(types));
+        model.addAttribute("currentBank", currentBank);
         return "quiz";
     }
 
@@ -87,11 +94,12 @@ public class MainController {
 
     @PostMapping("/submit")
     public String submit(HttpServletRequest request, HttpSession session,
+            @RequestParam(required = false) String bank,
             @RequestParam String category,
             @RequestParam(required = false) String types,
             @RequestParam(required = false, defaultValue = "0") int totalQuestions,
             Model model) {
-        String currentBank = getCurrentBank(session);
+        String currentBank = resolveBank(session, bank);
         List<Map<String, Object>> results = new ArrayList<>();
         int correctCount = 0;
         int processedQuestions = 0;
@@ -170,6 +178,7 @@ public class MainController {
         model.addAttribute("category", category);
         model.addAttribute("types", types);
         model.addAttribute("typeDisplay", buildTypeDisplayFromString(types));
+        model.addAttribute("currentBank", currentBank);
         return "result";
     }
 
@@ -226,11 +235,14 @@ public class MainController {
     }
 
     @GetMapping("/questions")
-    public String questions(HttpSession session, @RequestParam String category, Model model) {
-        String currentBank = getCurrentBank(session);
+    public String questions(HttpSession session,
+            @RequestParam(required = false) String bank,
+            @RequestParam String category, Model model) {
+        String currentBank = resolveBank(session, bank);
         List<Question> questions = questionBankService.getQuestionsByCategory(currentBank, category);
         model.addAttribute("questions", questions);
         model.addAttribute("category", category);
+        model.addAttribute("currentBank", currentBank);
         return "question-list";
     }
 }

@@ -10,7 +10,7 @@
         <div class="container">
             <header>
                 <h1>答题结果</h1>
-                <a href="/" class="btn-secondary">返回首页</a>
+                <a th:href="@{/(bank=${currentBank})}" class="btn-secondary">返回首页</a>
             </header>
 
             <main>
@@ -163,11 +163,11 @@
 
                 <div class="anki-buttons">
                     <a
-                        th:href="@{/quiz(category=${category}, count=${originalCount != null ? originalCount : totalQuestions}, types=${types})}"
+                        th:href="@{/quiz(bank=${currentBank}, category=${category}, count=${originalCount != null ? originalCount : totalQuestions}, types=${types})}"
                         class="anki-btn anki-btn-hard"
                         >再来一轮</a
                     >
-                    <a href="/" class="anki-btn anki-btn-good">返回首页</a>
+                    <a th:href="@{/(bank=${currentBank})}" class="anki-btn anki-btn-good">返回首页</a>
                 </div>
             </main>
         </div>

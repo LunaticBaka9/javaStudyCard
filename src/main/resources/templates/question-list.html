@@ -13,7 +13,7 @@
                     <span th:text="${category}"></span>
                     题库
                 </h1>
-                <a href="/" class="btn-secondary">返回首页</a>
+                <a th:href="@{/(bank=${currentBank})}" class="btn-secondary">返回首页</a>
             </header>
 
             <main>
@@ -76,14 +76,14 @@
                 </div>
 
                 <div class="form-actions">
-                    <a href="/" class="anki-btn anki-btn-good">返回首页</a>
-                    <a th:href="@{/quiz(category=${category}, types='MULTIPLE_CHOICE')}" class="anki-btn anki-btn-hard"
+                    <a th:href="@{/(bank=${currentBank})}" class="anki-btn anki-btn-good">返回首页</a>
+                    <a th:href="@{/quiz(bank=${currentBank}, category=${category}, types='MULTIPLE_CHOICE')}" class="anki-btn anki-btn-hard"
                         >练习多选题</a
                     >
-                    <a th:href="@{/quiz(category=${category}, types='ESSAY')}" class="anki-btn anki-btn-again"
+                    <a th:href="@{/quiz(bank=${currentBank}, category=${category}, types='ESSAY')}" class="anki-btn anki-btn-again"
                         >练习问答题</a
                     >
-                    <a th:href="@{/quiz(category=${category}, types='SORTING')}" class="anki-btn anki-btn-sort"
+                    <a th:href="@{/quiz(bank=${currentBank}, category=${category}, types='SORTING')}" class="anki-btn anki-btn-sort"
                         >练习排序题</a
                     >
                 </div>

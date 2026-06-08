@@ -16,11 +16,16 @@
                     -
                     <span th:text="${typeDisplay}"></span>
                 </h1>
-                <a href="/" class="btn-secondary">返回首页</a>
+                <a th:href="@{/(bank=${currentBank})}" class="btn-secondary">返回首页</a>
             </header>
 
             <main>
                 <form th:action="@{/submit}" method="post" class="quiz-form">
+                    <input
+                        type="hidden"
+                        name="bank"
+                        th:value="${currentBank}"
+                    />
                     <input
                         type="hidden"
                         name="category"

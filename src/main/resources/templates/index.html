@@ -52,11 +52,11 @@
                         <button class="btn-import" onclick="showImportModal()">
                             导入题库
                         </button>
-                        <a href="/api/bank/export" class="btn-import">导出题库</a>
+                        <a th:href="@{/api/bank/export(bank=${currentBank})}" class="btn-import">导出题库</a>
                     </div>
                 </section>
 
-                <form th:action="@{/quiz}" method="get" class="quiz-form">
+                <form th:action="@{/quiz(bank=${currentBank})}" method="get" class="quiz-form">
                     <div class="form-group">
                         <label for="category">知识分类</label>
                         <select id="category" name="category">
@@ -152,7 +152,7 @@
                             </div>
                             <a
                                 class="stat-link"
-                                th:href="@{/questions(category=${cat.key})}"
+                                th:href="@{/questions(category=${cat.key}, bank=${currentBank})}"
                                 >查看题目</a
                             >
                         </div>
@@ -257,7 +257,7 @@
                 })
                     .then((res) => {
                         if (res.ok) {
-                            window.location.reload();
+                            window.location.href = "/?bank=" + encodeURIComponent(name);
                         } else {
                             alert("切换题库失败");
                         }

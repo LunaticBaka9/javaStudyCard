@@ -34,8 +34,13 @@ public class BankApiController {
     }
 
     @GetMapping("/export")
-    public void exportBank(HttpSession session, HttpServletResponse response) throws IOException {
-        String bankName = (String) session.getAttribute(SESSION_BANK_KEY);
+    public void exportBank(HttpSession session,
+            @RequestParam(required = false) String bank,
+            HttpServletResponse response) throws IOException {
+        String bankName = bank;
+        if (bankName == null || bankName.isBlank()) {
+            bankName = (String) session.getAttribute(SESSION_BANK_KEY);
+        }
         if (bankName == null) {
             bankName = questionBankService.getDefaultBankName();
         }
