@@ -5163,7 +5163,7 @@
                 "POST /user：添加user",
                 "PATCH /user/1：部分更新user"
             ],
-            "correctAnswers": [0, 1, 2, 3],
+            "correctAnswers": [0, 1, 2, 3, 4],
             "answer": null,
             "items": null,
             "correctOrder": null,
@@ -8553,6 +8553,621 @@
             "items": null,
             "correctOrder": null,
             "answerHtml": "FileChannel进行文件复制的优势：1) 基于NIO实现，使用操作系统底层的零拷贝技术（sendfile/DMA），数据不经过用户空间；2) transferTo()和transferFrom()方法直接在通道间传输数据，无需中间缓冲区；3) 性能远高于传统的字节流循环读写方式。<br/><br/>实现方式：<br/>1) 使用FileChannel的transferTo：FileChannel in = FileChannel.open(Paths.get(source)); FileChannel out = FileChannel.open(Paths.get(target), StandardOpenOption.CREATE, StandardOpenOption.WRITE); in.transferTo(0, in.size(), out);<br/>2) 使用Files.copy()工具方法（底层也使用了FileChannel）：Files.copy(Paths.get(source), Paths.get(target), StandardCopyOption.REPLACE_EXISTING);"
+        },
+        {
+            "id": 531,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC的拦截规则，以下说法正确的是？",
+            "options": [
+                ".form后缀代表以.form结尾的请求都会进入SpringMVC管理",
+                "/代表除了JSP以外拦截所有请求，包括静态资源",
+                "/*代表拦截所有请求",
+                "/不会拦截html、css、js等静态资源",
+                ".form只会拦截表单提交"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 532,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于HandlerInterceptor接口的方法，以下说法正确的是？",
+            "options": [
+                "preHandle()在控制器方法前执行，返回true继续执行，返回false中断后续操作",
+                "postHandle()在控制器方法调用之后、解析视图之前执行",
+                "afterCompletion()在整个请求完成、视图渲染结束后执行",
+                "preHandle()返回false时，postHandle()仍会执行",
+                "afterCompletion()适合做资源清理和日志记录"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 533,
+            "category": "SpringMVC",
+            "type": "SORTING",
+            "question": "请按SpringMVC拦截器的执行流程排列（假设配置了两个拦截器）：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "preHandle1",
+                "preHandle2",
+                "handler方法执行",
+                "postHandle2",
+                "postHandle1",
+                "afterCompletion2",
+                "afterCompletion1"
+            ],
+            "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+            "answerHtml": null
+        },
+        {
+            "id": 534,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC的放行方式，以下说法正确的是？",
+            "options": [
+                "缺省Servlet：请求没有进入SpringMVC，直接由缺省Servlet处理放行",
+                "resources：请求进入SpringMVC后由SpringMVC自己处理资源达到放行效果",
+                "handler：请求进入SpringMVC后筛选出静态资源交给缺省Servlet处理",
+                "缺省Servlet方式会处理JSP文件",
+                "handler方式下，静态资源交给缺省Servlet后可以正常处理，但JSP会特殊处理（下载或无法解析）"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 535,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC拦截器的注意事项，以下说法正确的是？",
+            "options": [
+                "即使访问的资源不存在，只要符合拦截器规则，都会进入SpringMVC",
+                "静态资源只要符合拦截器规则，也会进入SpringMVC",
+                "拦截器依赖于Servlet容器和Web框架",
+                "拦截器是独立于SpringMVC的组件",
+                "定义一个拦截器需要实现HandlerInterceptor接口"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 536,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明SpringMVC拦截器中preHandle、postHandle、afterCompletion三个方法的执行时机和用途。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "preHandle()：在控制器方法前执行。返回true继续执行（进入handler方法），返回false则中断后续所有操作（包括下一个拦截器和控制器方法）。可用于权限校验、登录检查等。\n\npostHandle()：在控制器方法调用之后、解析视图之前执行。可以通过此方法对请求域中的模型和视图做进一步修改。\n\nafterCompletion()：在整个请求完成（视图渲染结束）之后执行。可用于资源清理、记录日志信息等。即使preHandle返回false，之前已经执行的拦截器的afterCompletion仍会执行。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "preHandle()：在控制器方法前执行。返回true继续执行（进入handler方法），返回false则中断后续所有操作（包括下一个拦截器和控制器方法）。可用于权限校验、登录检查等。<br/><br/>postHandle()：在控制器方法调用之后、解析视图之前执行。可以通过此方法对请求域中的模型和视图做进一步修改。<br/><br/>afterCompletion()：在整个请求完成（视图渲染结束）之后执行。可用于资源清理、记录日志信息等。即使preHandle返回false，之前已经执行的拦截器的afterCompletion仍会执行。"
+        },
+        {
+            "id": 537,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC的异常处理，以下说法正确的是？",
+            "options": [
+                "@ExceptionHandler可以用于单个Controller的异常处理",
+                "@ControllerAdvice配合@ExceptionHandler可实现全局异常处理",
+                "实现HandlerExceptionResolver接口可以全局处理异常，返回ModelAndView",
+                "@ExceptionHandler只能处理当前Controller中的异常",
+                "全局异常处理只能通过接口方式实现"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 538,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明SpringMVC中实现全局异常处理的两种方式。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "方式一：实现HandlerExceptionResolver接口\n- 重写resolveException()方法\n- 返回值是ModelAndView\n- 可以对所有Controller的异常进行统一处理\n\n方式二：注解方式\n- 创建类并使用@ControllerAdvice注解标注\n- 在类中使用@ExceptionHandler(Exception.class)注解标注方法\n- @ExceptionHandler可以指定捕获的异常类型\n- 方法返回值可以是ModelAndView、String、ResponseEntity等\n- 这种方式更加灵活，支持多个@ExceptionHandler方法处理不同类型的异常",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "方式一：实现HandlerExceptionResolver接口<br/>- 重写resolveException()方法<br/>- 返回值是ModelAndView<br/>- 可以对所有Controller的异常进行统一处理<br/><br/>方式二：注解方式<br/>- 创建类并使用@ControllerAdvice注解标注<br/>- 在类中使用@ExceptionHandler(Exception.class)注解标注方法<br/>- @ExceptionHandler可以指定捕获的异常类型<br/>- 方法返回值可以是ModelAndView、String、ResponseEntity等<br/>- 这种方式更加灵活，支持多个@ExceptionHandler方法处理不同类型的异常"
+        },
+        {
+            "id": 539,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring与SpringMVC的父子容器，以下说法正确的是？",
+            "options": [
+                "Spring容器为父容器，SpringMVC容器为子容器",
+                "子容器可以访问父容器中的组件",
+                "父容器可以访问子容器中的组件",
+                "父子容器关系由DispatcherServlet设置",
+                "SpringIOC容器一般由ContextLoaderListener创建"
+            ],
+            "correctAnswers": [0, 1, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 540,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明Spring与SpringMVC父子容器的创建过程及访问规则。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "容器创建：\n1) SpringIOC容器一般由ContextLoaderListener创建，负责管理SpringIOC容器的生命周期和激活。\n2) SpringMVC的IOC容器一般由DispatcherServlet创建，由DispatcherServlet激活。\n3) 最终由DispatcherServlet设置父子容器关系。在设置之前，DispatcherServlet会判断当前上下文是否存在Spring的IOC容器，如果存在才会设置父子关系。\n\n访问规则：\n- 子容器（SpringMVC）可以访问父容器（Spring）中的组件\n- 父容器（Spring）不可以访问子容器（SpringMVC）中的组件\n\n取消父子容器：只创建一个IOC容器即可，因为最终父子容器由DispatcherServlet设置，在设置前会判断Spring的IOC容器是否存在。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "容器创建：<br/>1) SpringIOC容器一般由ContextLoaderListener创建，负责管理SpringIOC容器的生命周期和激活。<br/>2) SpringMVC的IOC容器一般由DispatcherServlet创建，由DispatcherServlet激活。<br/>3) 最终由DispatcherServlet设置父子容器关系。在设置之前，DispatcherServlet会判断当前上下文是否存在Spring的IOC容器，如果存在才会设置父子关系。<br/><br/>访问规则：<br/>- 子容器（SpringMVC）可以访问父容器（Spring）中的组件<br/>- 父容器（Spring）不可以访问子容器（SpringMVC）中的组件<br/><br/>取消父子容器：只创建一个IOC容器即可，因为最终父子容器由DispatcherServlet设置，在设置前会判断Spring的IOC容器是否存在。"
+        },
+        {
+            "id": 541,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于@EnableWebMvc注解，以下说法正确的是？",
+            "options": [
+                "@EnableWebMvc是启用注解驱动MVC配置的核心注解",
+                "主要作用是导入DelegatingWebMvcConfiguration默认配置类",
+                "自动注册RequestMappingHandlerMapping处理器映射器",
+                "自动注册RequestMappingHandlerAdapter并配置默认HttpMessageConverter",
+                "类似于XML配置中的<mvc:annotation-driven />"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 542,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明DelegatingWebMvcConfiguration的作用及其注册的核心组件。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "DelegatingWebMvcConfiguration是WebMvcConfigurationSupport的子类，提供了Spring MVC所需的基本配置。注册的核心组件包括：\n\n1) RequestMappingHandlerMapping：用于处理请求映射。\n2) RequestMappingHandlerAdapter：配置了默认的HttpMessageConverter，用于处理请求和响应的转换（如JSON、XML等）。\n3) ExceptionHandlerExceptionResolver：用于处理@ExceptionHandler注解定义的异常处理方法。\n4) 支持@Valid注解进行JSR-303/JSR-349验证。\n5) 支持类型转换和格式化（Formatter和Converter）。\n6) 支持@Controller、@RestController、@RequestMapping、@GetMapping等注解。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "DelegatingWebMvcConfiguration是WebMvcConfigurationSupport的子类，提供了Spring MVC所需的基本配置。注册的核心组件包括：<br/><br/>1) RequestMappingHandlerMapping：用于处理请求映射。<br/>2) RequestMappingHandlerAdapter：配置了默认的HttpMessageConverter，用于处理请求和响应的转换（如JSON、XML等）。<br/>3) ExceptionHandlerExceptionResolver：用于处理@ExceptionHandler注解定义的异常处理方法。<br/>4) 支持@Valid注解进行JSR-303/JSR-349验证。<br/>5) 支持类型转换和格式化（Formatter和Converter）。<br/>6) 支持@Controller、@RestController、@RequestMapping、@GetMapping等注解。"
+        },
+        {
+            "id": 543,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于自定义SpringMVC行为的方式，以下说法正确的是？",
+            "options": [
+                "实现WebMvcConfigurer接口可定制SpringMVC核心组件（拦截器、转换器、资源映射等）",
+                "继承WebMvcConfigurationSupport可扩展SpringMVC配置",
+                "WebMvcConfigurer默认不对SpringMVC做任何处理",
+                "WebMvcConfigurationSupport默认往IOC容器中添加大量Bean（映射器、适配器等）",
+                "WebMvcConfigurer + @EnableWebMvc 等价于继承WebMvcConfigurationSupport"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 544,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请比较WebMvcConfigurer和WebMvcConfigurationSupport的区别及使用建议。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "WebMvcConfigurer：\n1) 用于定制SpringMVC核心组件，通过重写接口默认方法添加拦截器、转换器、资源映射、视图控制器等。\n2) 默认情况下对SpringMVC不做任何处理。\n3) 需要配合@EnableWebMvc使用。\n4) 更加灵活，可以避免覆盖所有配置。\n\nWebMvcConfigurationSupport：\n1) 用于扩展SpringMVC配置，继承后重写方法定制SpringMVC。\n2) 默认往IOC容器中添加大量Bean（映射器、适配器、消息转换器等）。\n3) 不需要@EnableWebMvc（因为已经包含所有默认配置）。\n4) 更适合需要深度定制或替换默认组件的场景。\n\n使用建议：大多数情况下推荐使用@EnableWebMvc + WebMvcConfigurer的组合方式。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "WebMvcConfigurer：<br/>1) 用于定制SpringMVC核心组件，通过重写接口默认方法添加拦截器、转换器、资源映射、视图控制器等。<br/>2) 默认情况下对SpringMVC不做任何处理。<br/>3) 需要配合@EnableWebMvc使用。<br/>4) 更加灵活，可以避免覆盖所有配置。<br/><br/>WebMvcConfigurationSupport：<br/>1) 用于扩展SpringMVC配置，继承后重写方法定制SpringMVC。<br/>2) 默认往IOC容器中添加大量Bean（映射器、适配器、消息转换器等）。<br/>3) 不需要@EnableWebMvc（因为已经包含所有默认配置）。<br/>4) 更适合需要深度定制或替换默认组件的场景。<br/><br/>使用建议：大多数情况下推荐使用@EnableWebMvc + WebMvcConfigurer的组合方式。"
+        },
+        {
+            "id": 545,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明如何使用注解来定制SpringMVC（包括IOC容器的创建和MVC的定制）。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "创建IOC容器（三种方式）：\n\n1) web.xml方式：配置ContextLoaderListener创建Spring IOC容器，配置DispatcherServlet创建SpringMVC IOC容器。通过contextClass属性可以将容器实现改为AnnotationWebApplicationContext。\n\n2) 继承SpringMVC提供的初始化接口子类（三个子类按需选择）：\n- 第一个子类：创建Spring IOC容器和ContextLoaderListener\n- 第二个子类：创建SpringMVC IOC容器和DispatcherServlet\n- 第三个子类：实现了前两个父类的创建IOC容器方法，直接提供IOC容器的配置类即可\n这种方式创建的IOC容器本质上是基于注解的AnnotationWebApplicationContext。\n\n3) 直接实现WebApplicationInitializer接口：在onStartup()方法中自己创建Spring和SpringMVC的IOC容器。可以基于XML（XmlWebApplicationContext）或基于注解（AnnotationWebApplicationContext）。\n\n定制SpringMVC：\n- WebMvcConfigurer + @EnableWebMvc：用于定制SpringMVC核心组件\n- WebMvcConfigurationSupport：用于扩展SpringMVC配置，默认添加大量Bean\n- 两者关系：WebMvcConfigurer + @EnableWebMvc = WebMvcConfigurationSupport",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "创建IOC容器（三种方式）：<br/><br/>1) web.xml方式：配置ContextLoaderListener创建Spring IOC容器，配置DispatcherServlet创建SpringMVC IOC容器。通过contextClass属性可以将容器实现改为AnnotationWebApplicationContext。<br/><br/>2) 继承SpringMVC提供的初始化接口子类（三个子类按需选择）：<br/>- 第一个子类：创建Spring IOC容器和ContextLoaderListener<br/>- 第二个子类：创建SpringMVC IOC容器和DispatcherServlet<br/>- 第三个子类：实现了前两个父类的创建IOC容器方法，直接提供IOC容器的配置类即可<br/>这种方式创建的IOC容器本质上是基于注解的AnnotationWebApplicationContext。<br/><br/>3) 直接实现WebApplicationInitializer接口：在onStartup()方法中自己创建Spring和SpringMVC的IOC容器。可以基于XML（XmlWebApplicationContext）或基于注解（AnnotationWebApplicationContext）。<br/><br/>定制SpringMVC：<br/>- WebMvcConfigurer + @EnableWebMvc：用于定制SpringMVC核心组件<br/>- WebMvcConfigurationSupport：用于扩展SpringMVC配置，默认添加大量Bean<br/>- 两者关系：WebMvcConfigurer + @EnableWebMvc = WebMvcConfigurationSupport"
+        },
+        {
+            "id": 546,
+            "category": "SpringDataJPA",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringDataJPA的查询方式，以下说法正确的是？",
+            "options": [
+                "JPQL方式：使用@Query注解构造查询条件，更新或删除需加@Modifying",
+                "原生SQL方式：使用@Query注解并设置nativeQuery=true",
+                "方法命名查询：根据方法名自动创建查询",
+                "动态条件拼接查询：通过JpaSpecificationExecutor接口实现",
+                "SpringDataJPA只支持JPQL查询"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 547,
+            "category": "SpringDataJPA",
+            "type": "ESSAY",
+            "question": "请说明SpringDataJPA和JPA的关系，以及它们各自在数据访问层中的定位。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "JPA（Java Persistence API）是JavaEE中的规范，主要用于规范市面上的ORM框架。使用JPA必须指定实现厂商（如Hibernate），底层调用具体的ORM框架，ORM框架封装JDBC使其操作更简洁，JDBC底层调用具体驱动操作数据库。\n\nSpringDataJPA是对JPA的进一步封装，让操作JPA更加方便。除了支持JPA的所有功能外，还提供独特的查询方式：\n1) 方法命名查询：根据方法名自动生成查询SQL\n2) 动态条件拼接查询：通过JpaSpecificationExecutor接口实现\n3) 提供更加简洁的分页+搜索方式\n\n关系总结：SpringDataJPA → JPA规范 → ORM框架（Hibernate等）→ JDBC → 数据库驱动 → 数据库",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "JPA（Java Persistence API）是JavaEE中的规范，主要用于规范市面上的ORM框架。使用JPA必须指定实现厂商（如Hibernate），底层调用具体的ORM框架，ORM框架封装JDBC使其操作更简洁，JDBC底层调用具体驱动操作数据库。<br/><br/>SpringDataJPA是对JPA的进一步封装，让操作JPA更加方便。除了支持JPA的所有功能外，还提供独特的查询方式：<br/>1) 方法命名查询：根据方法名自动生成查询SQL<br/>2) 动态条件拼接查询：通过JpaSpecificationExecutor接口实现<br/>3) 提供更加简洁的分页+搜索方式<br/><br/>关系总结：SpringDataJPA → JPA规范 → ORM框架（Hibernate等）→ JDBC → 数据库驱动 → 数据库"
+        },
+        {
+            "id": 548,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Spring与SpringMVC整合的容器管理，以下说法正确的是？",
+            "options": [
+                "SpringIOC容器一般由ContextLoaderListener创建并管理生命周期",
+                "SpringMVC的IOC容器一般由DispatcherServlet创建",
+                "最终由DispatcherServlet设置父子容器关系",
+                "子容器（SpringMVC）可以访问父容器（Spring）中的组件，反之不行",
+                "整合后只有一个IOC容器"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 549,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明SpringMVC拦截器的执行流程（以两个拦截器为例），并说明preHandle返回false时的处理逻辑。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "正常执行流程（两个拦截器，都返回true）：\npreHandle1 → preHandle2 → handler方法 → postHandle2 → postHandle1 → afterCompletion2 → afterCompletion1\n\npreHandle返回false时的处理逻辑：\n1) 如果preHandle1返回false：请求直接终止，不会执行preHandle2和handler方法。但afterCompletion1仍会执行（因为在执行preHandle1时已经注册了该拦截器的afterCompletion回调）。\n2) 如果preHandle2返回false：handler方法不会执行，postHandle2和postHandle1也不会执行。但afterCompletion2（由于preHandle2已执行）和afterCompletion1（由于preHandle1已执行）仍会依次执行。\n\n关键原则：已经执行过preHandle的拦截器，其afterCompletion无论后续结果如何都会被调用。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "正常执行流程（两个拦截器，都返回true）：<br/>preHandle1 → preHandle2 → handler方法 → postHandle2 → postHandle1 → afterCompletion2 → afterCompletion1<br/><br/>preHandle返回false时的处理逻辑：<br/>1) 如果preHandle1返回false：请求直接终止，不会执行preHandle2和handler方法。但afterCompletion1仍会执行（因为在执行preHandle1时已经注册了该拦截器的afterCompletion回调）。<br/>2) 如果preHandle2返回false：handler方法不会执行，postHandle2和postHandle1也不会执行。但afterCompletion2（由于preHandle2已执行）和afterCompletion1（由于preHandle1已执行）仍会依次执行。<br/><br/>关键原则：已经执行过preHandle的拦截器，其afterCompletion无论后续结果如何都会被调用。"
+        },
+        {
+            "id": 550,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请详细描述SpringMVC的工作流程（从请求到响应的完整过程）。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Spring MVC工作原理分为以下8个步骤：\n1) 客户端（浏览器）发送HTTP请求，DispatcherServlet（前端控制器）拦截并接收请求。\n2) DispatcherServlet调用HandlerMapping（处理器映射器），HandlerMapping根据请求URL匹配查找对应的Handler（Controller），并将拦截器和Handler一起封装成HandlerExecutionChain返回。\n3) DispatcherServlet根据获取的Handler，选择合适的HandlerAdapter（处理器适配器）来执行Handler。\n4) HandlerAdapter执行Handler（Controller中的业务方法），处理请求并完成业务逻辑。\n5) Handler处理完成后，返回一个ModelAndView对象给DispatcherServlet，包含数据模型（Model）和逻辑视图名（View）。\n6) DispatcherServlet将逻辑视图名交给ViewResolver（视图解析器），ViewResolver解析出实际的物理视图（如JSP路径）。\n7) DispatcherServlet将Model数据传递给解析后的View，进行视图渲染（将数据填充到视图中）。\n8) DispatcherServlet将渲染后的结果（HTML页面或JSON数据）响应给客户端。\n\n前后端分离场景：后端不再返回视图，Controller直接返回JSON数据（使用@RestController或@ResponseBody），ViewResolver和视图渲染环节被省略。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Spring MVC工作原理分为以下8个步骤：<br/>1) 客户端（浏览器）发送HTTP请求，DispatcherServlet（前端控制器）拦截并接收请求。<br/>2) DispatcherServlet调用HandlerMapping（处理器映射器），HandlerMapping根据请求URL匹配查找对应的Handler（Controller），并将拦截器和Handler一起封装成HandlerExecutionChain返回。<br/>3) DispatcherServlet根据获取的Handler，选择合适的HandlerAdapter（处理器适配器）来执行Handler。<br/>4) HandlerAdapter执行Handler（Controller中的业务方法），处理请求并完成业务逻辑。<br/>5) Handler处理完成后，返回一个ModelAndView对象给DispatcherServlet，包含数据模型（Model）和逻辑视图名（View）。<br/>6) DispatcherServlet将逻辑视图名交给ViewResolver（视图解析器），ViewResolver解析出实际的物理视图（如JSP路径）。<br/>7) DispatcherServlet将Model数据传递给解析后的View，进行视图渲染（将数据填充到视图中）。<br/>8) DispatcherServlet将渲染后的结果（HTML页面或JSON数据）响应给客户端。<br/><br/>前后端分离场景：后端不再返回视图，Controller直接返回JSON数据（使用@RestController或@ResponseBody），ViewResolver和视图渲染环节被省略。"
+        },
+        {
+            "id": 551,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "SpringMVC的核心组件包括哪些？",
+            "options": [
+                "DispatcherServlet：前端控制器，负责接收和分发请求",
+                "HandlerMapping：处理器映射器，根据URL匹配Handler",
+                "HandlerAdapter：处理器适配器，负责执行Handler",
+                "ViewResolver：视图解析器，解析逻辑视图为物理视图",
+                "Filter：过滤器，是SpringMVC的核心组件"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 552,
+            "category": "SpringMVC",
+            "type": "SORTING",
+            "question": "请按SpringMVC处理请求的执行顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "DispatcherServlet接收请求",
+                "HandlerMapping映射Handler",
+                "HandlerAdapter执行Handler",
+                "Controller返回ModelAndView",
+                "ViewResolver解析视图",
+                "视图渲染并响应"
+            ],
+            "correctOrder": [0, 1, 2, 3, 4, 5],
+            "answerHtml": null
+        },
+        {
+            "id": 553,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明@Controller和@RestController的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "@Controller：用于标记Spring MVC的控制器类。方法返回String时，Spring MVC会将其视为逻辑视图名，通过ViewResolver解析为物理视图（如JSP页面）。如果方法需要返回JSON数据，必须配合@ResponseBody注解使用。\n\n@RestController：是@Controller和@ResponseBody的组合注解（JDK1.8引入的@RestController = @Controller + @ResponseBody）。类中所有方法的返回值都会直接写入HTTP响应体（通常序列化为JSON），不会被ViewResolver解析为视图。\n\n使用建议：前后端分离项目统一使用@RestController；传统JSP/Thymeleaf项目使用@Controller。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "@Controller：用于标记Spring MVC的控制器类。方法返回String时，Spring MVC会将其视为逻辑视图名，通过ViewResolver解析为物理视图（如JSP页面）。如果方法需要返回JSON数据，必须配合@ResponseBody注解使用。<br/><br/>@RestController：是@Controller和@ResponseBody的组合注解（JDK1.8引入的@RestController = @Controller + @ResponseBody）。类中所有方法的返回值都会直接写入HTTP响应体（通常序列化为JSON），不会被ViewResolver解析为视图。<br/><br/>使用建议：前后端分离项目统一使用@RestController；传统JSP/Thymeleaf项目使用@Controller。"
+        },
+        {
+            "id": 554,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于@RequestMapping及其变体注解，以下说法正确的是？",
+            "options": [
+                "@RequestMapping可以标注在类和方法上，用于映射请求URL",
+                "@GetMapping = @RequestMapping(method = RequestMethod.GET)",
+                "@PostMapping = @RequestMapping(method = RequestMethod.POST)",
+                "@PutMapping和@DeleteMapping分别对应PUT和DELETE请求",
+                "@RequestMapping不支持指定请求方法"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 555,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明@RequestParam、@PathVariable、@RequestBody的区别及使用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "@RequestParam：用于获取URL查询参数或表单参数。如 /user?id=1 中的id。可设置required、defaultValue属性。适用于GET请求的查询参数和POST表单提交。\n\n@PathVariable：用于获取URL路径中的占位符参数（RESTful风格）。如 /user/{id} 中的{id}。适用于RESTful API设计，让URL更加简洁。\n\n@RequestBody：用于接收HTTP请求体中的JSON/XML数据，Spring MVC通过HttpMessageConverter自动将请求体反序列化为Java对象。适用于POST/PUT请求传递JSON格式的复杂数据。\n\n区别：@RequestParam从URL参数或表单获取，@PathVariable从URL路径获取，@RequestBody从请求体获取。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "@RequestParam：用于获取URL查询参数或表单参数。如 /user?id=1 中的id。可设置required、defaultValue属性。适用于GET请求的查询参数和POST表单提交。<br/><br/>@PathVariable：用于获取URL路径中的占位符参数（RESTful风格）。如 /user/{id} 中的{id}。适用于RESTful API设计，让URL更加简洁。<br/><br/>@RequestBody：用于接收HTTP请求体中的JSON/XML数据，Spring MVC通过HttpMessageConverter自动将请求体反序列化为Java对象。适用于POST/PUT请求传递JSON格式的复杂数据。<br/><br/>区别：@RequestParam从URL参数或表单获取，@PathVariable从URL路径获取，@RequestBody从请求体获取。"
+        },
+        {
+            "id": 556,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于@ResponseBody注解，以下说法正确的是？",
+            "options": [
+                "@ResponseBody将方法返回值直接写入HTTP响应体",
+                "配合HttpMessageConverter将Java对象自动转换为JSON/XML",
+                "标注在类上对该类的所有方法生效",
+                "@RestController已经包含了@ResponseBody的功能",
+                "@ResponseBody返回的数据会经过ViewResolver解析"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 557,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请详细比较SpringMVC拦截器(Interceptor)和过滤器(Filter)的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) 规范不同：Filter是Servlet规范的一部分，属于JavaEE标准；Interceptor是Spring框架提供的组件，由SpringMVC管理。\n\n2) 依赖容器不同：Filter依赖于Servlet容器（如Tomcat），由Web服务器调用；Interceptor依赖于SpringIOC容器，由SpringMVC框架调用。\n\n3) 拦截范围不同：Filter可以拦截所有请求（包括静态资源如.html、.css、.js等）；Interceptor只能拦截进入SpringMVC的请求（由DispatcherServlet配置的拦截规则决定）。\n\n4) 执行顺序不同：一个请求进来时，先经过Filter链（多个Filter按web.xml顺序执行），再进入SpringMVC的Interceptor链（多个Interceptor按配置顺序执行）。\n\n5) 执行时机不同：Filter在Servlet处理之前和之后执行；Interceptor在Handler执行前(preHandle)、执行后(postHandle)、渲染后(afterCompletion)执行，粒度更细。\n\n6) 使用场景：Filter适合编码设置、请求日志、跨域处理、权限粗粒度控制等；Interceptor适合登录验证、权限精细化控制、日志记录、性能监控等。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) 规范不同：Filter是Servlet规范的一部分，属于JavaEE标准；Interceptor是Spring框架提供的组件，由SpringMVC管理。<br/><br/>2) 依赖容器不同：Filter依赖于Servlet容器（如Tomcat），由Web服务器调用；Interceptor依赖于SpringIOC容器，由SpringMVC框架调用。<br/><br/>3) 拦截范围不同：Filter可以拦截所有请求（包括静态资源如.html、.css、.js等）；Interceptor只能拦截进入SpringMVC的请求（由DispatcherServlet配置的拦截规则决定）。<br/><br/>4) 执行顺序不同：一个请求进来时，先经过Filter链（多个Filter按web.xml顺序执行），再进入SpringMVC的Interceptor链（多个Interceptor按配置顺序执行）。<br/><br/>5) 执行时机不同：Filter在Servlet处理之前和之后执行；Interceptor在Handler执行前(preHandle)、执行后(postHandle)、渲染后(afterCompletion)执行，粒度更细。<br/><br/>6) 使用场景：Filter适合编码设置、请求日志、跨域处理、权限粗粒度控制等；Interceptor适合登录验证、权限精细化控制、日志记录、性能监控等。"
+        },
+        {
+            "id": 558,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Filter和Interceptor的执行顺序，以下说法正确的是？",
+            "options": [
+                "请求先经过Filter，再进入Interceptor",
+                "Filter执行顺序由web.xml或@WebFilter配置决定",
+                "Interceptor执行顺序由SpringMVC中配置顺序决定",
+                "Interceptor可以获取到被调用的Handler信息，Filter不能",
+                "Filter和Interceptor没有执行顺序要求"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 559,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明SpringMVC中转发(forward)和重定向(redirect)的区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "转发(forward)：\n1) 发生在服务器内部，是一次请求。\n2) 浏览器地址栏URL不变。\n3) 请求域（request）中的数据可以共享。\n4) 只能转发到同一个Web应用内的资源。\n5) 返回方式：return \"forward:/path\"。\n\n重定向(redirect)：\n1) 服务器返回302状态码，浏览器重新发起新请求，是两次请求。\n2) 浏览器地址栏URL变为重定向后的地址。\n3) 请求域中的数据无法共享（因为是两次不同的请求）。\n4) 可以重定向到任意URL（包括外部网站）。\n5) 返回方式：return \"redirect:/path\"。\n\n使用场景：表单提交成功后用redirect防止表单重复提交（Post-Redirect-Get模式）；需要在不同应用间跳转时用redirect；需要传递request域数据时用forward。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "转发(forward)：<br/>1) 发生在服务器内部，是一次请求。<br/>2) 浏览器地址栏URL不变。<br/>3) 请求域（request）中的数据可以共享。<br/>4) 只能转发到同一个Web应用内的资源。<br/>5) 返回方式：return \"forward:/path\"。<br/><br/>重定向(redirect)：<br/>1) 服务器返回302状态码，浏览器重新发起新请求，是两次请求。<br/>2) 浏览器地址栏URL变为重定向后的地址。<br/>3) 请求域中的数据无法共享（因为是两次不同的请求）。<br/>4) 可以重定向到任意URL（包括外部网站）。<br/>5) 返回方式：return \"redirect:/path\"。<br/><br/>使用场景：表单提交成功后用redirect防止表单重复提交（Post-Redirect-Get模式）；需要在不同应用间跳转时用redirect；需要传递request域数据时用forward。"
+        },
+        {
+            "id": 560,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC的数据校验，以下说法正确的是？",
+            "options": [
+                "@Valid注解用于触发JSR-303数据校验",
+                "@Validated是Spring提供的校验注解，支持分组校验",
+                "校验结果通过BindingResult对象接收",
+                "校验失败后错误信息会绑定到BindingResult中",
+                "数据校验只能在Controller层使用"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 561,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明Model、ModelMap、ModelAndView的区别及使用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Model（org.springframework.ui.Model）：是一个接口，用于向视图传递数据。通常作为Controller方法的参数使用，调用addAttribute()方法添加数据。Spring会为其注入BindingAwareModelMap实现。\n\nModelMap（org.springframework.ui.ModelMap）：是一个类，继承自LinkedHashMap<String, Object>，因此具备Map的所有特性。用法与Model类似，通过addAttribute()添加数据。\n\nModelAndView（org.springframework.web.servlet.ModelAndView）：是一个同时包含数据和视图名的对象。通过addObject()添加数据，setViewName()设置视图名。Controller方法可以直接返回ModelAndView对象。\n\n区别：Model和ModelMap只负责数据部分，视图名由方法返回值提供；ModelAndView同时封装了数据和视图名。前后端分离项目中，通常直接返回数据对象（@ResponseBody），不使用这三者。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Model（org.springframework.ui.Model）：是一个接口，用于向视图传递数据。通常作为Controller方法的参数使用，调用addAttribute()方法添加数据。Spring会为其注入BindingAwareModelMap实现。<br/><br/>ModelMap（org.springframework.ui.ModelMap）：是一个类，继承自LinkedHashMap<String, Object>，因此具备Map的所有特性。用法与Model类似，通过addAttribute()添加数据。<br/><br/>ModelAndView（org.springframework.web.servlet.ModelAndView）：是一个同时包含数据和视图名的对象。通过addObject()添加数据，setViewName()设置视图名。Controller方法可以直接返回ModelAndView对象。<br/><br/>区别：Model和ModelMap只负责数据部分，视图名由方法返回值提供；ModelAndView同时封装了数据和视图名。前后端分离项目中，通常直接返回数据对象（@ResponseBody），不使用这三者。"
+        },
+        {
+            "id": 562,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC的RESTful风格，以下说法正确的是？",
+            "options": [
+                "RESTful通过不同的HTTP方法（GET/POST/PUT/DELETE）表达对资源的操作",
+                "URL中使用路径变量（如/user/{id}）标识资源",
+                "GET用于查询、POST用于新增、PUT用于全量更新、PATCH用于部分更新、DELETE用于删除",
+                "使用@PathVariable获取URL中的资源ID",
+                "RESTful API返回的数据格式通常为JSON"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 563,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明@ModelAttribute注解的作用及使用场景。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "@ModelAttribute注解有三种使用场景：\n\n1) 标注在方法参数上：将请求参数自动绑定到Java对象。Spring MVC会将请求中与对象属性名匹配的参数值自动赋给对象的对应属性。适用于表单提交时接收实体对象。\n\n2) 标注在方法上（非@RequestMapping方法）：该方法会在每个Controller请求处理之前执行。返回的对象会被自动添加到Model中。常用于在跳转页面前预先准备数据（如查询下拉列表数据）。\n\n3) 标注在方法返回值上：将方法返回值以指定名称存入Model中，供视图使用。\n\n使用场景：表单数据绑定、页面初始化数据预加载、全局数据填充等。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "@ModelAttribute注解有三种使用场景：<br/><br/>1) 标注在方法参数上：将请求参数自动绑定到Java对象。Spring MVC会将请求中与对象属性名匹配的参数值自动赋给对象的对应属性。适用于表单提交时接收实体对象。<br/><br/>2) 标注在方法上（非@RequestMapping方法）：该方法会在每个Controller请求处理之前执行。返回的对象会被自动添加到Model中。常用于在跳转页面前预先准备数据（如查询下拉列表数据）。<br/><br/>3) 标注在方法返回值上：将方法返回值以指定名称存入Model中，供视图使用。<br/><br/>使用场景：表单数据绑定、页面初始化数据预加载、全局数据填充等。"
+        },
+        {
+            "id": 564,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC的文件上传，以下说法正确的是？",
+            "options": [
+                "SpringMVC使用MultipartFile接口处理文件上传",
+                "表单必须设置enctype=\"multipart/form-data\"",
+                "需要在Spring中配置MultipartResolver（如CommonsMultipartResolver）",
+                "MultipartFile的transferTo()方法可将文件保存到磁盘",
+                "Spring Boot自动配置了StandardServletMultipartResolver，无需手动配置"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 565,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明SpringMVC中如何解决跨域问题。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "SpringMVC提供多种跨域解决方案：\n\n1) @CrossOrigin注解：标注在Controller类或方法上，允许指定来源的跨域请求。可以配置origins、methods、allowedHeaders、maxAge等属性。适用于细粒度的跨域控制。\n\n2) 全局CORS配置：实现WebMvcConfigurer接口，重写addCorsMappings()方法。可以为所有或特定路径配置跨域规则。适用于全局统一的跨域策略。\n\n3) 自定义CorsFilter：通过Filter的方式处理跨域，在请求进入SpringMVC之前就设置跨域响应头。适用于需要更灵活控制的场景。\n\n推荐方案：一般项目使用WebMvcConfigurer全局配置；特殊接口使用@CrossOrigin精确控制。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "SpringMVC提供多种跨域解决方案：<br/><br/>1) @CrossOrigin注解：标注在Controller类或方法上，允许指定来源的跨域请求。可以配置origins、methods、allowedHeaders、maxAge等属性。适用于细粒度的跨域控制。<br/><br/>2) 全局CORS配置：实现WebMvcConfigurer接口，重写addCorsMappings()方法。可以为所有或特定路径配置跨域规则。适用于全局统一的跨域策略。<br/><br/>3) 自定义CorsFilter：通过Filter的方式处理跨域，在请求进入SpringMVC之前就设置跨域响应头。适用于需要更灵活控制的场景。<br/><br/>推荐方案：一般项目使用WebMvcConfigurer全局配置；特殊接口使用@CrossOrigin精确控制。"
+        },
+        {
+            "id": 566,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC的统一返回格式，以下说法正确的是？",
+            "options": [
+                "可以通过@ControllerAdvice + ResponseBodyAdvice统一包装返回结果",
+                "R类（Result类）是常用的统一返回格式封装方案",
+                "统一返回格式通常包含code（状态码）、message（消息）、data（数据）",
+                "使用@ExceptionHandler可以统一处理异常并返回统一格式",
+                "统一返回格式只能使用String类型"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 567,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明DispatcherServlet的作用及其在SpringMVC中的核心地位。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "DispatcherServlet是SpringMVC的核心前端控制器（Front Controller），所有请求都先经过它进行统一分发。主要作用包括：\n\n1) 请求接收：拦截所有符合配置规则的HTTP请求。\n2) 请求分发：根据请求URL调用HandlerMapping找到对应的Handler。\n3) 适配器调用：通过HandlerAdapter执行具体的Handler（Controller方法）。\n4) 视图解析：将逻辑视图名交给ViewResolver解析为物理视图。\n5) 视图渲染：将Model数据传递给View进行渲染。\n6) 响应返回：将最终结果返回给客户端。\n7) 容器管理：负责创建和管理SpringMVC的IOC容器（子容器）。\n8) 异常处理：整合异常解析器处理请求过程中的异常。\n\nDispatcherServlet本质是一个Servlet，在web.xml中配置或通过Servlet3.0+的SPI机制自动注册。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "DispatcherServlet是SpringMVC的核心前端控制器（Front Controller），所有请求都先经过它进行统一分发。主要作用包括：<br/><br/>1) 请求接收：拦截所有符合配置规则的HTTP请求。<br/>2) 请求分发：根据请求URL调用HandlerMapping找到对应的Handler。<br/>3) 适配器调用：通过HandlerAdapter执行具体的Handler（Controller方法）。<br/>4) 视图解析：将逻辑视图名交给ViewResolver解析为物理视图。<br/>5) 视图渲染：将Model数据传递给View进行渲染。<br/>6) 响应返回：将最终结果返回给客户端。<br/>7) 容器管理：负责创建和管理SpringMVC的IOC容器（子容器）。<br/>8) 异常处理：整合异常解析器处理请求过程中的异常。<br/><br/>DispatcherServlet本质是一个Servlet，在web.xml中配置或通过Servlet3.0+的SPI机制自动注册。"
+        },
+        {
+            "id": 568,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC的适配器模式，以下说法正确的是？",
+            "options": [
+                "HandlerAdapter使用了适配器设计模式",
+                "不同的Handler（Controller）有不同的执行方式，HandlerAdapter统一适配",
+                "RequestMappingHandlerAdapter处理@RequestMapping注解的Handler",
+                "适配器模式使得DispatcherServlet无需关心Handler的具体类型",
+                "HandlerAdapter只能适配一种类型的Handler"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 569,
+            "category": "SpringMVC",
+            "type": "ESSAY",
+            "question": "请说明如何在SpringMVC中实现静态资源的放行处理。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "SpringMVC中拦截路径为\"/\"时会拦截所有请求（包括静态资源），需要通过以下方式放行静态资源：\n\n1) 配置缺省Servlet（web.xml方式）：\n在web.xml中配置DefaultServlet处理静态资源，使其不进入SpringMVC。\n\n2) resources映射（注解方式）：\nJava配置：重写WebMvcConfigurer的addResourceHandlers方法。\nregistry.addResourceHandler(\"/static/**\").addResourceLocations(\"/static/\");\nXML配置：<mvc:resources mapping=\"/static/**\" location=\"/static/\"/>\n这种方式下，请求进入SpringMVC但由SpringMVC自己处理资源放行。\n\n3) handler方式（XML方式）：\n<mvc:default-servlet-handler />\n请求进入SpringMVC后，筛选出静态资源交给缺省Servlet处理。注意JSP会被特殊处理（可能无法正常解析）。\n\nSpring Boot自动配置了静态资源映射，默认在classpath:/static、/public、/resources、/META-INF/resources目录下。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "SpringMVC中拦截路径为\"/\"时会拦截所有请求（包括静态资源），需要通过以下方式放行静态资源：<br/><br/>1) 配置缺省Servlet（web.xml方式）：<br/>在web.xml中配置DefaultServlet处理静态资源，使其不进入SpringMVC。<br/><br/>2) resources映射（注解方式）：<br/>Java配置：重写WebMvcConfigurer的addResourceHandlers方法。<br/>registry.addResourceHandler(\"/static/**\").addResourceLocations(\"/static/\");<br/>XML配置：<mvc:resources mapping=\"/static/**\" location=\"/static/\"/><br/>这种方式下，请求进入SpringMVC但由SpringMVC自己处理资源放行。<br/><br/>3) handler方式（XML方式）：<br/><mvc:default-servlet-handler /><br/>请求进入SpringMVC后，筛选出静态资源交给缺省Servlet处理。注意JSP会被特殊处理（可能无法正常解析）。<br/><br/>Spring Boot自动配置了静态资源映射，默认在classpath:/static、/public、/resources、/META-INF/resources目录下。"
+        },
+        {
+            "id": 570,
+            "category": "SpringMVC",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SpringMVC中的HttpMessageConverter，以下说法正确的是？",
+            "options": [
+                "HttpMessageConverter用于将HTTP请求/响应与Java对象相互转换",
+                "MappingJackson2HttpMessageConverter处理JSON格式转换",
+                "请求时根据Content-Type选择对应的Converter反序列化",
+                "响应时根据Accept头选择对应的Converter序列化",
+                "@RequestBody和@ResponseBody依赖HttpMessageConverter实现"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
         }
     ]
 }
