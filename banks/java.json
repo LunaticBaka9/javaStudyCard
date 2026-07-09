@@ -9931,6 +9931,60 @@
             "answerHtml": "1) 连接器(Connectors)：MySQL官方提供的连接工具，包括JDBC等；2) 内部核心组件：主从复制、集群、权限管理、安全校验等核心模块；3) SQL接口：提供给客户端使用的接口，如创建存储过程、创建触发器；4) 解析器：对SQL语法校验、解析、生成预编模板；5) 优化器：对SQL语句进行性能优化；6) 查询缓存：缓存SQL结果集，key包括SQL语句、数据库名、数据库协议等；7) 存储引擎：组织数据，调用文件系统进行CRUD；8) 文件系统：负责与操作系统交互，将数据真正存入磁盘。"
         },
         {
+            "id": 622,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL的Redo Log，以下说法正确的是？",
+            "options": [
+                "Redo Log记录事务对数据页的物理修改，用于崩溃恢复",
+                "Redo Log保障事务的持久性",
+                "Redo Log采用顺序IO，效率高于随机IO",
+                "Redo Log记录的是逻辑层面的修改操作",
+                "Redo Log先写入数据表再写入日志"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 623,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Redo Log的落盘策略参数innodb_flush_log_at_trx_commit，以下说法正确的是？",
+            "options": [
+                "值为0时每秒将Redo Buffer刷到OS Buffer然后立刻刷到Redo Log，效率最高但安全性最低",
+                "值为1时每次提交事务都将Redo Buffer同步到OS Buffer然后立刻刷到Redo Log，安全性最高",
+                "值为2时每次提交事务将Redo Buffer同步到OS Buffer，隔一秒再刷到Redo Log",
+                "值为1是MySQL的默认值",
+                "值为0时MySQL宕机最多丢失1次事务的数据"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 624,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL的Undo Log，以下说法正确的是？",
+            "options": [
+                "Undo Log记录了数据在每个操作前的状态",
+                "Undo Log用于事务回滚，保障事务的原子性",
+                "Undo Log是物理日志，记录数据页的物理修改",
+                "Undo Log可以作为并发读写时的读快照",
+                "Undo Log中insert类型的回滚只需要根据记录的主键进行delete操作"
+            ],
+            "correctAnswers": [0, 1, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
             "id": 621,
             "category": "MySQL",
             "type": "MULTIPLE_CHOICE",
@@ -9941,6 +9995,280 @@
                 "ON表示开启，默认所有SQL结果集都存入缓存",
                 "DEMAND表示开启，需要通过SQL_CACHE指定才写入缓存",
                 "查询缓存key仅包含SQL语句"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 625,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL InnoDB存储引擎的隐藏列，以下说法正确的是？",
+            "options": [
+                "DB_TRX_ID记录了最近修改该行记录的事务ID",
+                "DB_ROLL_PTR指向Undo Log中该行记录的旧版本数据",
+                "DB_ROW_ID是InnoDB自动生成的自增ID，与事务无关",
+                "DB_ROLL_PTR用于将记录恢复到修改前的状态",
+                "隐藏列都存储在数据页的额外空间中"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 626,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MVCC中ReadView的结构，以下说法正确的是？",
+            "options": [
+                "creator_trx_id表示创建该ReadView的事务ID",
+                "trx_ids表示生成ReadView时当前活跃的事务ID列表",
+                "min_id是trx_ids中的最小值",
+                "max_id表示生成ReadView时系统已分配的最大事务ID+1",
+                "ReadView在RR级别下每次SELECT都会重新生成"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 627,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MVCC在不同隔离级别下的ReadView生成策略，以下说法正确的是？",
+            "options": [
+                "RR级别下，事务执行第一个SELECT语句时生成ReadView，此后复用",
+                "RC级别下，每次SELECT都会重新生成ReadView",
+                "RR级别重新生成ReadView会导致不可重复读问题",
+                "RC级别每次重新生成ReadView能看到其他事务已提交的修改",
+                "RR级别用同一个ReadView保证了多次读取结果一致"
+            ],
+            "correctAnswers": [0, 1, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 628,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL的快照读和当前读，以下说法正确的是？",
+            "options": [
+                "快照读读取的是数据的快照版本，不加锁",
+                "当前读读取的是数据的最新版本，需要加锁",
+                "SELECT ... LOCK IN SHARE MODE属于当前读",
+                "INSERT、UPDATE、DELETE操作属于当前读",
+                "快照读永远不会读取到其他事务已提交的数据"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 629,
+            "category": "MySQL",
+            "type": "SORTING",
+            "question": "请将ReadView对事务可见性的判断规则按正确顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "trx_id < min_id，表示该版本在ReadView生成前已提交，可见",
+                "trx_id == creator_trx_id，表示是当前事务修改的版本，可见",
+                "trx_id 在 trx_ids 列表中，表示该版本由活跃事务修改，不可见",
+                "trx_id >= max_id，表示该版本在ReadView生成后产生，不可见"
+            ],
+            "correctOrder": [1, 0, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 630,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "请解释MySQL MVCC（多版本并发控制）的实现原理。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "MVCC是通过Undo Log版本链和ReadView实现的。Undo Log记录每个事务修改前的数据状态，通过DB_ROLL_PTR指针将行记录的不同版本串联成版本链。当执行快照读（普通SELECT）时，生成ReadView，包含四个字段：creator_trx_id（当前事务ID）、trx_ids（活跃事务ID列表）、min_id（trx_ids最小值）、max_id（max(trx_ids)+1）。可见性判断：trx_id == creator_trx_id可见；trx_id < min_id可见；trx_id在trx_ids中不可见；trx_id >= max_id不可见。RR级别下事务的第一个SELECT生成ReadView并复用，保证可重复读；RC级别下每次SELECT都生成新的ReadView，能读取到已提交事务的修改。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "MVCC是通过Undo Log版本链和ReadView实现的。<br/><br/>Undo Log记录每个事务修改前的数据状态，通过DB_ROLL_PTR指针将行记录的不同版本串联成版本链。<br/><br/>当执行快照读（普通SELECT）时，生成ReadView，包含四个字段：creator_trx_id（当前事务ID）、trx_ids（活跃事务ID列表）、min_id（trx_ids最小值）、max_id（max(trx_ids)+1）。<br/><br/>可见性判断：trx_id == creator_trx_id可见；trx_id < min_id可见；trx_id在trx_ids中不可见；trx_id >= max_id不可见。<br/><br/>RR级别下事务的第一个SELECT生成ReadView并复用，保证可重复读；RC级别下每次SELECT都生成新的ReadView，能读取到已提交事务的修改。"
+        },
+        {
+            "id": 631,
+            "category": "Redis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Redis持久化，以下说法正确的是？",
+            "options": [
+                "Redis是内存数据库，数据保存在内存中",
+                "Redis支持RDB快照和AOF日志两种持久化方式",
+                "RDB将当前内存中的数据集快照写入磁盘",
+                "AOF通过保存执行的写命令来记录数据库状态",
+                "Redis断电后数据不会丢失"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 632,
+            "category": "Redis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于RDB持久化的save和bgsave命令，以下说法正确的是？",
+            "options": [
+                "save命令使用主线程同步存储，会阻塞Redis服务器",
+                "bgsave通过fork()创建子进程，在后台进程存储",
+                "save命令在整个RDB过程中服务器不可用",
+                "bgsave仅在fork阶段会阻塞Redis服务器",
+                "Redis内部涉及RDB都采用save命令"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 633,
+            "category": "Redis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于RDB自动持久化触发机制，以下说法正确的是？",
+            "options": [
+                "配置格式为 save seconds count",
+                "save 900 1表示900秒内至少有1个key变化才持久化",
+                "save 300 10表示300秒内至少有10个key变化才持久化",
+                "自动触发底层采用的是bgsave指令",
+                "save 60 5表示60秒内恰好变化5个key才触发"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 634,
+            "category": "Redis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于RDB相关配置，以下说法正确的是？",
+            "options": [
+                "dbfilename默认值为dump.rdb",
+                "rdbcompression默认为yes，采用LZF压缩",
+                "rdbchecksum默认开启，使用CRC64校验，会消耗约10%性能",
+                "关闭rdbcompression可以节省CPU但文件会变大",
+                "dir配置项用于设置RDB文件的访问密码"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 635,
+            "category": "Redis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于AOF持久化的三种策略（appendfsync），以下说法正确的是？",
+            "options": [
+                "always表示每次写入操作均同步到AOF文件，性能最低",
+                "everysec表示每秒将缓冲区中的指令同步到AOF文件，是默认配置",
+                "no表示由操作系统控制同步周期，一般为30s每次",
+                "AOF功能默认是关闭的",
+                "always策略最多丢失1秒的数据"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 636,
+            "category": "Redis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于AOF重写机制，以下说法正确的是？",
+            "options": [
+                "AOF重写可以压缩AOF文件大小，提高恢复效率",
+                "重写时Redis会fork子进程来完成，避免阻塞主进程",
+                "重写期间主进程将新命令暂存到重写缓冲区",
+                "重写时已超时的数据不再写入AOF文件",
+                "重写完成后AOF文件体积通常会比RDB更大"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 637,
+            "category": "Redis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于AOF自动重写触发条件，以下说法正确的是？",
+            "options": [
+                "auto-aof-rewrite-min-size默认为1MB",
+                "auto-aof-rewrite-percentage默认为100%",
+                "aof_current_size大于min-size时可能触发重写",
+                "(aof_current_size - aof_base_size) / aof_base_size >= percentage时触发重写",
+                "aof_current_size小于min-size一定会触发重写"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 638,
+            "category": "Redis",
+            "type": "SORTING",
+            "question": "请将AOF重写时对多条命令的合并规则按正确顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "已超时的数据不再写入文件",
+                "忽略无效指令，同key只保留最后一条写入命令",
+                "对同一数据的多条写命令合并为一条命令",
+                "重写时使用进程内数据直接生成新AOF文件"
+            ],
+            "correctOrder": [3, 0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 639,
+            "category": "Redis",
+            "type": "ESSAY",
+            "question": "请对比Redis RDB和AOF两种持久化方式的优缺点。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "RDB优点：1) RDB文件是压缩的二进制文件，存储效率较高；2) 恢复大数据集速度比AOF快。RDB缺点：1) 无法做到实时持久化，可能丢失较多数据；2) 子进程写RDB时数据可能不一致；3) 不同版本RDB格式不兼容。AOF优点：1) 同步频率高，支持实时持久化，最多丢失1秒数据；2) 有重写机制可压缩文件；3) 文件可读，可手动编辑恢复误操作。AOF缺点：1) 同等数据量文件体积比RDB大；2) 恢复速度比RDB慢。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "RDB优点：1) RDB文件是压缩的二进制文件，存储效率较高；2) 恢复大数据集速度比AOF快。<br/><br/>RDB缺点：1) 无法做到实时持久化，可能丢失较多数据；2) 子进程写RDB时数据可能不一致；3) 不同版本RDB格式不兼容。<br/><br/>AOF优点：1) 同步频率高，支持实时持久化，最多丢失1秒数据；2) 有重写机制可压缩文件；3) 文件可读，可手动编辑恢复误操作。<br/><br/>AOF缺点：1) 同等数据量文件体积比RDB大；2) 恢复速度比RDB慢。"
+        },
+        {
+            "id": 640,
+            "category": "Redis",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Redis发布订阅（Pub/Sub），以下说法正确的是？",
+            "options": [
+                "发布者将消息发布到特定的消息通道",
+                "订阅者可以订阅一个或多个感兴趣的消息通道",
+                "发布者不需要知道订阅者的任何信息",
+                "实现了发布者与订阅者的解耦",
+                "订阅者会收到所有通道的消息"
             ],
             "correctAnswers": [0, 1, 2, 3],
             "answer": null,
