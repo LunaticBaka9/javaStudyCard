@@ -9168,6 +9168,785 @@
             "items": null,
             "correctOrder": null,
             "answerHtml": null
+        },
+        {
+            "id": 571,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "以下哪些属于MySQL的内部核心组件？",
+            "options": [
+                "连接池(Connection Pool)",
+                "语法解析器(Parser)",
+                "优化器(Optimizer)",
+                "查询缓存(Cache & Buffer)",
+                "JDBC驱动"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 572,
+            "category": "MySQL",
+            "type": "SORTING",
+            "question": "请按SQL语句的执行流程排列以下步骤：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "查询缓存",
+                "解析器解析SQL生成语法解析树",
+                "预编译与参数绑定",
+                "优化器制定执行计划",
+                "调用存储引擎执行"
+            ],
+            "correctOrder": [0, 1, 2, 3, 4],
+            "answerHtml": null
+        },
+        {
+            "id": 573,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "请简述MySQL解析器的作用。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "MySQL解析器对SQL语句进行语法分析、词法分析、语义分析等，生成SQL解析树，并将其转换为内部格式，同时进行语法校验。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "MySQL解析器对SQL语句进行语法分析、词法分析、语义分析等，生成SQL解析树，并将其转换为内部格式，同时进行语法校验。"
+        },
+        {
+            "id": 574,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "什么是MySQL的预编译？有什么优缺点？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "预编译是将SQL语句发送到服务器进行解析和编译，为SQL语句分配一个预编译句柄，后续操作中无需多次重新解析和编译。在JDBC中通过设置useServerPrepStmts=true启用。优点：减少重复解析开销、防止SQL注入。缺点：对于不频繁使用的语句，预编译本身会增加额外耗时；增加内存使用。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "预编译是将SQL语句发送到服务器进行解析和编译，为SQL语句分配一个预编译句柄，后续操作中无需多次重新解析和编译。在JDBC中通过设置useServerPrepStmts=true启用。优点：减少重复解析开销、防止SQL注入。缺点：对于不频繁使用的语句，预编译本身会增加额外耗时；增加内存使用。"
+        },
+        {
+            "id": 575,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL查询缓存的命中条件，以下说法正确的是？",
+            "options": [
+                "SQL语句必须完全一致，包括别名、空格、注释",
+                "查询语句中包含now()函数仍可命中缓存",
+                "查询结果集大小不能超过query_cache_limit",
+                "查询缓存大小默认为10M",
+                "SQL语句完全一致即可，不区分大小写"
+            ],
+            "correctAnswers": [0, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 576,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "以下哪些SQL语句适合放入查询缓存？",
+            "options": [
+                "在大量数据中筛选出几条数据的查询",
+                "全表扫描的查询",
+                "在大量数据中做分组操作的查询",
+                "多表关联的大范围查询",
+                "结果集小但表数据量大的查询"
+            ],
+            "correctAnswers": [0, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 577,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "以下哪些情况会导致MySQL查询缓存失效？",
+            "options": [
+                "执行了对该表的增删改操作",
+                "查询结果集超过query_cache_limit",
+                "查询条件中包含uuid()等不确定函数",
+                "SQL语句中包含SQL_NO_CACHE",
+                "MySQL服务器重启"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 578,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "请简述MySQL查询缓存的工作流程。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) 接受SQL，以SQL和一些条件为Key查找缓存；2) 如果找到缓存则直接返回；3) 如果没有找到缓存，则执行SQL查询（包括解析、优化等）；4) 执行完SQL查询后，将查询结果放入查询缓存。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) 接受SQL，以SQL和一些条件为Key查找缓存；2) 如果找到缓存则直接返回；3) 如果没有找到缓存，则执行SQL查询（包括解析、优化等）；4) 执行完SQL查询后，将查询结果放入查询缓存。"
+        },
+        {
+            "id": 579,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "InnoDB存储引擎有哪些主要特点？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) 支持ACID事务；2) 使用行级锁定，提高并发处理能力；3) 支持外键约束；4) 存储形式为.frm(表定义)和.ibd(数据和索引)；5) 实现MVCC多版本并发控制；6) 支持崩溃恢复机制；7) 使用缓冲池缓存数据和索引；8) 支持自适应哈希索引；9) 支持分区表和全文索引。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) 支持ACID事务；2) 使用行级锁定，提高并发处理能力；3) 支持外键约束；4) 存储形式为.frm(表定义)和.ibd(数据和索引)；5) 实现MVCC多版本并发控制；6) 支持崩溃恢复机制；7) 使用缓冲池缓存数据和索引；8) 支持自适应哈希索引；9) 支持分区表和全文索引。"
+        },
+        {
+            "id": 580,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "以下哪些是MyISAM存储引擎的特点？",
+            "options": [
+                "不支持事务",
+                "使用表级锁定",
+                "读取速度快",
+                "支持外键",
+                "存储形式为.frm、.myd、.myi"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 581,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "MyISAM支持哪三种存储格式？",
+            "options": [
+                "静态表(Static)",
+                "动态表(Dynamic)",
+                "压缩表(Compressed)",
+                "堆表(Heap)",
+                "分区表(Partitioned)"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 582,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于InnoDB和MyISAM的COUNT(*)处理，以下说法正确的是？",
+            "options": [
+                "MyISAM直接读取表的行计数器元数据",
+                "InnoDB需要扫描表或索引来计算行数",
+                "MyISAM的COUNT(*)在有写操作时也会阻塞",
+                "InnoDB可以通过计数器表优化COUNT(*)查询",
+                "两者的COUNT(*)性能没有差异"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 583,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "请对比InnoDB和MyISAM存储引擎的主要区别。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) 存储文件：InnoDB为.frm+.ibd，MyISAM为.frm+.myd+.myi；2) 锁：InnoDB支持行锁和表锁，MyISAM仅支持表锁；3) 事务：InnoDB支持，MyISAM不支持；4) COUNT(*)：MyISAM直接读取计数器，InnoDB需要扫表；5) 外键：InnoDB支持，MyISAM不支持；6) 索引结构：两者都用B+Tree，但InnoDB有聚集索引（数据和索引一起），MyISAM没有聚集索引（索引和数据分开）；7) 应用场景：InnoDB适合事务和并发读写，MyISAM适合读多写少的场景。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) 存储文件：InnoDB为.frm+.ibd，MyISAM为.frm+.myd+.myi；2) 锁：InnoDB支持行锁和表锁，MyISAM仅支持表锁；3) 事务：InnoDB支持，MyISAM不支持；4) COUNT(*)：MyISAM直接读取计数器，InnoDB需要扫表；5) 外键：InnoDB支持，MyISAM不支持；6) 索引结构：两者都用B+Tree，但InnoDB有聚集索引（数据和索引一起），MyISAM没有聚集索引（索引和数据分开）；7) 应用场景：InnoDB适合事务和并发读写，MyISAM适合读多写少的场景。"
+        },
+        {
+            "id": 584,
+            "category": "MySQL",
+            "type": "SORTING",
+            "question": "请按B-Tree索引查找关键字21的磁盘I/O顺序排列以下步骤：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "加载根节点磁盘块1，发现21比26小，沿P1指针找磁盘块2",
+                "加载磁盘块2，发现21比18大，沿P3指针找磁盘块7",
+                "加载磁盘块7，找到关键字21",
+                "返回查询结果"
+            ],
+            "correctOrder": [0, 1, 2, 3],
+            "answerHtml": null
+        },
+        {
+            "id": 585,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于B-Tree和B+Tree的区别，以下说法正确的是？",
+            "options": [
+                "B+Tree的所有数据都存储在叶子节点",
+                "B+Tree的叶子节点之间有链表指针连接，支持范围查询",
+                "B-Tree的非叶子节点也存储数据",
+                "B+Tree的非叶子节点只存储指针，可容纳更多键值",
+                "B-Tree比B+Tree更适合范围查询"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 586,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "什么是聚集索引和非聚集索引？什么是回表查询？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "聚集索引：一张表只能有一个，只有InnoDB能创建。B+Tree叶子节点上存储整行数据，数据行的物理排序顺序与主键逻辑顺序相同。非聚集索引：除了聚集索引外的都是非聚集索引，B+Tree叶子节点只存储当前索引列数据和主键列数据，不存放整行数据。回表查询：使用非聚集索引查询时，如果查询的列不在索引树中，需要借助主键索引回到聚集索引中查询整行数据。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "聚集索引：一张表只能有一个，只有InnoDB能创建。B+Tree叶子节点上存储整行数据，数据行的物理排序顺序与主键逻辑顺序相同。非聚集索引：除了聚集索引外的都是非聚集索引，B+Tree叶子节点只存储当前索引列数据和主键列数据，不存放整行数据。回表查询：使用非聚集索引查询时，如果查询的列不在索引树中，需要借助主键索引回到聚集索引中查询整行数据。"
+        },
+        {
+            "id": 587,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "以下哪些属于MySQL索引的分类角度？",
+            "options": [
+                "数据结构角度（B+Tree、Hash、Full-text等）",
+                "物理存储角度（聚集索引、非聚集索引）",
+                "逻辑角度（主键索引、唯一索引、复合索引等）",
+                "业务角度（覆盖索引、前缀索引等）",
+                "算法角度（二分查找、哈希查找等）"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 588,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "索引的优缺点分别是什么？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "优点：1) 提高数据检索效率，降低数据库的IO成本；2) 通过索引列对数据进行排序，降低CPU消耗。缺点：1) 索引也是一张表，占用空间；2) 降低更新表的速度（INSERT/UPDATE/DELETE时需要同时更新索引文件，调整索引结构）。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "优点：1) 提高数据检索效率，降低数据库的IO成本；2) 通过索引列对数据进行排序，降低CPU消耗。缺点：1) 索引也是一张表，占用空间；2) 降低更新表的速度（INSERT/UPDATE/DELETE时需要同时更新索引文件，调整索引结构）。"
+        },
+        {
+            "id": 589,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于索引设计的原则，以下说法正确的是？",
+            "options": [
+                "尽量选择离散性高的列建立索引",
+                "可以采用复合索引来优化查询",
+                "要注意避免索引列的失效",
+                "需遵循最左前缀法则",
+                "离散性越低越好"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 590,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "MySQL的锁机制中，按粒度划分包括哪些？",
+            "options": [
+                "表锁",
+                "行锁",
+                "页锁",
+                "记录锁",
+                "间隙锁"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 591,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "MySQL的锁机制中，按算法划分包括哪些？",
+            "options": [
+                "记录锁(Record Locks)",
+                "间隙锁(Gap Locks)",
+                "临键锁(Next-key Locks)",
+                "表锁",
+                "行锁"
+            ],
+            "correctAnswers": [0, 1, 2],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 592,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "MyISAM引擎的锁机制有什么特点？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "MyISAM默认使用表锁，读写操作是串行的。读操作触发共享锁（不会阻塞其他读，但阻塞写），写操作触发排它锁（阻塞其他读写）。可以通过concurrent_insert参数（AUTO/ALWAYS/NEVER）控制并发插入行为。锁调度方面写进程优先获得锁。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "MyISAM默认使用表锁，读写操作是串行的。读操作触发共享锁（不会阻塞其他读，但阻塞写），写操作触发排它锁（阻塞其他读写）。可以通过concurrent_insert参数（AUTO/ALWAYS/NEVER）控制并发插入行为。锁调度方面写进程优先获得锁。"
+        },
+        {
+            "id": 593,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "什么是间隙锁(Gap Lock)？什么条件下触发？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "间隙锁是MySQL的一种锁算法，在范围匹配时触发。它锁定一个范围而非具体的记录，主要作用是阻塞INSERT操作，防止幻读。触发条件：范围匹配（非精确匹配）。当发生范围加锁时，有符合数据的记录上记录锁，不符合条件的记录之间上间隙锁。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "间隙锁是MySQL的一种锁算法，在范围匹配时触发。它锁定一个范围而非具体的记录，主要作用是阻塞INSERT操作，防止幻读。触发条件：范围匹配（非精确匹配）。当发生范围加锁时，有符合数据的记录上记录锁，不符合条件的记录之间上间隙锁。"
+        },
+        {
+            "id": 594,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "MySQL的Merge存储引擎是什么？有什么特点？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "Merge引擎用于将一系列等同的MyISAM表以逻辑方式组合在一起，作为一个对象引用。这些MyISAM表结构必须完全相同。Merge表本身没有数据，对Merge表的操作就是对内部MyISAM表的操作。优点：突破单个MyISAM表大小限制，通过分布在多个磁盘上改善访问效率。支持INSERT_METHOD选项（NO/FIRST/LAST）控制插入行为。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "Merge引擎用于将一系列等同的MyISAM表以逻辑方式组合在一起，作为一个对象引用。这些MyISAM表结构必须完全相同。Merge表本身没有数据，对Merge表的操作就是对内部MyISAM表的操作。优点：突破单个MyISAM表大小限制，通过分布在多个磁盘上改善访问效率。支持INSERT_METHOD选项（NO/FIRST/LAST）控制插入行为。"
+        },
+        {
+            "id": 595,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于Memory存储引擎，以下说法正确的是？",
+            "options": [
+                "数据存放在内存中",
+                "默认使用HASH索引",
+                "服务关闭后数据丢失",
+                "支持BLOB或TEXT列",
+                "通过max_heap_table_size控制最大内存"
+            ],
+            "correctAnswers": [0, 1, 2, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 596,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "以下哪些属于MySQL索引的数据结构类型？",
+            "options": [
+                "B+Tree索引",
+                "Hash索引",
+                "Full-text全文索引",
+                "R-Tree空间索引",
+                "XPath索引"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 597,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "MySQL的表级锁有哪两种模式？",
+            "options": [
+                "表共享读锁（Table Read Lock）",
+                "表独占写锁（Table Write Lock）",
+                "行共享读锁",
+                "行独占写锁",
+                "意向共享锁"
+            ],
+            "correctAnswers": [0, 1],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 598,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "InnoDB中触发排它锁（写锁）的方式包括哪些？",
+            "options": [
+                "执行INSERT语句",
+                "执行UPDATE语句",
+                "执行DELETE语句",
+                "SELECT语句后加FOR UPDATE",
+                "普通的SELECT查询"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 599,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "什么是覆盖索引？什么是前缀索引？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "覆盖索引：查询所需的数据全部在索引树上，不需要回表查询，聚集索引就是一种覆盖索引。前缀索引：取出该列数据的前几个字符作为前缀建立索引以降低索引大小，但无法进行覆盖索引查询。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "覆盖索引：查询所需的数据全部在索引树上，不需要回表查询，聚集索引就是一种覆盖索引。前缀索引：取出该列数据的前几个字符作为前缀建立索引以降低索引大小，但无法进行覆盖索引查询。"
+        },
+        {
+            "id": 600,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "以下哪些属于MySQL的InnoDB引擎特点？",
+            "options": [
+                "行级锁定",
+                "支持外键",
+                "使用缓冲池(Buffer Pool)",
+                "支持MVCC",
+                "仅支持表级锁定"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 601,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "请简述MySQL优化器的工作流程。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) 从表或索引中提取统计信息，生成不同的执行计划；2) 为每个执行计划估算成本，选择一个最低成本的执行计划；3) 确定执行计划过程中，可能对查询进行优化，如选择合适的连接顺序，评估是否适合使用索引或临时表，以及是否可以简化查询操作。优化器还能自动将子查询转换为等效的连接查询。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) 从表或索引中提取统计信息，生成不同的执行计划；2) 为每个执行计划估算成本，选择一个最低成本的执行计划；3) 确定执行计划过程中，可能对查询进行优化，如选择合适的连接顺序，评估是否适合使用索引或临时表，以及是否可以简化查询操作。优化器还能自动将子查询转换为等效的连接查询。"
+        },
+        {
+            "id": 602,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL查询缓存的整理和维护，以下说法正确的是？",
+            "options": [
+                "可使用RESET QUERY CACHE命令清空缓存",
+                "query_cache_min_res_unit设置太小会导致频繁分配内存块",
+                "FLUSH QUERY CACHE可整理缓存碎片",
+                "缓存碎片会导致查询缓存命中率下降",
+                "RESET QUERY CACHE会整理碎片而非清空"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 603,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "MyISAM的并发插入机制是什么？有什么弊端？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "MyISAM通过concurrent_insert参数控制并发插入行为：AUTO（表中无数据空洞时允许并发插入）、ALWAYS（始终允许在表尾并发插入）、NEVER（不允许并发插入）。弊端：1) ALWAYS状态下所有插入都发生在表尾，导致出现很多空洞，造成数据碎片化；2) 不提供事务级别的数据一致性保障；3) 空洞不被重复利用，导致存储空间浪费。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "MyISAM通过concurrent_insert参数控制并发插入行为：AUTO（表中无数据空洞时允许并发插入）、ALWAYS（始终允许在表尾并发插入）、NEVER（不允许并发插入）。弊端：1) ALWAYS状态下所有插入都发生在表尾，导致出现很多空洞，造成数据碎片化；2) 不提供事务级别的数据一致性保障；3) 空洞不被重复利用，导致存储空间浪费。"
+        },
+        {
+            "id": 604,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于InnoDB和MyISAM的B+Tree索引，以下说法正确的是？",
+            "options": [
+                "两者底层都采用B+Tree",
+                "InnoDB有聚集索引，数据和索引存在一起",
+                "MyISAM没有聚集索引",
+                "MyISAM的叶子节点存储的是索引值+行指针",
+                "InnoDB使用非聚集索引查询不需要回表"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 605,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "InnoDB如何解决死锁问题？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "InnoDB会自动检查死锁问题，采用「牺牲事务」的方式解决死锁问题。当检测到死锁时，InnoDB会选择其中一个事务作为牺牲品，回滚该事务并释放其持有的锁，从而使其他事务能够继续执行。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "InnoDB会自动检查死锁问题，采用「牺牲事务」的方式解决死锁问题。当检测到死锁时，InnoDB会选择其中一个事务作为牺牲品，回滚该事务并释放其持有的锁，从而使其他事务能够继续执行。"
+        },
+        {
+            "id": 606,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "MySQL查询缓存命中需要满足哪些条件？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) SQL语句要完全一致，包括别名、空格、注释等也要完全一致；2) 查询语句中不能包含不确定的数据，如uuid()、now()等；3) 查询结果集大小不能超过query_cache_limit（默认1M）；4) 查询缓存大小默认为1M（query_cache_size）。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) SQL语句要完全一致，包括别名、空格、注释等也要完全一致；2) 查询语句中不能包含不确定的数据，如uuid()、now()等；3) 查询结果集大小不能超过query_cache_limit（默认1M）；4) 查询缓存大小默认为1M（query_cache_size）。"
+        },
+        {
+            "id": 607,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "Hash索引有什么特点？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) 底层采用hash表来存储数据；2) 存储时计算数据的hash值，对hash表数组长度取余获得槽位，同一槽位用链表组织，每个节点存储数据行的内存地址；3) 查询时将索引列的值进行hash运算取余获得槽位，遍历链表找到节点获取行指针回表读取整行数据；4) 查询速度快；5) 不支持排序、不支持范围查询；6) 只有Memory存储引擎支持hash索引。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) 底层采用hash表来存储数据；2) 存储时计算数据的hash值，对hash表数组长度取余获得槽位，同一槽位用链表组织，每个节点存储数据行的内存地址；3) 查询时将索引列的值进行hash运算取余获得槽位，遍历链表找到节点获取行指针回表读取整行数据；4) 查询速度快；5) 不支持排序、不支持范围查询；6) 只有Memory存储引擎支持hash索引。"
+        },
+        {
+            "id": 608,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL全文索引，以下说法正确的是？",
+            "options": [
+                "底层采用倒排索引",
+                "只有MyISAM和InnoDB支持全文索引",
+                "只能对char、varchar、text类型创建",
+                "支持自然语言查询模式和布尔查询模式",
+                "默认使用N-gram中文分词器"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 609,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "什么是前缀索引？有什么注意事项？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "前缀索引是将某列的前面几个字符截取出来建立索引，占用空间小，查询速度能得到提升。注意事项：1) 需要计算不重复概率（去重后的数据条数/总条数），重复概率过高时优化器可能不走索引；2) 使用前缀索引查询必定需要回表，无法实现覆盖索引。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "前缀索引是将某列的前面几个字符截取出来建立索引，占用空间小，查询速度能得到提升。注意事项：1) 需要计算不重复概率（去重后的数据条数/总条数），重复概率过高时优化器可能不走索引；2) 使用前缀索引查询必定需要回表，无法实现覆盖索引。"
+        },
+        {
+            "id": 610,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于临键锁(Next-key Lock)，以下说法正确的是？",
+            "options": [
+                "临键锁 = 间隙锁 + 记录锁",
+                "临键锁的区间遵循左开右闭原则",
+                "用于防止幻读",
+                "普通列查询时，间隙锁和记录锁均为表级别",
+                "临键锁不会阻塞INSERT操作"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 611,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于临键锁在普通索引等值查询时的行为，以下说法正确的是？",
+            "options": [
+                "非临界值时，间隙锁为当前记录所在区间，记录锁不生效",
+                "临界值时，间隙锁为相邻两个区间，记录锁退化成行锁",
+                "临界值时，记录锁不会生效",
+                "非临界值时，间隙锁和记录锁都生效",
+                "临界值和普通索引的范围查询行为一致"
+            ],
+            "correctAnswers": [0, 1],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 612,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于临键锁在主键/唯一索引等值查询时的行为，以下说法正确的是？",
+            "options": [
+                "非临界值时，间隙锁为当前记录所在区间，记录锁不生效",
+                "临界值时，间隙锁消失，记录锁退化成行锁",
+                "临界值时，间隙锁依然存在",
+                "非临界值时，记录锁和间隙锁都不生效",
+                "范围查询时，间隙锁和记录锁都是范围所涉及到的区间"
+            ],
+            "correctAnswers": [0, 1, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 613,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "MySQL的自增锁(AUTO-INC Lock)是什么？有哪几种模式？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "自增锁在使用自增主键时，为保证唯一性和正确性，对自增字段进行加锁，基于表级别。有三种模式：1) 传统模式(Traditional)：每次INSERT都会产生表级别的自增锁，保证插入顺序，但并发能力弱；2) 连续模式(Consecutive)：Simple Inserts产生轻量级页面锁，Bulk Inserts无法确定行数时用表级别自增锁；3) 交叉模式(Interleaved)：不采用表锁，来一个INSERT处理一个，并发能力高，但可能造成INSERT分配的ID顺序不一致。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "自增锁在使用自增主键时，为保证唯一性和正确性，对自增字段进行加锁，基于表级别。有三种模式：1) 传统模式(Traditional)：每次INSERT都会产生表级别的自增锁，保证插入顺序，但并发能力弱；2) 连续模式(Consecutive)：Simple Inserts产生轻量级页面锁，Bulk Inserts无法确定行数时用表级别自增锁；3) 交叉模式(Interleaved)：不采用表锁，来一个INSERT处理一个，并发能力高，但可能造成INSERT分配的ID顺序不一致。"
+        },
+        {
+            "id": 614,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "什么是悲观锁和乐观锁？MySQL中如何体现？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "悲观锁：对数据被外界修改持保守态度，认为数据随时会被修改，整个数据处理中需要将数据加锁，依靠关系数据库提供的锁机制实现，关系数据库中的行锁、表锁都是悲观锁。乐观锁：每次操作数据时认为没有人会来修改它，所以不加锁，但在更新时判断数据是否被修改，需要用户自己实现（如版本号机制），不会发生并发抢占资源，只在提交时检查数据完整性。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "悲观锁：对数据被外界修改持保守态度，认为数据随时会被修改，整个数据处理中需要将数据加锁，依靠关系数据库提供的锁机制实现，关系数据库中的行锁、表锁都是悲观锁。乐观锁：每次操作数据时认为没有人会来修改它，所以不加锁，但在更新时判断数据是否被修改，需要用户自己实现（如版本号机制），不会发生并发抢占资源，只在提交时检查数据完整性。"
+        },
+        {
+            "id": 615,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于记录锁(Record Lock)，以下说法正确的是？",
+            "options": [
+                "触发条件必须为精确匹配且命中数据",
+                "不能使用 > 、< 、like、between等范围查询",
+                "条件必须是主键索引或唯一索引",
+                "记录锁会阻塞所有的增删改查操作",
+                "触发间隙锁和临键锁时不会触发记录锁"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 616,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "InnoDB的行锁和表锁分别在什么条件下触发？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "InnoDB的行锁：通过索引条件进行检索时使用行级锁，行锁是通过给索引上的索引项加锁实现的。InnoDB的表锁：没有用到索引的操作（即全表扫描时）会使用表锁。因此，要使用行锁必须确保查询条件使用了索引。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "InnoDB的行锁：通过索引条件进行检索时使用行级锁，行锁是通过给索引上的索引项加锁实现的。InnoDB的表锁：没有用到索引的操作（即全表扫描时）会使用表锁。因此，要使用行锁必须确保查询条件使用了索引。"
+        },
+        {
+            "id": 617,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "意向锁有什么作用？为什么说它优化了加锁策略？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "意向锁的作用是避免判断表中是否存在行锁而去全表扫描。意向锁是表级别锁，分为意向共享锁(IS)和意向排它锁(IX)。给表加共享锁或排它锁时，InnoDB会先给表加意向锁。所有意向锁之间兼容，意向锁和行级别X锁兼容，但与表级别X锁互斥。当需要判断表中是否有行锁时，不需要全表扫描，只需判断表是否已有意向锁即可，因为意向锁与表级别排它锁互斥。这大大优化了InnoDB的加锁性能。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "意向锁的作用是避免判断表中是否存在行锁而去全表扫描。意向锁是表级别锁，分为意向共享锁(IS)和意向排它锁(IX)。给表加共享锁或排它锁时，InnoDB会先给表加意向锁。所有意向锁之间兼容，意向锁和行级别X锁兼容，但与表级别X锁互斥。当需要判断表中是否有行锁时，不需要全表扫描，只需判断表是否已有意向锁即可，因为意向锁与表级别排它锁互斥。这大大优化了InnoDB的加锁性能。"
+        },
+        {
+            "id": 618,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "MyISAM的并发插入机制是怎样的？有什么弊端？如何优化？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "MyISAM通过concurrent_insert变量控制并发插入：AUTO（无数据空洞时允许并发插入）、ALWAYS（始终允许在表尾并发插入）、NEVER（不允许并发插入）。弊端：ALWAYS模式下并发插入的数据填补在数据尾端，不会利用被标记删除的数据空洞，导致表中存在很多空洞影响性能。优化：可以通过OPTIMIZE命令定期优化表中的数据空洞。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "MyISAM通过concurrent_insert变量控制并发插入：AUTO（无数据空洞时允许并发插入）、ALWAYS（始终允许在表尾并发插入）、NEVER（不允许并发插入）。弊端：ALWAYS模式下并发插入的数据填补在数据尾端，不会利用被标记删除的数据空洞，导致表中存在很多空洞影响性能。优化：可以通过OPTIMIZE命令定期优化表中的数据空洞。"
+        },
+        {
+            "id": 619,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "MyISAM的锁调度机制中，以下说法正确的是？",
+            "options": [
+                "写请求比读请求优先级更高",
+                "可降低写请求优先级或提升读请求优先级",
+                "通过max_write_lock_count设置写请求处理上限后处理读请求",
+                "UPDATE和DELETE语句可降低优先级",
+                "INSERT语句不能调整优先级"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 620,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "MySQL内部架构由哪些组件组成？分别有什么作用？",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "1) 连接器(Connectors)：MySQL官方提供的连接工具，包括JDBC等；2) 内部核心组件：主从复制、集群、权限管理、安全校验等核心模块；3) SQL接口：提供给客户端使用的接口，如创建存储过程、创建触发器；4) 解析器：对SQL语法校验、解析、生成预编模板；5) 优化器：对SQL语句进行性能优化；6) 查询缓存：缓存SQL结果集，key包括SQL语句、数据库名、数据库协议等；7) 存储引擎：组织数据，调用文件系统进行CRUD；8) 文件系统：负责与操作系统交互，将数据真正存入磁盘。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "1) 连接器(Connectors)：MySQL官方提供的连接工具，包括JDBC等；2) 内部核心组件：主从复制、集群、权限管理、安全校验等核心模块；3) SQL接口：提供给客户端使用的接口，如创建存储过程、创建触发器；4) 解析器：对SQL语法校验、解析、生成预编模板；5) 优化器：对SQL语句进行性能优化；6) 查询缓存：缓存SQL结果集，key包括SQL语句、数据库名、数据库协议等；7) 存储引擎：组织数据，调用文件系统进行CRUD；8) 文件系统：负责与操作系统交互，将数据真正存入磁盘。"
+        },
+        {
+            "id": 621,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL查询缓存的配置，以下说法正确的是？",
+            "options": [
+                "查询缓存默认关闭，需要手动开启",
+                "OFF表示关闭查询缓存",
+                "ON表示开启，默认所有SQL结果集都存入缓存",
+                "DEMAND表示开启，需要通过SQL_CACHE指定才写入缓存",
+                "查询缓存key仅包含SQL语句"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
         }
     ]
 }
