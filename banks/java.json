@@ -10275,6 +10275,232 @@
             "items": null,
             "correctOrder": null,
             "answerHtml": null
+        },
+        {
+            "id": 641,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL执行计划分析工具，以下说法正确的是？",
+            "options": [
+                "EXPLAIN或DESC可用于显示SQL的执行计划",
+                "show profiles默认关闭，需执行set profiling=1开启",
+                "show profile for query <query_id>可查看具体SQL的详细执行情况",
+                "show status like 'Com_______'可筛选常用的CRUD等语句的执行频次",
+                "show status like 'Innodb_rows_%'可查看所有存储引擎的执行情况"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 642,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于海量数据插入优化，以下说法正确的是？",
+            "options": [
+                "LOAD命令可用于导入大量数据",
+                "按主键顺序插入数据可减少索引结构更新频率",
+                "海量数据插入时应保证在同一个事务中，或手动提交事务",
+                "导入海量数据时可关闭唯一性校验提高插入速度",
+                "多个INSERT语句合并为一个INSERT语句可提高插入速度"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 643,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL分页优化和表优化，以下说法正确的是？",
+            "options": [
+                "分页查询可借助索引进行排序，再通过索引关联主表查询",
+                "数据被标记删除后空间并未释放，形成数据空洞",
+                "OPTIMIZE命令可用于优化表中的数据空洞",
+                "执行计划中包含Using temporary表示使用了内部临时表",
+                "GROUP BY、DISTINCT、UNION等语句可能触发内部临时表"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 644,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于SQL Hint（SQL提示），以下说法正确的是？",
+            "options": [
+                "USE INDEX和FORCE INDEX用于强制MySQL使用某个索引",
+                "IGNORE INDEX用于让MySQL忽略某个索引",
+                "HIGH_PRIORITY可提升语句优先级",
+                "SQL_BUFFER_RESULT强制将结果集放入内部临时表",
+                "STRAIGHT_JOIN用于强制指定表的连接顺序"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 645,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于mysqldump备份命令，以下说法正确的是？",
+            "options": [
+                "mysqldump可将数据库导出为SQL脚本文件",
+                "-n参数表示不包含创建数据库语句",
+                "-t参数表示不包含创建表语句，只要插入语句",
+                "-d参数表示不包含数据",
+                "-B参数表示导出数据库时包含建库语句和数据"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 646,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL命令行工具，以下说法正确的是？",
+            "options": [
+                "mysqlimport用于导入规则数据，数据必须在secure_file_priv指定目录下",
+                "mysqlslap是MySQL官方提供的压力测试工具，可模拟并发访问",
+                "mysqlshow用于显示MySQL数据库的信息",
+                "mysql是客户端程序，用于连接服务器执行SQL命令",
+                "mysqladmin用于临时执行创建数据库、删除数据库等操作"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 647,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL二进制日志（binlog），以下说法正确的是？",
+            "options": [
+                "二进制日志记录所有对数据库执行的更改操作",
+                "默认没有开启，需要手动配置开启",
+                "MySQL服务器重启后都会创建一个新的日志文件",
+                "主要用于数据恢复、主从复制和审计",
+                "SELECT和SHOW等查询操作也会记录到二进制日志"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 648,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL二进制日志的三种格式，以下说法正确的是？",
+            "options": [
+                "SBR（Statement Based Replication）记录对结果集造成影响的SQL语句",
+                "RBR（Row Based Replication）记录每一行数据变更前后的状态",
+                "MBR（Mixed Based Replication）综合了SBR和RBR的优点",
+                "SBR格式下使用uuid()、now()可能导致主从数据不一致",
+                "MySQL 5.7的默认格式是SBR"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 649,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL查询日志和慢查询日志，以下说法正确的是？",
+            "options": [
+                "查询日志记录所有SQL语句，包括客户端连接和断开信息",
+                "慢查询日志记录执行时间超过long_query_time的SQL语句",
+                "long_query_time默认值为10秒",
+                "查询日志和慢查询日志默认都是关闭的",
+                "慢查询日志通过slow_query_log=1开启"
+            ],
+            "correctAnswers": [0, 1, 2, 3, 4],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 650,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL表拆分，以下说法正确的是？",
+            "options": [
+                "水平拆分是指数据表行的拆分，将大表拆分为若干小表",
+                "垂直拆分是指数据表列的拆分，将列多的表拆为若干列少的表",
+                "水平拆分常用取模方式，如ID取模后分散到多张表",
+                "垂直拆分将不常用字段或较大列单独拆分出来",
+                "表拆分后会降低业务复杂性"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 651,
+            "category": "MySQL",
+            "type": "MULTIPLE_CHOICE",
+            "question": "关于MySQL读写分离和主从复制，以下说法正确的是？",
+            "options": [
+                "主库（Master）负责处理写操作，从库（Slave）负责读操作",
+                "主从复制是异步完成的，属于弱一致性",
+                "主从复制中Master将数据改变记录到二进制日志",
+                "Slave将Master的binary log events拷贝到中继日志",
+                "Slave直接读取Master的二进制日志恢复数据"
+            ],
+            "correctAnswers": [0, 1, 2, 3],
+            "answer": null,
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": null
+        },
+        {
+            "id": 652,
+            "category": "MySQL",
+            "type": "SORTING",
+            "question": "请将MySQL主从复制的步骤按执行顺序排列：",
+            "options": null,
+            "correctAnswers": null,
+            "answer": null,
+            "items": [
+                "Master将数据改变记录到二进制日志（binary log）",
+                "Slave将Master的binary log events拷贝到中继日志（relay log）",
+                "Slave读取中继日志中的数据实现数据恢复"
+            ],
+            "correctOrder": [0, 1, 2],
+            "answerHtml": null
+        },
+        {
+            "id": 653,
+            "category": "MySQL",
+            "type": "ESSAY",
+            "question": "请简述MySQL主从复制的原理及主从复制需要满足的条件。",
+            "options": null,
+            "correctAnswers": null,
+            "answer": "主从复制原理：1) Master将数据改变记录到二进制日志(binary log)；2) Slave将Master的binary log events拷贝到它的中继日志(relay log)；3) Slave读取中继日志中的数据实现数据恢复。主从复制的条件：1) Master与Slave的数据库版本必须一致；2) 开始建立主从复制时的数据必须一致；3) Master必须开启二进制日志，Master与Slave的server_id都必须唯一；4) Master与Slave的server-uuid不能相同。",
+            "items": null,
+            "correctOrder": null,
+            "answerHtml": "主从复制原理：<br/><br/>1) Master将数据改变记录到二进制日志(binary log)；<br/>2) Slave将Master的binary log events拷贝到它的中继日志(relay log)；<br/>3) Slave读取中继日志中的数据实现数据恢复。<br/><br/>主从复制的条件：<br/><br/>1) Master与Slave的数据库版本必须一致；<br/>2) 开始建立主从复制时的数据必须一致；<br/>3) Master必须开启二进制日志，Master与Slave的server_id都必须唯一；<br/>4) Master与Slave的server-uuid不能相同。"
         }
     ]
 }
